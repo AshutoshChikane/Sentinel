@@ -41,6 +41,7 @@
   right: 0;
   // background: linear-gradient(to right,#e748b7, #9f3efa);
 background-color: #f2f2f2;
+position: fixed;
 }
 .main{
    background-image: url('../../assets/image/sbi-life-logo.png');
@@ -74,9 +75,9 @@ background-color: #f2f2f2;
 .padding_10px{
 padding: 10px;
 }
-.logobg{
-  background-color: #a753f6;
-}
+// .logobg{
+//   background-color: var(--bs-gray-400);
+// }
 img{
   
 

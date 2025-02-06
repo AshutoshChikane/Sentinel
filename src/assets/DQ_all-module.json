@@ -1,0 +1,22 @@
+
+
+{
+    "response_code": 1,
+    "response_message": "Code executed successfully",
+    "response_text":[
+        
+         {
+            "ModuleName":["DISCO ULIP"," 1m", "2m","3m","DISCO ULIP"," 1m", "2m","3m"],
+            "PASS" :[80,85,90,100,60,65,70,75]
+          }
+      
+      
+    ]
+   
+  }
+  
+  
+      
+  
+  
+    

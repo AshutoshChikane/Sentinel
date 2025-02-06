@@ -11,13 +11,17 @@
         
         <h5 style="padding: 20px;">
             Selected Module :
-            <span style="color: blue;"> {{actualModule}} </span> 
+            <span style="color: blue;"> {{ module }}, {{ actualModule }}  </span> 
         </h5>
+        <div style="display: flex;justify-content: center; gap: 50px;">
+        <div *ngIf="Monthlycal"  ><b>Month :&nbsp;</b><input [(ngModel)]="Month" type="month">
+        </div>
         <div *ngIf="!export" style="text-align: end;">
             <button mat-raised-button matTooltip="Process Data" color="primary" (click)="processData()">
                 Process Input
             </button>
         </div>
+    </div>
     </div>
     <div style="display: flex;flex-direction: row;margin: 20px;">
         <div *ngIf="openConfirmationBox" class="my-overlay" style="padding: 30%; padding-top: 50px;padding-bottom: 0;position: absolute;z-index: 99999999;">
@@ -43,8 +47,8 @@
         
         
         <div *ngIf="export" style="text-align: end;">
-            <button mat-raised-button matTooltip="Export policy data to excel sheet" color="primary" (click)="exportAsXLSX()">
-            Export To Excel
+            <button mat-raised-button matTooltip="Export policy data to excel sheet" color="primary" (click)="exportAsCSVFile()">
+            Export To CSV
             </button>
         </div>
         <!-- <div *ngIf ="noDataAvailable" style="text-align: center;font-weight: 600;font-size: 20px;">
@@ -115,6 +119,7 @@
         </div>
     </div>
 </div>
+
 <div class="my-overlay1" *ngIf="showOverlay" style="display: flex; flex-direction: column;">
     <i class="fa fa-spinner fa-spin" aria-hidden="true" style="color: white;"></i>
     <span style="color:white; font-size: 30px;">Please wait...</span>

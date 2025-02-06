@@ -1,0 +1,939 @@
+[ 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "minimumPremium", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "1212", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "minimumTerm", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "15", 
+
+    "duff_values": "21212", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "maximumTerm", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "30", 
+
+    "duff_values": "12", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "maxPPT", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "30", 
+
+    "duff_values": "121212", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "loanInterest", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "2121", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "gstRateBackdatedInterest", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "2121212", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "staffDiscountApplicability", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "212T121", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "maxSA", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "0", 
+
+    "duff_values": "2121", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "emr", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "1299991", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "backdatingInterest", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "212", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "minimumEntryAge", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "2", 
+
+    "duff_values": "12", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "nsap", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "288888881212", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "revivalPeriod", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "18", 
+
+    "duff_values": "121666621", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "fundSwitchesAllowed", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "N", 
+
+    "duff_values": "YES", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "duplicatePolicyCharge", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "100", 
+
+    "duff_values": "112", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "minPPT", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "30", 
+
+    "duff_values": "12121", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "ridersPermitted", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "21T2", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "adminCharges", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "24444444444444412", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "gracePeriod", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "127777121", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "maximumMaturityAge", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "70", 
+
+    "duff_values": "333333", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "discontinuanceCharges", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "21", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "gstRateRevivalInterest", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "18", 
+
+    "duff_values": "21", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "loyaltyAdditionCriteria", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "Y", 
+
+    "duff_values": "12R121", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "minSA", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "0", 
+
+    "duff_values": "21212", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "revivalInterest", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "8.81", 
+
+    "duff_values": "2121", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "samf", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "124444121", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "gaRateInforce", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "7777777777777777777777", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "gaRateLapse", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "2155555555551", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "maximumEntryAge", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "55", 
+
+    "duff_values": "21212", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "minimumMaturityAge", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "18", 
+
+    "duff_values": "2222222222222222222", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "allocationCharges", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "12122221", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "maximumPremium", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "1212", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "PASS", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "premiumPaymentFrequency", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "12", 
+
+    "duff_values": "12", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "minCoverStartDate", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "2037-10-15T18:30:00.000Z", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "flcMortalityRate", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "12188821", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  }, 
+
+  { 
+
+    "result": "FAIL", 
+
+    "observation": "NA", 
+
+    "plan_type": "RP/SP", 
+
+    "type_check": "stampDuty", 
+
+    "plan_id": "UN0115", 
+
+    "table_value": "NA", 
+
+    "duff_values": "121299991", 
+
+    "comments": "NA", 
+
+    "uin": "123445UIN", 
+
+    "product_name": "PROD", 
+
+    "system": "UAT" 
+
+  } 
+
+] 

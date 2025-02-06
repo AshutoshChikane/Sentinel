@@ -39,6 +39,8 @@ export class ProcessService {
     // return this.httpClient.get<any>(url);
   }
 
+  
+
   public getMISDashboardDetails (){
     console.log('inside getMISDashboardDetails')
     let url = '/core/misDashboard'

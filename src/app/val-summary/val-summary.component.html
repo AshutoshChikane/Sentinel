@@ -1,0 +1,190 @@
+<div *ngIf="displayMessage" style=" padding: 30%; padding-top: 50px; padding-bottom: 0; position: absolute;
+    z-index: 999;">
+  <div class="customAlert" [ngClass]="isError == true ? 'errorbgcolor' : 'messagebgcolor'"
+    style="height: 190px; border: groove; box-shadow: 5px 10px #888888">
+    <div class="messageheader" style="padding: 30px; font-weight: 500; font-size: 25px; padding-bottom: 15px;
+        background: #3f51b5; color: white; padding-top: 10px; margin-bottom: 15px;">
+      <!-- Information Message :   -->
+      {{ messageType }}
+    </div>
+    <div class="messagebody" style="font-weight: 500; padding-left: 30px; padding-bottom: 10px">
+      <!-- server [ error_code : 1 ]  -->
+      {{ message }}
+    </div>
+    <div class="messagebody" style="text-align: center; font-weight: 500; font-size: 20px">
+      <!-- No Data Available -->
+      {{ messageDetails }}
+    </div>
+
+    <div style="text-align: right; margin-top: 30px; padding-right: 30px">
+      <button style="width: 20%; height: 30px" (click)="showMessage()">
+        OK
+      </button>
+    </div>
+  </div>
+</div>
+<!-- confirmation alert -->
+
+<div *ngIf="openConfirmationBox">
+  <div style=" width: -webkit-fill-available; height: 30%; position: absolute; z-index: 99999999999999999;">
+    <div style="padding: 30%; padding-top: 50px; padding-bottom: 0">
+      <div class="customAlert" [ngClass]="isError == true ? 'errorbgcolor' : 'messagebgcolor'">
+        <div class="messageheader">
+          {{ messageType }}
+        </div>
+        <div class="messagebody" style="font-weight: 500; padding-left: 30px; padding-bottom: 10px">
+          <!-- {{ message }} -->
+        </div>
+        <div class="messagebody messageDetails">
+          {{ messagePopup }}
+        </div>
+        <div class="msgImg">
+          <img [src]="ImagePath" />
+        </div>
+        <div class="popupDivBtn">
+          <button class="popupBtn" (click)="showAlert()">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background-color: #ffffffff; height: 100vh">
+  <!-- <div style="display: flex; justify-content: space-between;"> -->
+
+  <div class="redirectPage">
+    <button mat-raised-button color="primary" [routerLink]="['/main-valuation/']">
+      Redirect to dashboard page
+    </button>
+  </div>
+  <!-- </div> -->
+
+  <h5 style="padding: 20px">
+    Selected Module :
+    <span style="color: blue">{{ module }}, {{ actualModule }} </span>
+  </h5>
+
+  <div *ngIf="ExportToCsv" class="search_export">
+    <div style=" margin-top: 20px;">
+      <label><b>Search : &nbsp;</b></label>
+      <input class="searchinput search-field" type="text" [(ngModel)]="searchText" placeholder=" Search..."
+        style="width: 200px;" />
+    </div>
+    <div style="display: flex;">
+      <div style="display: flex;">
+        <div style="display: grid;">
+          <label><b>Month</b></label>
+          <input class="searchinput search-field" type="text"  [(ngModel)]="CompareMonth"  placeholder=" Month"
+            style="width: 150px" />
+        </div>
+        <div style="margin-left: 8px; display: grid;">
+          <label><b> To</b></label>
+          <input class="searchinput search-field" type="text"  [(ngModel)]="CompareTo" placeholder=" Month"
+            style="width: 150px;" />
+        </div>
+      </div>
+      <div style="margin-top: 20px;"> 
+        <button mat-raised-button matTooltip="Compare data" color="primary" (click)="CompareData()" style="margin-left: 10px;">
+          Compare </button>
+        <button mat-raised-button matTooltip="Export data to CSV" color="primary" (click)="exportAsCSV()" *ngIf="exportTocsv" style="margin-left: 10px;">
+          Export To CSV </button>
+          <button mat-raised-button matTooltip="Export data to CSV" color="primary" (click)="exportAsComparedCSV()" *ngIf="exportComparcsv" style="margin-left: 10px;">
+            Export To CSV </button>
+       </div>
+
+    </div>
+    
+    
+  </div>
+
+  <div style="margin-top: 3%">
+    <div class="box-container" *ngIf="Summ_Form" style="border: solid 1px #212529; width: 80%; margin-left: 10%">
+      <div style="display: flex; justify-content: center">
+        <!-- <div style="margin: 12px;font-weight: 500;">Enter date range :</div> -->
+        <div style="margin: 10px">
+          <mat-label style="font-weight: bold">MONTH :&nbsp; </mat-label>
+          <input type="text" [(ngModel)]="Month_Name">
+          <!-- <button mat-icon-button [matMenuTriggerFor]="payoutList5" class="example-icon" 
+                    aria-label="Example icon-button with menu icon">
+                    <mat-icon (click)="showOption()" title="List of Table">view_list</mat-icon>                   
+                </button> -->
+          <mat-menu #payoutList5="matMenu">
+            <ng-template matMenuContent>
+              <button mat-menu-item *ngFor="let option of options" (click)="setValue(option)">
+                {{ option }}
+              </button>
+
+            </ng-template>
+          </mat-menu>
+
+        </div>
+
+        <!-- <div style="margin: 10px;">
+            <mat-label>Current_Year &nbsp;</mat-label>
+            <input type="text" [(ngModel)]="Current_Year">
+        </div> -->
+        <div style="margin-top: 5px; margin-left: 10px">
+          <button mat-raised-button color="primary" (click)="submitTableDate()">
+            Process Input
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="val_summary_table" style="background-color: white">
+      <div class="gridtable">
+        <table class="table table-striped table-bordered">
+          <thead class="bg-primary">
+            <tr>
+              <th style="background-color: #bee5f5">Exceptions</th>
+              <th style="background-color: #acedc5">Table Name</th>
+              <th style="background-color: #eeee91">Total Count</th>
+              <th style="background-color: #fec791">Month</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="TDbody" *ngFor="let item of Data | defect : searchText" style="background-color: white">
+              <td>{{ item.REMARKS }}</td>
+              <td>{{ item.TABLE_NAME }}</td>
+              <td>{{ item.TOTAL_COUNT }}</td>
+              <td>{{ item.MONTH }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ********************************* compare table****************************************** -->
+
+    <div *ngIf="compare_summary_table" style="background-color: white">
+      <div class="compareTable" style="width: 90%;margin-left: 5%;">
+        <table class="table table-striped table-bordered" style="border: 1px solid black; ">
+          <thead class="bg-primary">
+            <tr>
+              <th style="background-color: #bee5f5">Exceptions</th>
+              <th style="background-color: #acedc5">Table Name</th>
+              <th style="background-color: #acedc5">Total Count</th>
+              <th style="background-color: #acedc5">Month</th>
+              <th style="background-color: #eeee91">Table Name</th>
+              <th style="background-color: #eeee91" >Total Count</th>
+              <th style="background-color: #eeee91">Month</th>
+            </tr>
+          </thead>
+          <tbody style="background-color: white;">
+            <tr class="TDbody" *ngFor="let item of compareData | defect : searchText"  >
+              <td>{{ item.REMARKS }}</td>
+              <td>{{ item.TABLE_NAME }}</td>
+              <td>{{ item.TOTAL_COUNT }}</td>
+              <td>{{ item.MONTH }}</td>
+              <td>{{ item.TABLE_NAME1 }}</td>
+              <td>{{ item.TOTAL_COUNT1 }}</td>
+              <td>{{ item.MONTH1 }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+        
+    </div>
+  </div>
+</div>

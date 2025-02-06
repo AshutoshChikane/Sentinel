@@ -27,14 +27,15 @@
 }
 
 .card-box{
-    width: 195px;
-    align-items:flex-start;
-    margin-left: 286px;
+    // width: 195px;
+    align-items:flex-start;    
+    margin-left: 80px;
     margin-top: 100px;
-    
 }
+
 .box-container{
-  height: 89vh;
+  height: 100vh;
+//   display: inline-flex;
 
 }
 
@@ -92,3 +93,7 @@
   border-radius: 48px;
   background-color:rgb(251, 201, 211) ;
 }
+
+
+
+

@@ -9,6 +9,8 @@ import { stringify } from '@angular/compiler/src/util';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { formatDate } from '@angular/common';
+import * as Module from 'module';
+import { ValDashboardService } from '../Service/val-dashboard.service';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -61,13 +63,13 @@ export class DashboardPageComponent implements OnInit {
     'Daily_report_tracker', 'Weekly_report_tracker', 'Monthly_report_tracker',
     'UNITS_INCONSISTENCY', 'STATIC_FIELDS', 'CRITICAL_FIELDS', 'BOUNDARY_CONDITION', 'PPA_CALCULATION',
     'UNITS_PRESENT_IN_PENDING_STATUS', 'UNITS_PRESENT_IN_EXIT_STATUS', 'NEGATIVE_UNITS_PRESENT',
-    'UNITS_PRESENT_IN_DISCO_&_REGULAR_FUND', 'UNITS_EQUAL_TO _ZERO_IN_INFORCE_POLICES', '1M_UNITS_PRESENT_IN_DISCO_&_REGULAR_FUNDS','CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION',
+    'UNITS_PRESENT_IN_DISCO_&_REGULAR_FUND', 'UNITS_EQUAL_TO _ZERO_IN_INFORCE_POLICES', '1M_UNITS_PRESENT_IN_DISCO_&_REGULAR_FUNDS', 'CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION',
+    'LOAN_AMOUNT_PRESENT_IN_EXIT_CASES', 'Summary', 'ANNUITY_CERTAIN'
 
   ];
 
   curr_projects_map = {
     //DATA QUALITY 
-
     //Daily module
     'ALLOCATION_CHARGES': 3,
     'MORTALITY_CHARGES': 25,
@@ -85,7 +87,7 @@ export class DashboardPageComponent implements OnInit {
     'LTR_NOT_PROCEED_AFTER_LOCK-IN-PERIOD': 73,
     'SB_SKIPPED_CASES': 74,
     'UNCLAIM_': 76,
-
+    
 
     //weekly module
     'SB_SKIPPED_CASES_OLD': 13,
@@ -104,9 +106,8 @@ export class DashboardPageComponent implements OnInit {
     'FUNDING_NOT_DONE_UNDER_WAIVER_CASES': 38,
     'CORRECTNESS_OF_REBALANCING_EVENTS': 39,
     'REBALANCING_SKIPPED_CASES': 40,
-    'CORRECTNESS_CHECKING_OF_INCREASING_ANNUITY_OPT': 41,
+    '_22_CORRECTNESS_CHECKING_OF_INCREASING_ANNUITY_OPT': 41,
     'RIDER_TERM_OVER_BUT_STATUS_NOT_CHANGED': 42,
-    'POLICY_STATUS_EXPIRED_BUT_RIDER_STATUS_INFORCE': 43,
     'PPA_CALCUATION_UNDER_FLEXI_SMART': 44,
     'FUND_VALUE_CALCUATION_UNDER_1M_FLEXI_SMART_PLUS': 45,
     'DOC_FUP_DATE_MISMATCH': 46,
@@ -116,12 +117,44 @@ export class DashboardPageComponent implements OnInit {
     'CORRECTNESS_OF_AMOUNT_POLICY_DEPOSIT_PRESENT_IN_POLICY': 50,
     'PREMIUM_HOLIDAY_UNDER_PRODUCT_56_FLEXI_SMART': 51,
     'UNCLAIM': 77,
+    'LOAN_AMOUNT_PRESENT_IN_EXIT_CASES': 52,
+    '2W_PRODUCT_INCREASING_ANNUITY_OPTION_1.5_&_1.6': 53,
+    'FULL_PREMIUM_NOT_RECEIVED_BUT_STATUS_MOVED_TO_PAID_UP': 54,
+    'MINIMUM_PREMIUM_NOT_RECEIVED_BUT_STATUS_MOVED_TO_RPU': 55,
+    'PENDING_ACTIVITY': 56,
+    'INCREASING_ANNUITY': 57,
+    'PAID_UP_VALUE': 58,
+    'JOINT_BORROWER': 102,
+    'CORRECTNESS_OF_SA_UNDER_SAMF_PRODUCTS': 59,
+    'PPT_PT_FOR_LPPT': 60,
+    '2M_CASH_BONUS': 151,
+    'ANNUITY_SKIPPED_22_2W_2R': 153,
+    '_2M_PRODUCT_PREMIUN_CHECK': 154,
+    '_2W_CORRECTNESS_CHECKING_OF_COMPOUNDING_INTEREST_OPT_1.8_&_1.9': 155,
+    'DECREASING_SUM_ASSURED': 156,
+    'PPT_IS_GREATER_THAN_POLICY_TERM': 157,
+    'MINOR_TO_MAJOR_CORRECTNESS': 158,
+    'DEFERRED_ANNUITY_SKIP_DUE_CHECK': 159,
+    'GUARANTEED_ADDITION': 160,
+    'LOYALTY_SKIP': 161,
+    'LOYALTY_CORRECTNESS': 162,
+    'FULL_PREMIUM_RECEIVED_BUT_STATUS_MOVED_TO_RPU_LAPSED_PP': 163,
+    'Annuity_skip_extraction_for_the_month': 164,
+    'Correctness_of_SA_under_SAMF_Products_ulip': 165,
+    'ANNUITY_CERTAIN': 166,
+    'CASH_BONUS_DUE_SKIP':167,
 
     // Miscellaneous
-    'FUND_VALUE_QUERY' : 75,
-
-  
-    
+    'FUND_VALUE_QUERY': 601,
+    'ADMIN_DUPLICATE_CHARGES': 602,
+    'PROBABLE_LTR': 603,
+    'PROBABLE_SB': 604,
+    'PROBABLE_MATURITY': 605,
+    'POLICY_STATUS_EXPIRED_BUT_RIDER_STATUS_INFORCE': 43,
+    'MORTALITY_DUPLICATE_CHARGES': 606,
+    'VESTING_OF_ANNUITY_POLICY_PENSION_PRODUCT_1H_AND_1E': 152,
+    'EMR_DURATION_PPT': 607,
+    'Payout_process_Amount_in_OD': 608,
 
     //Adhoc
     'CORRECTNESS_CHECKING_OF_GUARANTEED_ADDITIONS': 61,
@@ -140,11 +173,10 @@ export class DashboardPageComponent implements OnInit {
     'Daily_report_tracker': 213,
     'Weekly_report_tracker': 214,
     'Monthly_report_tracker': 215,
+    'Summary': 901,
 
     // Joint Borrower - Rinnraksha
-
     'NEGATIVE_UNIT_PRESENT': 101,
-    'JOINT_BORROWER': 102,
     'UNIT_PRESENT_IN_EXIT_STATUS': 103,
     'UNIT_PRESENT_IN_PENDING_STATUS': 104,
     'UNIT_PRESENT_IN_DISCO_AND_FUNDS': 105,
@@ -155,23 +187,25 @@ export class DashboardPageComponent implements OnInit {
     'CRITICAL_FIELDS': 303,
     'BOUNDARY_CONDITION': 304,
     'PPA_CALCULATION': 305,
-    'CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION':306,
-    'LTR_PROCESS_STATUS_CHANGE' : 307,
-    'DUPLICATE_ENTRIES' :308,
-    'RIDER_INCONSISTENCY' : 309,
-    'DOD_PRESENT_BUT_STATUS_NOT_DEATH' : 310
+    'CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION': 306,
+    'LTR_PROCESS_STATUS_CHANGE': 307,
+    'DUPLICATE_ENTRIES': 308,
+    'RIDER_INCONSISTENCY': 309,
+    'DOD_PRESENT_BUT_STATUS_NOT_DEATH': 310,
   };
-  QCloder: boolean;
 
+  QCloder: boolean;
 
   constructor(
     private router: Router,
     private moduleService: ModuleService,
     private processService: ProcessService,
     private dash: DashboardService,
+    private valDash: ValDashboardService,
     // private ngZone : NgZone  ,
     public dialog: MatDialog
   ) {
+
   }
 
   moduleId = 0;
@@ -179,7 +213,6 @@ export class DashboardPageComponent implements OnInit {
   moduleName = '';
   moduleClicked: boolean = false;
   actualModule = '';
-
   userName_ = sessionStorage.getItem('userName');
   userid = this.userName_
 
@@ -200,19 +233,19 @@ export class DashboardPageComponent implements OnInit {
       'actualModule': this.actualModule,
       'subModuleId': this.subModuleId
     }
-   
-    // add the module if you not access start date and end date 
+
+    // add the module if you not access start date and end date (derect process)
     if (module === 'LOYALTY_ADDITIONS_ULIP_PRODUCTS' || module === 'FUNDING_UNDER_PPWB_RIDER_CASES_ULIP' ||
       module === 'MATURITY_OVER_BUT_STATUS_NOT_CHANGED' || module === 'POLICIES_MATURED_BUT_NOT_IN_DUE_LIST' ||
       module === 'DISCO_CHG_GI_BONUS_AND_FMC_UNDER_FLEXI_SMART_PLUS_1M' || module === '56_36_07_CALCULATIONS' ||
       module === 'RIDER_SA_CAPPING' || module === 'DEFERRED_MATURITY_PAYOUTS' || module === 'ANNUITY_SKIPPED_CASES' ||
       module === 'CORRECTIVENESS_OF_CHECKING_INCREASING_SUM_ASSURED_BENEFIT' || module === 'LTR_PROCESS_STATUS_CHANGES' ||
-      module === 'DPF_LOCK_IN' || module === 'CORRECTNESS_CHECKING_OF_INCREASING_ANNUITY_OPT' ||
+      module === 'DPF_LOCK_IN' || module === '_22_CORRECTNESS_CHECKING_OF_INCREASING_ANNUITY_OPT' ||
       module === 'ADDITIONAL_UNITIZATION_AT_THE_TIME_OF_RETRIVAL' || module === 'OD_AMT_PRESENT_IN_INFORCE_CASES' ||
       module === 'MO' || module === 'ANNUAL_MORTALITY_GREATER_THAN_ANNUAL_PREMIUM' ||
       module === 'CORRECTNESS_CHECKING_OF_GUARANTEED_ADDITIONS' || module === 'DOC_FUP_DATE_MISMATCH' ||
       module === 'JOINT_BORROWER_RINNRAKSHA' || module === 'RIDER_TERM_OVER_BUT_STATUS_NOT_CHANGED' ||
-      module === 'POLICY_STATUS_EXPIRED_BUT_RIDER_STATUS_INFORCE' || module === 'SB_SKIPPED_CASES' ||
+      module === 'POLICY_STATUS_EXPIRED_BUT_RIDER_STATUS_INFORCE' || module === 'SB_SKIPPED_CASES' || module === 'MORTALITY_DUPLICATE_CHARGES' ||
       //new update
       module === 'SB_SKIPPED_CASES_NEW' || module === 'DEPOSIT_PRESENT_BUT_NOT_ALLOCATED' || module === 'ADDITIONAL_UNITIZATION_AT_THE_TIME_OF_REVIVAL'
       || module === 'CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT'
@@ -221,25 +254,24 @@ export class DashboardPageComponent implements OnInit {
       || module === 'CORRECTNESS_OF_AMOUNT_POLICY_DEPOSIT_PRESENT_IN_POLICY' || module === 'PREMIUM_HOLIDAY_UNDER_PRODUCT_56_FLEXI_SMART'
       || module === 'CASES_WHERE_PREMIUM_PAYING_TERM_IS_MORE_THAN_POLICY_TERM' || module === 'CLIENT_ID_MERGER' || module === 'CI_RIDER_PREMIUM_IS_ZERO_FOR_IN_FORCE_CASES'
       || module === 'SB_NOT_PAID_POST_REVIVAL' || module === 'MORTLITY_GOT_DEDUCTED_IN_WAIVER_POLICIES' || module === 'UNITS_EQUAL_TO_ZERO_FOR_INFORCE_POLICIES' || module === 'SUM_ASSURED_NOT_CHANGED_POST_REVIVAL'
-      || module === 'SB_PAID_FOR_RPU_CASES' || module === 'GRACE_PERIOD_IS_OVER_BUT_POLICY_NOT_LAPSED' || module === 'POLICY_STATUS_MOVED_BACK_FROM_EXIT_TO_INFORCE'|| module === 'FUND_VALUE_QUERY' || module === 'UNCLAIM'  || module ==='UNCLAIM_') {
+      || module === 'SB_PAID_FOR_RPU_CASES' || module === 'GRACE_PERIOD_IS_OVER_BUT_POLICY_NOT_LAPSED' || module === 'POLICY_STATUS_MOVED_BACK_FROM_EXIT_TO_INFORCE'
+      || module === 'UNCLAIM' || module === 'UNCLAIM_' || module === 'LOAN_AMOUNT_PRESENT_IN_EXIT_CASES' || module === '2W_PRODUCT_INCREASING_ANNUITY_OPTION_1.5_&_1.6' || module === 'FULL_PREMIUM_NOT_RECEIVED_BUT_STATUS_MOVED_TO_PAID_UP' ||
+      module === 'MINIMUM_PREMIUM_NOT_RECEIVED_BUT_STATUS_MOVED_TO_RPU' || module === 'PENDING_ACTIVITY' || module === 'PAID_UP_VALUE' || module === 'INCREASING_ANNUITY' || module === 'JOINT_BORROWER' || module === 'CORRECTNESS_OF_SA_UNDER_SAMF_PRODUCTS'
+      || module === 'PPT_PT_FOR_LPPT' || module === '2M_CASH_BONUS' || module === 'VESTING_OF_ANNUITY_POLICY_PENSION_PRODUCT_1H_AND_1E' || module === '_2M_PRODUCT_PREMIUN_CHECK' || module === 'EMR_DURATION_PPT' || module === 'Payout_process_Amount_in_OD'
+      || module === '_2W_CORRECTNESS_CHECKING_OF_COMPOUNDING_INTEREST_OPT_1.8_&_1.9' || module === 'DECREASING_SUM_ASSURED' || module === 'PPT_IS_GREATER_THAN_POLICY_TERM' || module === 'MINOR_TO_MAJOR_CORRECTNESS' || module === 'DEFERRED_ANNUITY_SKIP_DUE_CHECK'
+      || module === 'GUARANTEED_ADDITION' || module === 'LOYALTY_SKIP' || module === 'FULL_PREMIUM_RECEIVED_BUT_STATUS_MOVED_TO_RPU_LAPSED_PP'
+      || module === 'ANNUITY_SKIPPED_22_2W_2R' || module === 'Annuity_skip_extraction_for_the_month' || module === 'Correctness_of_SA_under_SAMF_Products_ulip'
+      || module === 'ANNUITY_CERTAIN'|| module ==='CASH_BONUS_DUE_SKIP'
+      // Miscellaneous
+      // || module === 'FUND_VALUE_QUERY'  || module === 'ADMIN_DUPLICATE_CHARGES' || module === 'PROBABLE_LTR'|| module ==='PROBABLE_SB'
+      // ||module === 'PROBABLE_MATURITY'
+    ) {
       this.router.navigate(['fetch-all-data'], { state: params });
     }
-    
     else {
       this.router.navigate(['fetch-data'], { state: params });
     }
-
   }
-
-
-
-  //new code
-
-  /*
-  curr_projects = ['Module 1', 'Module 2', 'Module 3', 'Module 4', 'Module 5', 'Module 6',
-    'Module 7', 'Module 8', 'Module 9', 'Module 10', 'Module 11', 'Module 12',
-    'Module 13', 'Module 14', 'Module 15', 'Module 16', 'Module 17', 'Module 18'];
-  */
 
   process = [
     'DISCO_CHARGES',
@@ -270,22 +302,21 @@ export class DashboardPageComponent implements OnInit {
     'MORTALITY_CHARGES_UNITIZATION': 208,
     'ADMIN_CHARGES_UNITIZATION': 209,
     'ALLOCATION_AMOUNT_UNITIZATION': 210,
-    '1M': 211,
-    'ULIP_BASE': 212,
+    'DISCO_CHARGES-1M': 211,
+    'DISCO_CHARGES-ULIP_BASE': 212,
     "STATUS_NOT_LAPSED_AFTER_GRACE_PERIOD": 213,
     "LTR_NOT_PROCESSED_AFTER_LOCK-IN_PERIOD": 214,
     'SB_Skipped_Cases': 216,
-    '_UNCLAIM_' : 217,
-    'Death':218,
-    'Maturity' : 219,
-    'LTR' :220,
-    'Policy_Deposit_Refund' : 221,
-    'NON_ULIP' :222,
-    'ULIP': 223,
-    'STANDARD' : 224,
-    'EXTRA' : 225,
-    'SB' :226,
-
+    '_UNCLAIM_': 217,
+    'UNCLAIM-Death': 218,
+    'UNCLAIM-Maturity': 219,
+    'UNCLAIM-LTR': 220,
+    'UNCLAIM-Policy_Deposit_Refund': 221,
+    'DEPOSITE_PRESENT_BUT_NOT_ALLOCATED-NON_ULIP': 222,
+    'DEPOSITE_PRESENT_BUT_NOT_ALLOCATED-ULIP': 223,
+    'MORTALITY_CHARGE-STANDARD': 224,
+    'MORTALITY_CHARGE-EXTRA': 225,
+    'UNCLAIM-SB': 226,
   };
 
 
@@ -357,11 +388,11 @@ export class DashboardPageComponent implements OnInit {
     this.module = module;
     console.log('menuenter ::', this.module);
     this.moduleId = this.process_map[module];
-    console.log( this.moduleId, "abc")
+    console.log(this.moduleId, "abc")
     this.moduleName = module;
     this.subModuleId = 0;
-  
-    
+
+
   }
 
   menuentertable(module) {
@@ -390,6 +421,8 @@ export class DashboardPageComponent implements OnInit {
   selectedPayout(process, val?, data?) {
     this.processQcValue = val;
     this.dialogData = data;
+    console.log(process, "prooooooooooooooooooooooo");
+
 
     if (process == 'VIEWQCDATA') {
       console.log(this.module, this.moduleId, this.moduleName, process, this.subModuleId);
@@ -412,7 +445,7 @@ export class DashboardPageComponent implements OnInit {
       console.log('sendProcessInfo called :: processId : ', this.processId, 'moduleId :', this.moduleId, 'moduleName :', this.moduleName, 'subModule :', this.subModuleId);
       if ((this.moduleId === 10 && this.subModuleId === 2 && this.processId === 1) || (this.moduleId === 11 && this.subModuleId === 2 && this.processId === 1)) {
         // this.showDateTime(this.dialogData,process);
-        this.dialog.open(this.dialogData)
+        this.dialog.open(this.dialogData);
 
       }
       else {
@@ -425,7 +458,7 @@ export class DashboardPageComponent implements OnInit {
     console.log(this.startDate);
     console.log(this.endDate);
     this.dialog.closeAll()
-    this.sendProcessInfo('PROCESS_INPUT')
+    this.sendProcessInfo('PROCESS_INPUT');
     // this.sendProcessInfo(data);
 
   }
@@ -459,7 +492,7 @@ export class DashboardPageComponent implements OnInit {
       'request_action': this.processId,
       'requested_by': 'Admin',
       'userid': this.userid,
-      'moduleName' : this.moduleName,
+      'moduleName': this.moduleName,
     };
     console.log('this.moduleId', this.moduleId)
     if (this.subModuleId > 0) {
@@ -495,7 +528,6 @@ export class DashboardPageComponent implements OnInit {
           console.log('response received #2::', response);
           //  console.log('response received #3::', response.error_code);
         }
-
 
         if (response.response_message) {
           console.log('response.response_code #1');
@@ -573,6 +605,7 @@ export class DashboardPageComponent implements OnInit {
               moduleId: this.moduleId,
               processId: this.curr_process_map['PROCESS_OUTPUT_FLAG'],
               requested_by: 'Admin',
+              module: this.module
               // display_columns:(this.module=='STAMP_DUTY_NON_ULIP' ) ? this.dash.stamp_duty_display_columns : ( this.module=='NON_ULIP_PRE_CHECKING' )? this.dash.pre_checking_display_columns : this.dash.ulip_display_columns
             };
 
@@ -685,7 +718,7 @@ export class DashboardPageComponent implements OnInit {
   //   this.openConfirmationBox = false;
   // }
 
-  
+
 
   Dashboardtable(module) {
     // console.log('menuenter ::' , module); 
@@ -715,36 +748,64 @@ export class DashboardPageComponent implements OnInit {
       'moduleId': this.moduleId,
       'moduleName': this.moduleName,
       'actualModule': this.actualModule,
-      'subModuleId': this.subModuleId
+      'subModuleId': this.subModuleId,
     }
 
 
     //Add the table format and export to excel
     //    
-    if (module === 'UNITS_INCONSISTENCY' ||  module === 'CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION' || module ==='CRITICAL_FIELDS' 
-    || module === 'RIDER_INCONSISTENCY' || module === 'BOUNDARY_CONDITION'  || module === 'LTR_PROCESS_STATUS_CHANGE' || module === 'DUPLICATE_ENTRIES'   ||module === 'PPA_CALCULATION') {
+    if (module === 'UNITS_INCONSISTENCY' || module === 'CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION' || module === 'CRITICAL_FIELDS'
+      || module === 'RIDER_INCONSISTENCY' || module === 'BOUNDARY_CONDITION' || module === 'LTR_PROCESS_STATUS_CHANGE' || module === 'DUPLICATE_ENTRIES' || module === 'PPA_CALCULATION') {
       this.router.navigate(['VALUATION'], { state: params });
       console.log("if");
 
     }
-    else if(module === 'DOD_PRESENT_BUT_STATUS_NOT_DEATH'){
-      this.router.navigate(['VALUATION'], { state: params});
-  
+    else if (module === 'DOD_PRESENT_BUT_STATUS_NOT_DEATH') {
+      this.router.navigate(['VALUATION'], { state: params });
+
     }
-    
-    else{
-    this.router.navigate(['valuation-data'], { state: params });
-    console.log("else if");
+
+    else {
+      this.router.navigate(['valuation-data'], { state: params });
+      console.log("else if");
     }
   }
 
-  backPage(){
-  this.router.navigate(['ChooseDashboardComponent']);
+
+  SummaryData(module, actualModule_, SubModuleId) {
+    console.log('Summary DATA >>', module);
+    this.moduleName = module;
+    this.actualModule = actualModule_;
+    this.moduleId = this.curr_projects_map[module];
+    this.subModuleId = SubModuleId;
+    console.log(this.moduleName, this.actualModule, this.moduleId, this.subModuleId, "---------------->summary data coming");
+
+
+    var params = {
+      'module': module,
+      'moduleId': this.moduleId,
+      'moduleName': this.moduleName,
+      'actualModule': this.actualModule,
+      'subModuleId': this.subModuleId,
+    }
+
+    if (module === "Summary") {
+      this.router.navigate(['All-Summary'], { state: params });
+    }
   }
 
-  showMISWindow(){
+  MBoundary(){
+    this.router.navigate(['boundarys']);
+  }
+
+  backPage() {
+    this.router.navigate(['ChooseDashboardComponent']);
+  }
+
+  showMISWindow() {
     this.router.navigate(['mis']);
   }
+
 
 }
 

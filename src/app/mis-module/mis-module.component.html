@@ -1,525 +1,89 @@
-
-    <div style="background: linear-gradient(0deg, rgba(73,112,154,1) 0%, rgba(36,56,73,1) 100%); height: fit-content; color: white;">
+<div style="background-color:white; height: fit-content;">
     <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
-    <div >
-      <div class="redirectPage">
-        <button mat-raised-button color="primary" (click)="redirct()" style="margin-top: 7px;">
-            Redirect to dashboard page
-        </button>
-    </div>
-    <!-- -----------Daily------------------ -->
-    <div *ngIf="Daily" style="margin-left: 172px; margin-top: 10px;">
-        <table>
-            <thead>
-                <tr style="text-align: center ;background-color: rgb(195, 146, 224); height: 43px;">
-                    <th style="width: 400px;">ASPECT</th>
-                    <th style="width: 330px; padding-right: 53px;">🟢PASS CASES / &#9898;FAIL CASES</th>
-                    <th style="width: 170px;">ACTION</th>
-                </tr>
-            </thead>
-        <tbody >
-        <tr *ngIf="firstPage" >
-            <td>Allocation Charges</td>
-            <td class="task-progress">
-                <span>{{Allocation_Charges}}%</span>
-                <progress class="progress progress1" max="100" value="{{Allocation_Charges}}" style="width: 200px;
-                margin-left: 41px; "></progress>
-            </td>
-            <td><button type="button" class="btn btn-success" (click)="View()">View</button></td>
-            
-        </tr>
-        <tr *ngIf="firstPage">
-            <td>Mortality Charges</td>
-            <td class="task-progress">
-                <span>{{Mortality_Charges}}%</span>
-                <progress class="progress progress1" max="100" value="{{Mortality_Charges}}" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success" >View</button></td>
-        </tr>
-        <tr *ngIf="firstPage">
-            <td>Discontinuance Charges</td>
-            <td class="task-progress">
-                <span>{{Discontinuance_Charges}}%</span>
-                <progress class="progress progress1" max="100" value="{{Discontinuance_Charges}}" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="firstPage">
-            <td>Maturity Over But Status Not Changed</td>
-            <td class="task-progress">
-                <span>{{Maturity_over_but_status_not_changed}}%</span>
-                <progress class="progress progress1" max="100" value="{{Maturity_over_but_status_not_changed}}" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="firstPage">
-            <td>Admin Charges</td>
-            <td class="task-progress">
-                <span>{{Admin_charges}}%</span>
-                <progress class="progress progress1" max="100" value="{{Admin_charges}}" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="firstPage">
-            <td>Admin Skipped Cases</td>
-            <td class="task-progress">
-                <span>{{Admin_Skipped_cases}}%</span>
-                <progress class="progress progress1" max="100" value="{{Admin_Skipped_cases}}" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="firstPage">
-            <td>Mortality Skipped Cases</td>
-            <td class="task-progress">
-                <span>{{Mortality_Skipped_Cases}}%</span>
-                <progress class="progress progress1" max="100" value="{{Mortality_Skipped_Cases}}" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="firstPage">
-            <td>Allocation Charges Unitization</td>
-            <td class="task-progress">
-                <span>{{Allocation_Charges_Unitization}}%</span>
-                <progress class="progress progress1" max="100" value="{{Allocation_Charges_Unitization}}" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="secondPage">
-            <td>Mortality Charges Unitization</td>
-            <td class="task-progress">
-                <span>{{Mortality_Charges_Unitization}}%</span>
-                <progress class="progress progress1" max="100" value="{{Mortality_Charges_Unitization}}" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="secondPage">
-            <td>Admin Charges Unitization</td>
-            <td class="task-progress">
-                <span>{{Admin_charges_Unitization}}%</span>
-                <progress class="progress progress1" max="100" value="{{Admin_charges_Unitization}}" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="secondPage">
-            <td>Policies Matured But Not In Due List</td>
-            <td class="task-progress">
-                <span>{{Policies_Matured_But_Not_In_Due_List}}%</span>
-                <progress class="progress progress1" max="100" value="{{Policies_Matured_But_Not_In_Due_List}}" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="secondPage">
-            <td>Deposit Present But Not Allcated</td>
-            <td class="task-progress">
-                <span>{{Deposit_Present_but_not_Allocated}}%</span>
-                <progress class="progress progress1" max="100" value="{{Deposit_Present_but_not_Allocated}}" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="secondPage">
-            <td>Status Not Lapsed After Grace Period</td>
-            <td class="task-progress">
-                <span>{{Status_not_lapsed_after_grace_Period}}%</span>
-                <progress class="progress progress1" max="100" value="{{Status_not_lapsed_after_grace_Period}}" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="secondPage">
-            <td>LTR Not Proceed After Lock-In-Period</td>
-            <td class="task-progress">
-                <span>{{LTR_not_Preceed_after_Lock_in_period}}%</span>
-                <progress class="progress progress1" max="100" value="{{LTR_not_Preceed_after_Lock_in_period}}" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="secondPage">
-            <td>SB Skipped Cases</td>
-            <td class="task-progress">
-                <span>{{SB_Skipped_Cases}}%</span>
-                <progress class="progress progress1" max="100" value="{{SB_Skipped_Cases}}" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="secondPage">
-            <td>Unclaimed Movement</td>
-            <td class="task-progress">
-                <span>{{Unclaimed_Movement}}%</span>
-                <progress class="progress progress1" max="100" value="{{Unclaimed_Movement}}" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr></tbody>
-    </table>
-    <div class="pagination">
-        <a (click)="page1()">&laquo;</a>
-        <a (click)="page1()"> 1</a>
-        <a (click)="page2()"> 2</a>
-        <a (click)="page2()">&raquo;</a>
-    </div>
-    </div>
-    <!-- ---------------Weekly --------------->
-    <div *ngIf="Weekly" style="margin-left: 172px; margin-top: 10px; padding: 30px;">
-        <thead>
-            <tr style="text-align: center ;background-color: rgb(195, 146, 224); height: 43px;">
-                <th style="width: 400px;">ASPECT</th>
-                <th style="width: 330px; padding-right: 53px;">🟢PASS CASES / &#9898;FAIL CASES</th>
-                <th style="width: 170px;">ACTION</th>
-            </tr>
-        </thead>
-        <tbody >
-        <tr>
-            <td>SB Skipped Cases(OLD)</td>
-            <td class="task-progress">
-                <span>45%</span>
-                <progress class="progress progress1" max="100" value="45" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr>
-            <td>Annuity Skipped Cases</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success" >View</button></td>
-        </tr>
-        <tr>
-            <td> SB Skipped Cases (NEW)</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr>
-            <td>Additional Unitization at the time of Revival</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-    </tbody>
-    </div>
-    
-    <!-- ---------------Monthly --------------->
-    <div *ngIf="Monthly" style="margin-left: 172px; margin-top: 10px;">
-        <thead>
-            <tr style="text-align: center ;background-color: rgb(195, 146, 224); height: 43px;">
-                <th style="width: 400px;">ASPECT</th>
-                <th style="width: 330px; padding-right: 53px;">🟢PASS CASES / &#9898;FAIL CASES</th>
-                <th style="width: 170px;">ACTION</th>
-            </tr>
-        </thead>
-        <tr *ngIf="MonthlyFirstPage">
-            <td>Correctness of Increasing & Decreasing sum assured Benifit</td>
-            <td class="task-progress">
-                <span>45%</span>
-                <progress class="progress progress1" max="100" value="45" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlyFirstPage">
-            <td>Deferred Maturity Payouts</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success" >View</button></td>
-        </tr>
-        <tr *ngIf="MonthlyFirstPage">
-            <td>Rider SA Capping</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlyFirstPage">
-            <td>LTR Process - Status changes</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlyFirstPage">
-            <td>Correctness of Loyalty Additions under ULIP Products</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlyFirstPage">
-            <td>Loyalty Addition not Applied on there Hold Date</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlyFirstPage">
-            <td>Correctness of Funding Under Waiver Cases</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlyFirstPage">
-            <td>Funding not Done Under Waiver Cases</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlySecondPage">
-            <td>Correctness of Rebalancing Event</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlySecondPage">
-            <td>Rebalancing Skipped Cases</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlySecondPage">
-            <td>Correctness Checking of Increasing Annuity opt (1.5 & 1.6)</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlySecondPage">
-            <td>Rider Term over but Status not changed</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlySecondPage">
-            <td> Policy Status expired but rider Status inforce</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlySecondPage">
-            <td>PPA Calculation Under Flexi Smart, Life Long Pension & Life Long Pension Plus</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlySecondPage">
-            <td>Fund Value Calculation under 1M Flexi Smart Plus</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlySecondPage">
-            <td>DOC & FUP Date MisMatch</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlythirdPage">
-            <td> Extranneous OD Amount</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlythirdPage">
-            <td> Status not Moved to LTR Post Lock in Period Over</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlythirdPage">
-            <td> Client Status Death but Policy Status is inforce</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlythirdPage">
-            <td> Premium Holiday Under Product 56 Flexi Smart</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlythirdPage">
-            <td> Correctness Checking of Guarantee Additions</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlythirdPage">
-            <td>Cases where Premium Paying term is more than policy term</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlythirdPage">
-            <td> Client ID Merger</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlythirdPage">
-            <td>CI Rider Premium is Zero for inforce Cases</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlyFourPage">
-            <td>SB not Paid post Revival</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlyFourPage">
-            <td>Mortality got Deducted in Waiver Policies</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlyFourPage">
-            <td>Units Equal to Zero for inforce Policies</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlyFourPage">
-            <td>Sum Assured not Changed post Revival</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlyFourPage">
-            <td>SB paid for RPU Cases</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlyFourPage">
-            <td>Policy Status Moved back from Exit to Inforce</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <tr *ngIf="MonthlyFourPage">
-            <td>Unclaimed Movement</td>
-            <td class="task-progress">
-                <span>65%</span>
-                <progress class="progress progress1" max="100" value="65" style="width: 200px;
-                margin-left: 41px;"></progress>
-            </td>
-            <td><button type="button" class="btn btn-success">View</button></td>
-        </tr>
-        <div class="pagination">
-            <!-- <a (click)="PreviousM1()"> &lt;&lt; Previous &gt;&gt;</a> -->
-            <a  (click)="nextM1()" >&laquo;</a>
-            <a (click)="nextM1()" >1</a>
-            <a (click)="nextM2()" >2</a>
-            <a (click)="nextM3()">3</a>
-            <a (click)="nextM4()" >4</a>
-            <a (click)="nextM4()">&raquo;</a>
-            <!-- <a (click)="nextM1()"> &lt;&lt; Next &gt;&gt;</a> -->
+    <!-- <div> -->
+        <div class="redirectPage">
+            <div>
+                <!-- <h4 style="display: inline; margin-right: 10px;">Date :</h4> -->
+                <!-- <p style="display: inline; color: blue; margin: 0; font-size: larger;">{{ misReportDate }}</p> -->
+              </div>
+            <div>
+                <!-- <button mat-raised-button class="hov" [routerLink]="['/all-module-graph']" >
+                    View Monthly Modules
+                 </button> -->
+                 
+<!-- <div> -->
+                    <!-- <button mat-raised-button style="text-align: center;" *ngIf="Before" (click)="load_QC('Daily_Extraction_Summary','Daily Extraction Summary', 0 )"> Daily Extraction Summary </button> -->
+                    
+               
+                 <button mat-raised-button color="primary" [routerLink]="['/mis']"  style="margin-left: 10px;">
+                     Redirect to page
+                 </button>
+            </div>
         </div>
-    </div>
+    <!-- </div> -->
 
-    </div>
-
+    <div class="Misview" *ngIf="dailymodule" style="margin: 0% auto; width: 90%;">
+        <div class="row1" style=" width: 100%; height: 440px; ">
+            <div class="col" style="border: 1px solid #113f67; ">
+                <table style="width: 100%;">
+                    <thead  >
+                <div  class="mis_table">
+                    <th>MODULE NAME</th>
+                    <th>PASS CASES</th>
+                    <th>FAIL CASES</th>
+                    <th>GRAPH VIEW</th>
+                </div>
+            </thead> 
+            <tbody>    
+                <div class="row" style="border: 1px solid#113f67;" *ngFor="let element of moduleData; let i = index" >
+                    <td class="col-2 length"  title="{{element.Module}}">{{element.Module}}</td>
+                    <td class="col-2 length" title="{{element.Pass_Cases}}" >{{element.Pass_Cases}}</td>
+                    <td class="col-2 length" title="{{element.Fail_Cases}}" >{{element.Fail_Cases}}</td>
+                    <td class="col-2 "> <button class="graph1" (click)="onEdit(element.id, element)">Graph</button></td>
+                </div>
+            </tbody>
+            </table>
+            </div>
+        </div> 
 </div>
+
+
+<div *ngIf="Daily_Qc_check" style="background-color: white">
+    <div class="gridtable">
+      <table class="table table-striped table-bordered">
+        <thead class="bg-primary">
+          <tr>
+            <th style="background-color: #bee5f5">Report Name</th>
+            <th style="background-color: #acedc5">Report Date/Time</th>
+            <th style="background-color: #eeee91">Exception Date</th>
+            <th style="background-color: #fec791">Status</th>
+            <th style="background-color: #f19fa3">Total Records</th>
+            <th style="background-color:#ebaad6">Pass Count</th>
+            <th style="background-color: #d6a8ff;">Fail Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="TDbody" *ngFor="let item of Data | defect : searchText" style="background-color: white">
+            <td>{{ item.REPORTNAME }}</td>
+            <td>{{ item.REPORT_DATE_TIME }}</td>
+            <td>{{ item.REPORT_DATE }}</td>
+            <td>{{ item.STATUS }}</td>
+            <td>{{ item.TOTAL_RECORD }}</td>
+            <td>{{ item.PASS_COUNT }}</td>
+            <td>{{ item.FAIL_COUNT }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+<div class="my-overlay1" *ngIf="QCloder" style="display: flex; flex-direction: column;">
+    <div class="ring">Loading...
+        <span></span>
+      </div>
+  </div>
+
+
+
+  

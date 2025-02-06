@@ -56,10 +56,7 @@ export class JsontoexcelService {
       
     };
     var abc = new ngxCsv(json, excelFileName , options);
-    console.log(json , '123456')
-
     const csv = convertToCSV(json);
-    console.log(csv, 'mayur')
     var exportedFileName = excelFileName + '.csv' || 'export.csv';
     
     var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
@@ -81,6 +78,21 @@ export class JsontoexcelService {
       console.log(link)
     }
   }
+
+
+
+  // public exportAsJSONFile(data: any[], fileName: string): void {
+
+  // const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet([this.jsonData]);
+  // const wb: XLSX.WorkBook = XLSX.utils.book_new();
+  // XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+  // // Save the workbook as an Excel file
+  // XLSX.writeFile(wb, 'output.xlsx');
+
+  // }
+
+
 
 
   }

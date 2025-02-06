@@ -1,8 +1,182 @@
-<div style="background-color: aliceblue; height: fit-content; ">
-    <div class="redirectPage">
-        <button mat-raised-button color="primary" [routerLink]="['/mis']" style="margin-top: 7px;">
-            Redirect to Module
-        </button>
+<div style=" background-color: #ccc; padding-bottom: 10px;">
+    <div>
+
+        <div class="redirectPage">
+            <!-- <mat-toolbar-row> -->
+            <div>
+                <button mat-icon-button [matMenuTriggerFor]="payoutList4" class="example-icon"
+                    aria-label="Example icon-button with menu icon">
+                    <mat-icon style="color: darkslategrey;"> insert_invitation</mat-icon>
+                </button>
+                <mat-menu #payoutList4="matMenu">
+                    <ng-template matMenuContent >
+                        <button mat-menu-item (click)="dashboard()">Today</button>
+                        <hr>
+                        <button mat-menu-item *ngFor="let item of dropdown_Month; let i = index" (click)="  Selection(item) " >{{ item }}</button>
+                    </ng-template>
+                </mat-menu>
+            </div>
+            <!-- </mat-toolbar-row> -->
+
+            <div style="display: flex;">
+                <div>
+                    <!-- <button mat-raised-button *ngIf="main_Product" color="primary" style="margin-top: 5px; margin-right: 10px;" (click)="product('Product')" >
+                        Products
+                    </button> 
+                    <button mat-raised-button *ngIf="sub_Product"  color="primary" style="margin-top: 5px; margin-right: 10px;" (click)="product('')" >
+                        sub-Module
+                    </button>    -->
+                </div>
+                
+                <div>
+                    <button mat-raised-button color="primary" style="margin-top: 5px; margin-right: 10px;" (click)="exportAsCSV()" >
+                        Export
+                    </button>
+                </div>
+                <div>
+                    <button mat-raised-button color="primary" (click)="  redirectPage() " style="margin-top: 5px; ">
+                        Redirect to Module
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="graphs" *ngIf="MainDash">
+            <div class="wrapper">
+                <div class="card moduleName" style="height: 40%;">
+                    <p> ModuleName : <a style="color: blue;">{{Module}}</a></p>
+                    <p>Run-Date : <a style="color: blue;">{{Module_date}}</a></p>
+                    <p> Transaction-Date : <a style="color: blue;">{{TransDate}}</a></p>
+                    <p>Total : <a style="color: blue;">{{Total_Cases}}</a></p>
+                    <p>Pass : <a style="color: blue ;"> {{Pass_Cases}}</a></p>
+                    <p>Fail : <a style="text-decoration: none;" [ngClass]="(count==0)?'increase':'decrease'"> {{Fail_Cases}}</a></p>
+
+                </div>
+                <div class="card">
+                        <canvas id="chart-sub"></canvas>                 
+                </div>
+            </div>
+            <!-- <a>{{Module_date}}</a> -->
+            <div class="wrapper1">
+                <div
+                    style="display: flex; justify-content: space-between; width: 100%; padding-bottom: 10px; height: 33vh">
+                    <div class="card cd " style="padding-top: 10px;">
+                        <canvas id="pie-chart" ></canvas>
+                        
+                    </div>
+
+                    <div class="card cd">
+                        <canvas id="barChartData"></canvas>
+                    </div>
+                </div>
+
+                <div class="card one">
+                    <canvas id="Chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="graphs" *ngIf="MonthDash">
+            <div class="wrapper">
+                <div class="card moduleName" style="height: 40%;">
+
+                    <p> ModuleName : <a style="color: blue;">{{Module}}</a></p>
+                    <!-- <p>Run-Date : <a style="color: blue;">{{Module_date}}</a></p> -->
+                    <p> Transaction-Month : <a style="color: blue;">{{TransDate}}</a></p>
+                    <p>Total : <a style="color: blue;">{{Total_Cases}}</a></p>
+                    <p>Pass : <a style="color: blue ;"> {{Pass_Cases}}</a></p>
+                    <p>Fail : <a style="text-decoration: none;" [ngClass]="(count==0)?'increase':'decrease'"> {{Fail_Cases}}</a></p>
+
+                </div>
+                <div class="card">
+                        <canvas id="chart-sub"></canvas>                 
+                </div>
+            </div>
+
+            <div class="wrapper1">
+                <div
+                    style="display: flex; justify-content: space-between; width: 100%; padding-bottom: 10px; height: 33vh">
+                    <div class="card cd ">
+                        
+                        <canvas id="pie-chart" style="padding-top: 10px;"></canvas>
+                        
+                    </div>
+
+                    <div class="card cd">
+                        <canvas id="barChartData"></canvas>
+                    </div>
+                </div>
+
+                <div class="card one">
+                    <canvas id="Chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+
+        <div *ngIf="openConfirmationBox">
+            <div style="width: -webkit-fill-available;height: 30%; position: absolute; z-index: 99999999999999999;">
+                <div style="padding: 30%; padding-top: 50px;padding-bottom: 0;">
+                    <div class="customAlert" [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'">
+
+
+                        <div class="messageheader">
+                            {{ messageType }}
+                        </div>
+                        <div class="messagebody" style="font-weight: 500;padding-left: 30px; padding-bottom: 10px;">
+                            {{ message }}
+                        </div>
+                        <div class="messagebody messageDetails">
+                            {{ messagePopup }}
+                        </div>
+                        <div class="msgImg">
+                            <img [src]="ImagePath">
+                        </div>
+                        <div class="popupDivBtn">
+                            <button class="popupBtn" *ngIf="Redirect" (click)="  redirectPage() "> ok</button>
+                            <button class="popupBtn" *ngIf="ook" (click)="showAlert('OK')">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-</div>
+
+    <div class="my-overlay1" *ngIf="QCloder" style="display: flex; flex-direction: column; ">
+        <!-- <div class="ring">Loading...
+            <span></span>
+          </div> -->
+
+
+        <div class='container'>
+            <div class='dash-spinner'>
+                <div class='dash-spinner__bottom'>
+                    <div class='dash-bar dash-bar__one'></div>
+                    <div class='dash-bar dash-bar__two'></div>
+                    <div class='dash-bar dash-bar__three'></div>
+                </div>
+                <div class='dash-spinner__background'>
+                    <div class='dash-dot dash-dot__one'></div>
+                    <div class='dash-dot dash-dot__two'></div>
+                    <div class='dash-dot dash-dot__three'></div>
+                    <div class='dash-dot dash-dot__four'></div>
+                    <div class='dash-spinner__bottom'>
+                        <div class='dash-vert dash-vert__one'></div>
+                        <div class='dash-vert dash-vert__two'></div>
+                        <div class='dash-vert dash-vert__three'></div>
+                        <div class='dash-vert dash-vert__four'></div>
+                    </div>
+                </div>
+            </div>
+            <div class='dash-spinner__bottom'>
+                <!-- <div class='dash-spinner-title'><p>Loading...<p></div> -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div (click)="Product()" style="background-color: white;">
+        <canvas id="myChart" width="800" height="400"></canvas>
+      </div> -->

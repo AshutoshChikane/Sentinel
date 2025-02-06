@@ -44,7 +44,7 @@
 .card1{
 
     margin-left: 24%;
-    margin-top: 61px;
+    margin-top: 20px;
     // background-color: pink;
     background-color: rgb(233, 201, 251)
 
@@ -99,8 +99,10 @@ font-size: 14px;
 color: #3e3c3c;
 }
 .searchdefect{
-    margin: 2% 32%;
+  margin: 2%;
     display: flex;
+    justify-content: space-between;
+    text-align: center;
 }
 .searchinput{
     border: 2px solid black;
@@ -136,18 +138,66 @@ color: #3e3c3c;
     margin: 20px;
 }
 
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
+// table {
+//     font-family: arial, sans-serif;
+//     border-collapse: collapse;
+//     width: 100%;
+//   }
+  
+  // td, th {
+  //   border: 1px solid #000000;
+  //   text-align: center;
+  //   padding: 8px;
+  // }
+  
+//   tr:nth-child(even) {
+//     background-color: #dddddd;
+//   }
+
+
+  // .gridtable tbody{
+  //   display:block;
+  //   max-height: 360px;
+  //   // overflow-y: scroll;
+    
+  // }
+  // .gridtable thead, .gridtable tbody tr{
+  //   display: table;
+  //   table-layout:fixed;
+  //   width: 100%;
+  //   justify-content: center;
+  //   text-align: center;
+  //   // margin-left: %;
+  //   border: 1px solid; 
+  // }
+  
+  // ::-webkit-scrollbar {
+  //   width: 0px;
+  //   background: transparent;
+  // }
+
+  .table-container {
     width: 100%;
+    overflow: scroll;
+    max-height: 400px; /* Set the max height as needed */
   }
-  
-  td, th {
-    border: 2px solid #000000;
-    text-align: center;
-    padding: 8px;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
   }
-  
-  tr:nth-child(even) {
-    background-color: #dddddd;
+  thead th {
+    position: sticky;
+    top: 0;
+    background: yellow;
+    z-index: 1;
+    padding: 10px
+  }
+  tbody td {
+    background: #fff;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid gray;
   }

@@ -1,0 +1,42 @@
+
+{
+    "response_text": [
+        {
+            "Module": "DISCO_ULIP",
+            "Total": 22118,
+            "Fail_Cases": 109,
+            "Pass_Cases": 221,
+            "Data": ["PASS", "FAIL"],
+
+            "moduleName": 
+                "DISCO_ULIP"
+        ,
+            "pass": [
+                221
+            ],
+            "fail": [
+                109
+            ],
+            "Date_wise": [
+                "1/1/23","2/1/23","3/1/23","4/1/23"
+            ],
+            "Date_pass": [
+                90,80,30,40
+            ],
+            "Date_fail": [
+                4,20,40,50
+            ],
+            "DateList":["1/1/23","2/1/23","3/1/23","4/1/23","5/1/23","6/1/23"],
+            "Date_wises": [
+                "1/1/23","2/1/23"
+            ],
+            "Date_passs": [
+                90,80
+            ],
+            "Date_fails": [
+                10,20
+            ]
+
+        }
+    ]
+}

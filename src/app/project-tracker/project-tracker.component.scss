@@ -1,0 +1,251 @@
+.line1, .line2,.line3, .line4, .line5, .line6{
+    display: flex;
+    gap: 30px;
+    justify-content:space-evenly ;
+}
+form {
+    // max-width: 400px;
+    margin: auto;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+  
+  div {
+    margin-bottom: 2px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  select {
+    width: 100vh;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    
+  }
+
+  
+  
+//   button {
+//     padding: 10px 20px;
+//     background-color: #4CAF50;
+//     color: white;
+//     border: none;
+//     border-radius: 4px;
+//     cursor: pointer;
+//   }
+  
+//   button:hover {
+//     background-color: #45a049;
+//   }
+  
+
+.centerField{
+  display: flex;
+  align-items: center;
+}
+
+.submit{
+    margin-top: 20px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+// .full-width {
+//     width: 100%;
+//   }
+  
+//   .full-width-input {
+//     width: 100%;
+//     box-sizing: border-box; /* Ensure padding and border are included in the width */
+//   }
+
+.error-message {
+  color: red;
+}
+
+.error-text {
+  font-size: 0.8rem; /* Optional: Adjust the font size of the error message */
+}
+
+
+
+// .gridtable tbody{
+//   display:block;
+//   max-height: 360px;  
+// }
+// .gridtable thead, .gridtable tbody tr{
+//   display: table;
+//   table-layout:fixed;
+//   width: 100%;
+//   justify-content: center;
+//   text-align: center;
+//   border: 1px solid; 
+// }
+
+// ::-webkit-scrollbar {
+//   width: 0px;
+//   background: transparent;
+// }
+
+.table-container {
+  width: 100%;
+  overflow: scroll;
+  max-height: 400px; /* Set the max height as needed */
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+thead th {
+  position: sticky;
+  top: 0;
+  background: yellow;
+  z-index: 1;
+  padding: 10px
+}
+tbody td {
+  background: #fff;
+}
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid gray;
+}
+
+
+.error-notification {
+  color: red;
+}
+
+.success-notification {
+  color: rgb(14, 209, 108)
+}
+
+.errorbgcolor {
+  background-color: #ee3611;
+}
+.messagebgcolor {
+  background-color: rgb(14, 209, 108) 
+}
+
+
+// ------------------------------Loader css-----------------------------------------
+
+.my-overlay1 {
+  left: 0 !important;
+  top: 0 !important;
+  z-index: 10000 !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: fixed !important;
+  background-color: rgba(0,0,0,0.9) !important;
+  cursor: pointer !important;
+  visibility: visible !important;
+  transition: visibility 0s, opacity 0.4s linear !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: wait !important;
+}
+.my-overlay i.fa.fa-spinner.fa-spin, .spinner-big {
+  font-size: 100px !important;
+}
+
+
+body
+{
+  margin:0;
+  padding:0;
+  background:#262626;
+}
+.ring
+{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:150px;
+  height:150px;
+  background:transparent;
+  // border:1px solid #3c3c3c;
+  border-radius:50%;
+  text-align:center;
+  line-height:150px;
+  font-family:sans-serif;
+  font-size:16px;
+  color: #9e63e2;
+  letter-spacing:4px;
+  // text-transform:uppercase;
+  text-shadow:0 0 10px  #9e63e2;
+  // box-shadow:0 0 20px rgba(0,0,0,.5);
+}
+.ring:before
+{
+  content:'';
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  border:3px solid transparent;
+  border-top:3px solid  #9e63e2;
+  border-right:3px solid  #9e63e2;
+  border-radius:50%;
+  animation:animateC 2s linear infinite;
+}
+.ring span
+{
+  display:block;
+  position:absolute;
+  top:calc(50% - 2px);
+  left:50%;
+  width:50%;
+  height:4px;
+  background:transparent;
+  transform-origin:left;
+  animation:animate 2s linear infinite;
+}
+.ring span:before
+{
+  content:'';
+  position:absolute;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  // background:#fff000;
+  background-image: linear-gradient(to right, #9e63e2, #e859c2);
+  top:-6px;
+  right:-8px;
+  box-shadow:0 0 20px #9e63e2;
+}
+@keyframes animateC
+{
+  0%
+  {
+    transform:rotate(0deg);
+  }
+  100%
+  {
+    transform:rotate(360deg);
+  }
+}
+@keyframes animate
+{
+  0%
+  {
+    transform:rotate(45deg);
+  }
+  100%
+  {
+    transform:rotate(405deg);
+  }
+}

@@ -1,0 +1,614 @@
+<div class="box-container" style=" height:100%;">
+
+  <div>
+    <div style="display: flex; justify-content: space-between;">
+      <div style="display: flex; gap: 10px;">
+        <button type="button" class="btn btn-primary" *ngIf="added" (click)="add()">Add</button>
+        <button type="button" class="btn btn-primary" *ngIf="Exist" (click)="Existing()">Existing</button>
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <button type="button" class="btn btn-primary" *ngIf="ExportExcel" (click)="export()">Export</button>
+        <button type="button" class="btn btn-primary" *ngIf="backBefore" (click)="backPage()">Back</button>
+        <button type="button" class="btn btn-primary" *ngIf="backAfter" (click)="backAfterPage()">Back</button>
+      </div>
+    </div>
+
+    <div *ngIf="Searchbox" style="display: flex; justify-content: space-evenly;">
+      <div style="display: flex;  align-items: center;">
+        <label><b>Search : &nbsp;</b></label>
+        <input class="searchinput search-field" type="text" [(ngModel)]="searchText" placeholder=" Search..."
+          style="width: auto;" />
+      </div>
+
+      <div style="display: flex; gap: 20px;">
+
+        <div style="display: flex; align-items: center;">
+          <label><b>Developer: &nbsp; </b></label>
+          <select [(ngModel)]="selectDeveloper" (change)="filterTable()"
+            style="border-radius: 5px; height: auto; width: auto;">
+            <option value="">Select</option>
+            <option *ngFor="let val of developerOptions" [value]="val">{{ val }}</option>
+          </select>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+          <label><b>Status: &nbsp;</b></label>
+          <select [(ngModel)]="selectStatus" (change)="filterTable()"
+            style="border-radius: 5px; height: auto; width: auto;">
+            <option value="">Select</option>
+            <option *ngFor="let value of statusOptions" [value]="value">{{ value }}</option>
+          </select>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+  </div>
+
+
+  <!-- ----------------------Notification ---------------------------- -->
+  <div *ngIf="displayMessage">
+    <div style="width: -webkit-fill-available; position: absolute; z-index: 99999999999999999;">
+      <div style="padding: 30%; padding-top: 50px;padding-bottom: 0;">
+        <div class="customAlert" style="
+                height: 230px;
+                border: groove;
+                box-shadow: 5px 10px #0c0c0c; background-color: white;">
+          <div class="messageheader" style="padding: 30px;font-weight: 500;font-size: 25px;padding-bottom: 15px;
+                                            color: white;
+                                            padding-top: 40px;margin-bottom: 15px"
+            [ngClass]="(isError==true)?'messagebgcolor':'errorbgcolor'">
+            {{ messageType }}
+          </div>
+          <div class="messagebody" style="font-weight: 500;padding-left: 30px; padding-bottom: 10px; font-size: 15px;">
+            {{ message }}
+          </div>
+          <div class="messagebody" style="text-align: center;font-weight: 500;font-size: 15px;">
+            {{ messageDetails }}
+          </div>
+          <div style="text-align: right;margin-top: 50px;padding-right: 30px;">
+            <button style="width: 20%;height: 30px;" (click)="showMessage()">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ------------------------------------form ------------------------------------------------ -->
+
+  <!-- <form [formGroup]="updateForm" (ngSubmit)="Update()" *ngIf="UpdatedData"> -->
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" *ngIf="showForm">
+    <h4 *ngIf="notification" [ngClass]="(isError == true)?'error-notification':'success-notification'">{{notification}}
+    </h4>
+    <div class="line1">
+      <!-- <div>
+      <label for="Enhancement">New / Enhancement:</label>
+      <input type="text" id="Enhancement" formControlName="Enhancement">
+      <div *ngIf="myForm.get('Enhancement').errors && myForm.get('Enhancement').touched" class="error-message">
+        <span *ngIf="myForm.get('Enhancement').hasError('required')" class="error-text">*required</span>
+      </div>
+    </div> -->
+      <div>
+        <label for="Enhancement"> New / Enhancement:</label>
+        <select id="Enhancement" formControlName="Enhancement">
+          <option value="">Select</option>
+          <option value="New Project">New Project</option>
+          <option value="Enhancement"> Enhancement</option>
+        </select>
+        <div *ngIf="myForm.get('Enhancement').errors && myForm.get('Enhancement').touched" class="error-message">
+          <span *ngIf="myForm.get('Enhancement').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+
+      <div>
+        <label for="Requirement">Project/Requirement:</label>
+        <input type="text" id="Requirement" formControlName="Requirement">
+        <div *ngIf="myForm.get('Requirement').errors && myForm.get('Requirement').touched" class="error-message">
+          <span *ngIf="myForm.get('Requirement').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="line2">
+      <div>
+        <label for="Module">Report Name:</label>
+        <input type="text" id="Module" formControlName="Module">
+        <div *ngIf="myForm.get('Module').errors && myForm.get('Module').touched" class="error-message">
+          <span *ngIf="myForm.get('Module').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+
+      <div>
+        <label for="StartDate">Start Date:</label>
+        <input type="date" id="StartDate" formControlName="StartDate">
+        <div *ngIf="myForm.get('StartDate').errors && myForm.get('StartDate').touched" class="error-message">
+          <span *ngIf="myForm.get('StartDate').hasError('required')" class="error-text">*required</span>
+          <span *ngIf="myForm.get('StartDate').hasError('invalidDate')" class="error-text">Date must be in MM/DD/YYYY
+            format</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="line3">
+
+      <!-- <div>
+        <label for="Tat">Tat:</label>
+        <input type="text" id="Tat" formControlName="Tat">
+        <div *ngIf="myForm.get('Tat').errors && myForm.get('Tat').touched" class="error-message">
+          <span *ngIf="myForm.get('Tat').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div> -->
+
+      <!-- <div>
+        <label for="CompletionDate">Completion Date:</label>
+        <input type="date" id="CompletionDate" formControlName="CompletionDate">
+        <div *ngIf="myForm.get('CompletionDate').errors && myForm.get('CompletionDate').touched" class="error-message">
+          <span *ngIf="myForm.get('CompletionDate').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div> -->
+    </div>
+
+
+    <div class="line4">
+      <!-- <div>
+        <label for="Enhancement">Changes/Enhancement:</label>
+        <input type="text" id="Changes_Enhancement" formControlName="Changes_Enhancement">
+        <div *ngIf="myForm.get('Changes_Enhancement').errors && myForm.get('Changes_Enhancement').touched"
+          class="error-message">
+          <span *ngIf="myForm.get('Changes_Enhancement').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div> -->
+
+      <div>
+        <label for="Status"> Status:</label>
+        <select id="Status" formControlName="Status">
+          <option value="">Select</option>
+          <option value="Pending">Pending</option>
+          <option value="WIP">WIP</option>
+          <option value="Complete">Complete</option>
+          <option value="UAT">UAT</option>
+          
+        </select>
+        <div *ngIf="myForm.get('Status').errors && myForm.get('Status').touched" class="error-message">
+          <span *ngIf="myForm.get('Status').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+
+      <div>
+        <label for="EmpName"> Request by (Emp.Name):</label>
+        <select id="EmpName" formControlName="EmpName">
+          <option value="">Select</option>
+          <option value="Venkatesh N.">Venkatesh N.</option>
+          <option value="Rajesh C.">Rajesh C.</option>
+          <option value="Prakash P.">Prakash P.</option>
+          <option value="Asha">Asha</option>
+          <option value="Sahil">Sahil</option>
+        </select>
+        <div *ngIf="myForm.get('EmpName').errors && myForm.get('EmpName').touched" class="error-message">
+          <span *ngIf="myForm.get('EmpName').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="line5">
+      <div>
+        <label for="QC_Person"> QC Person:</label>
+        <select id="QC_Person" formControlName="QC_Person">
+          <option value="">Select</option>
+          <option value="Rajesh C.">Rajesh C.</option>
+          <option value="Prakash P.">Prakash P.</option>
+          <option value="Asha">Asha</option>
+          <option value="Sahil">Sahil</option>
+          <option value="Laxmi k.">Laxmi k.</option>
+          <option value="Snehal S.">Snehal S.</option>
+        </select>
+        <div *ngIf="myForm.get('QC_Person').errors && myForm.get('QC_Person').touched" class="error-message">
+          <span *ngIf="myForm.get('QC_Person').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+
+      <div>
+        <label for="Developer"> Developer Name:</label>
+        <select id="Developer" formControlName="Developer">
+          <option value="">Select</option>
+          <option value="Pending">Pending</option>
+          <option value=" On Hold">On Hold</option>
+          <!-- <option value="Prasad P.">Prasad P..</option>
+          <option value="Shivam P.">Shivam P.</option>
+          <option value="Kiranmayi">Kiranmayi</option> -->
+          <option value="Vasant">Vasant</option>
+          <option value="Prasad B">Prasad B</option>
+          <option value="Amol P">Amol P</option>
+          <!-- <option value="Mayur">Mayur</option>
+          <option value="Maya">Maya</option> -->
+          <option value="Ashutosh C">Ashutosh C</option>
+          
+
+
+        </select>
+        <div *ngIf="myForm.get('Developer').errors && myForm.get('Developer').touched" class="error-message">
+          <span *ngIf="myForm.get('Developer').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="line6">
+      <!-- <div>
+        <label for="Status"> Status:</label>
+        <select id="Status" formControlName="Status">
+          <option value="">Select</option>
+          <option value="WIP">WIP</option>
+          <option value="Complete">Complete</option>
+          <option value="UAT">UAT</option>
+        </select>
+        <div *ngIf="myForm.get('Status').errors && myForm.get('Status').touched" class="error-message">
+          <span *ngIf="myForm.get('Status').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div> -->
+      <div style="width: 100%;">
+        <label for="Comments">Comments:</label>
+        <input type="text" id="Comments" formControlName="Comments">
+        <div *ngIf="myForm.get('Comments').errors && myForm.get('Comments').touched" class="error-message">
+          <span *ngIf="myForm.get('Comments').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+
+      <div>
+        <label for="Val_Data"> Valuation or Data Quality:</label>
+        <select id="Val_Data" formControlName="Val_Data">
+          <option value="">Select</option>
+          <option value="Valuation">Valuation</option>
+          <option value="DataQuality">DataQuality</option>
+        </select>
+        <div *ngIf="myForm.get('Val_Data').errors && myForm.get('Val_Data').touched" class="error-message">
+          <span *ngIf="myForm.get('Val_Data').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div style="width: 100%;">
+      <label for="Comments">Comments:</label>
+      <input type="text" id="Comments" formControlName="Comments">
+      <div *ngIf="myForm.get('Comments').errors && myForm.get('Comments').touched" class="error-message">
+        <span *ngIf="myForm.get('Comments').hasError('required')" class="error-text">*required</span>
+      </div>
+    </div> -->
+
+
+    <button class="btn btn-primary submit" type="submit">Submit</button>
+  </form>
+
+
+  <div *ngIf="existing" style="padding-top: 20px;">
+
+    <!-- <div class="gridtable" style="width: 100%; overflow-x: scroll;">
+      <table class="table table-striped table-bordered">
+       
+          <thead class="bg-primary" style="border: 2px solid black; ">
+            <tr style="height: 55px;">
+              <th style="background-color: #acedc5 ; width: 80px  ;border-right: 2px solid black;">Sr No</th>
+              <th style="background-color: #acedc5 ; width: 300px ;border-right: 2px solid black;">New / Enhancement
+              </th>
+              <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;">Project / Requirement
+              </th>
+              <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black">Module</th>
+              <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black">Start Date</th>
+              <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black">Completion Date</th>
+              <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;">Tat</th>
+              
+              <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;">Request By (Emp Name) </th>
+              <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;">Qc-Person</th>
+              <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;">Developer</th>
+              <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;">Status</th>
+              <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;">Data Quality / Valuation</th>
+              <th style="background-color: #acedc5 ; width: 300px ;border-right: 2px solid black;"> Comments</th>
+              <th style="background-color: #acedc5 ; width: 70px  ;border-right: 2px solid black;"> Edit</th>
+              <th style="background-color: #acedc5 ; width: 70px  ;"> Delete</th>
+            </tr>
+          </thead>
+        
+        <tbody style="overflow-y: scroll; margin-top: -2px;">
+          <tr class="TDbody" *ngFor="let item of filteredData | defect :searchText" style="background-color: white">
+            <td style="width: 80px">{{item.id}}</td>
+            <td style="width: 300px">{{ item.NEW_ENHANCEMENT }}</td>
+            <td style="width: 150px">{{ item.PROJECT_REQUIREMENT }}</td>
+            <td style="width: 150px">{{ item.MODULE }}</td>
+            <td style="width: 150px">{{ item.START_DATE }}</td>
+            <td style="width: 150px">{{ item.COMPLETION_DATE }}</td>
+            <td style="width: 150px">{{ item.TAT }}</td>
+            
+            <td style="width: 150px">{{ item.REQUEST_BY }}</td>
+            <td style="width: 150px">{{ item.QC_PERSON }}</td>
+            <td style="width: 150px">{{ item.DEVELOPER }}</td>
+            <td style="width: 150px">{{ item.STATUS }}</td>
+            <td style="width: 150px">{{ item.DATA_QUALITY_VALUTION }}</td>
+            <td style="width: 300px">{{ item.COMMENTS }}</td>
+            <td style="width: 70px;"><i class="far fa-edit" style="color: blue;" (click)="EditData(item)"></i></td>
+            <td style="width: 55px;"><i class="fa-regular fa-trash-can" style="color: red;" (click)="delete(item)"></i>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div> -->
+
+    <div class="table-container">
+      <table class="table-striped table-bordered">
+        <thead>
+          <tr style="height: 55px;">
+            <th style="background-color: #acedc5 ; border-right: 1px solid black;">Sr No</th>
+            <th style="background-color: #acedc5 ; border-right: 1px solid black;">New / Enhancement</th>
+            <th style="background-color: #acedc5 ; border-right: 1px solid black;">Project / Requirement </th>
+            <th style="background-color: #acedc5 ; border-right: 1px solid black;">Module</th>
+            <th style="background-color: #acedc5 ; border-right: 1px solid black;">Start Date</th>
+            <th style="background-color: #acedc5 ; border-right: 1px solid black;">Completion Date</th>
+            <th style="background-color: #acedc5 ; border-right: 1px solid black;">Tat</th>
+            <th style="background-color: #acedc5 ; border-right: 1px solid black;">Request By (Emp Name) </th>
+            <th style="background-color: #acedc5 ; border-right: 1px solid black;">Qc-Person</th>
+            <th style="background-color: #acedc5 ; border-right: 1px solid black;">Developer</th>
+            <th style="background-color: #acedc5 ; border-right: 1px solid black;">Status</th>
+            <th style="background-color: #acedc5 ; border-right: 1px solid black;">Data Quality / Valuation</th>
+            <th style="background-color: #acedc5 ; border-right: 1px solid black;"> Comments</th>
+            <th style="background-color: #acedc5 ; border-right: 1px solid black;"> Edit</th>
+            <th style="background-color: #acedc5 ; border-right: 1px solid black;"> Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="TDbody" *ngFor="let item of filteredData | defect :searchText" style="background-color: white">
+            <td>{{item.id}}</td>
+            <td>{{ item.NEW_ENHANCEMENT }}</td>
+            <td>{{ item.PROJECT_REQUIREMENT }}</td>
+            <td>{{ item.MODULE }}</td>
+            <td>{{ item.START_DATE }}</td>
+            <td>{{ item.COMPLETION_DATE }}</td>
+            <td>{{ item.TAT }}</td>
+            <td>{{ item.REQUEST_BY }}</td>
+            <td>{{ item.QC_PERSON }}</td>
+            <td>{{ item.DEVELOPER }}</td>
+            <td>{{ item.STATUS }}</td>
+            <td>{{ item.DATA_QUALITY_VALUTION }}</td>
+            <td>{{ item.COMMENTS }}</td>
+            <td><i class="far fa-edit" style="color: blue;" (click)="EditData(item)"></i></td>
+            <td><i class="fa-regular fa-trash-can" style="color: red;" (click)="delete(item)"></i> </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+
+  <!-- --------------------------------------------------Updated form----------------------------- -->
+
+  <form [formGroup]="updateForm" (ngSubmit)="Update()" *ngIf="UpdatedData">
+    <h4>UPDATE</h4>
+    <h4 *ngIf="notification" [ngClass]="(isError == true)?'error-notification':'success-notification'">{{notification}}
+    </h4>
+    <div class="line1">
+      <!-- <div>
+      <label for="Enhancement">New / Enhancement:</label>
+      <input type="text" id="Enhancement" formControlName="Enhancement">
+      <div *ngIf="updateForm.get('Enhancement').errors && updateForm.get('Enhancement').touched" class="error-message">
+        <span *ngIf="updateForm.get('Enhancement').hasError('required')" class="error-text">*required</span>
+      </div>
+    </div> -->
+
+      <div>
+        <label for="Enhancement"> New / Enhancement:</label>
+        <select id="Enhancement" formControlName="Enhancement">
+          <option value="">Select</option>
+          <option value="New Project">New Project</option>
+          <option value="Enhancement"> Enhancement</option>
+        </select>
+        <div *ngIf="myForm.get('Enhancement').errors && myForm.get('Enhancement').touched" class="error-message">
+          <span *ngIf="myForm.get('Enhancement').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+
+      <div>
+        <label for="Requirement">Project/Requirement:</label>
+        <input type="text" id="Requirement" formControlName="Requirement">
+        <div *ngIf="updateForm.get('Requirement').errors && updateForm.get('Requirement').touched"
+          class="error-message">
+          <span *ngIf="updateForm.get('Requirement').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="line2">
+      <div>
+        <label for="Module">Report Name:</label>
+        <input type="text" id="Module" formControlName="Module">
+        <div *ngIf="updateForm.get('Module').errors && updateForm.get('Module').touched" class="error-message">
+          <span *ngIf="updateForm.get('Module').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+
+      <div>
+        <label for="Tat">Tat:</label>
+        <input type="text" id="Tat" formControlName="Tat">
+        <div *ngIf="updateForm.get('Tat').errors && updateForm.get('Tat').touched" class="error-message">
+          <span *ngIf="updateForm.get('Tat').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="line3">
+      <div>
+        <label for="StartDate">Start Date:</label>
+        <input type="date" id="StartDate" formControlName="StartDate">
+        <div *ngIf="updateForm.get('StartDate').errors && updateForm.get('StartDate').touched" class="error-message">
+          <span *ngIf="updateForm.get('StartDate').hasError('required')" class="error-text">*required</span>
+          <!-- <span *ngIf="updateForm.get('StartDate').hasError('invalidDate')" class="error-text">Date must be in MM/DD/YYYY format</span> -->
+        </div>
+      </div>
+
+      <div>
+        <label for="CompletionDate">Completion Date:</label>
+        <input type="date" id="CompletionDate" formControlName="CompletionDate">
+        <div *ngIf="updateForm.get('CompletionDate').errors && updateForm.get('CompletionDate').touched"
+          class="error-message">
+          <span *ngIf="updateForm.get('CompletionDate').hasError('required')" class="error-text">*required</span>
+          <!-- <span *ngIf="updateForm.get('CompletionDate').hasError('invalidDate')" class="error-text">Date must be in MM/DD/YYYY format</span> -->
+        </div>
+      </div>
+    </div>
+
+
+    <div class="line4">
+      <!-- <div>
+        <label for="Enhancement">Changes/Enhancement:</label>
+        <input type="text" id="Changes_Enhancement" formControlName="Changes_Enhancement">
+        <div *ngIf="updateForm.get('Changes_Enhancement').errors && updateForm.get('Changes_Enhancement').touched"
+          class="error-message">
+          <span *ngIf="updateForm.get('Changes_Enhancement').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div> -->
+
+      <div>
+        <label for="Status"> Status:</label>
+        <select id="Status" formControlName="Status">
+          <option value="">Select</option>
+          <option value="Pending">Pending</option>
+          <option value="WIP">WIP</option>
+          <option value="Complete">Complete</option>
+          <option value="UAT">UAT</option>
+        </select>
+        <div *ngIf="updateForm.get('Status').errors && updateForm.get('Status').touched" class="error-message">
+          <span *ngIf="updateForm.get('Status').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+
+      <div>
+        <label for="EmpName"> Request by (Emp.Name):</label>
+        <select id="EmpName" formControlName="EmpName">
+          <option value="">Select</option>
+          <option value="Venkatesh N.">Venkatesh N.</option>
+          <option value="Rajesh C.">Rajesh C.</option>
+          <option value="Prakash P.">Prakash P.</option>
+          <option value="Asha">Asha</option>
+          <option value="Sahil">Sahil</option>
+        </select>
+        <div *ngIf="updateForm.get('EmpName').errors && updateForm.get('EmpName').touched" class="error-message">
+          <span *ngIf="updateForm.get('EmpName').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="line5">
+      <div>
+        <label for="QC_Person"> QC Person:</label>
+        
+        <select id="QC_Person" formControlName="QC_Person">
+          <option value="">Select</option>
+          <option value="Rajesh C.">Rajesh C.</option>
+          <option value="Prakash P.">Prakash P.</option>
+          <option value="Asha">Asha</option>
+          <option value="Sahil">Sahil</option>
+          <option value="Laxmi k.">Laxmi k.</option>
+          <option value="Snehal S.">Snehal S.</option>
+        </select>
+        <div *ngIf="updateForm.get('QC_Person').errors && updateForm.get('QC_Person').touched" class="error-message">
+          <span *ngIf="updateForm.get('QC_Person').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+
+      <div>
+        <label for="Developer"> Developer Name:</label>
+        
+        <!-- <select id="Developer" formControlName="Developer">
+          <option value="">Select</option>
+          <option value="Pending">Pending</option>
+          <option value="Prasad P.">Prasad P..</option>
+          <option value="Shivam P.">Shivam P.</option>
+          <option value="Kiranmayi">Kiranmayi</option>
+          <option value="Vasant">Vasant</option>
+          <option value="Mayur">Mayur</option>
+          <option value="Maya">Maya</option>
+          <option value="Ashutosh C">Ashutosh C</option>
+          
+
+        </select> -->
+
+        <select id="Developer" formControlName="Developer">
+          <option value="">Select</option>
+          <option value="Pending">Pending</option>
+          <option value=" On Hold">On Hold</option>
+          <!-- <option value="Prasad P.">Prasad P..</option>
+          <option value="Shivam P.">Shivam P.</option>
+          <option value="Kiranmayi">Kiranmayi</option> -->
+          <option value="Vasant">Vasant</option>
+          <option value="Prasad B">Prasad B</option>
+          <option value="Amol P">Amol P</option>
+          <!-- <option value="Mayur">Mayur</option>
+          <option value="Maya">Maya</option> -->
+          <option value="Ashutosh C">Ashutosh C</option>
+          
+
+
+        </select>
+        <div *ngIf="updateForm.get('Developer').errors && updateForm.get('Developer').touched" class="error-message">
+          <span *ngIf="updateForm.get('Developer').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="line6">
+      <!-- <div>
+        <label for="Status"> Status:</label>
+        <select id="Status" formControlName="Status">
+          <option value="">Select</option>
+          <option value="WIP">WIP</option>
+          <option value="Complete">Complete</option>
+          <option value="UAT">UAT</option>
+        </select>
+        <div *ngIf="updateForm.get('Status').errors && updateForm.get('Status').touched" class="error-message">
+          <span *ngIf="updateForm.get('Status').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div> -->
+
+      <div style="width: 100%;">
+        <label for="Comments">Comments:</label>
+        <input type="text" id="Comments" formControlName="Comments">
+        <div *ngIf="updateForm.get('Comments').errors && updateForm.get('Comments').touched" class="error-message">
+          <span *ngIf="updateForm.get('Comments').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+
+      <div>
+        <label for="Val_Data"> Valuation or Data Quality:</label>
+        <select id="Val_Data" formControlName="Val_Data">
+          <option value="">Select</option>
+          <option value="Valuation">Valuation</option>
+          <option value="DataQuality">DataQuality</option>
+        </select>
+        <div *ngIf="updateForm.get('Val_Data').errors && updateForm.get('Val_Data').touched" class="error-message">
+          <span *ngIf="updateForm.get('Val_Data').hasError('required')" class="error-text">*required</span>
+        </div>
+      </div>
+    </div>
+    <!-- <div style="width: 100%;">
+      <label for="Comments">Comments:</label>
+      <input type="text" id="Comments" formControlName="Comments">
+      <div *ngIf="updateForm.get('Comments').errors && updateForm.get('Comments').touched" class="error-message">
+        <span *ngIf="updateForm.get('Comments').hasError('required')" class="error-text">*required</span>
+      </div>
+    </div> -->
+    <button class="btn btn-primary submit" type="submit">Update</button>
+  </form>
+</div>
+
+
+<!-- -----------------------------------------Loader -------------------------------------------------- -->
+
+
+<div class="my-overlay1" *ngIf="showOverlay" style="display: flex; flex-direction: column; ">
+  <div class="ring">Loading...
+    <span></span>
+  </div>
+</div>

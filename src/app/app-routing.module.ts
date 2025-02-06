@@ -33,11 +33,25 @@ import { MISComponent } from './mis/mis.component';
 import { MISDashboardComponent } from './misdashboard/misdashboard.component';
 import { MisModuleComponent } from './mis-module/mis-module.component';
 import { MisGraphComponent } from './mis-graph/mis-graph.component';
+import { MainValuationComponent } from './main-valuation/main-valuation.component';
+import { AllModuleGraphComponent } from './all-module-graph/all-module-graph.component';
+import { ValSummaryComponent } from './val-summary/val-summary.component';
+import { AllSummaryComponent } from './all-summary/all-summary.component';
+import { ProjectTrackerComponent } from './project-tracker/project-tracker.component';
+import { ValuationMisComponent } from './valuation-mis/valuation-mis.component';
+import { ValuationDashboardComponent } from './valuation-dashboard/valuation-dashboard.component';
+import { MonthOnMonthComponent } from './month-on-month/month-on-month.component';
+import { MBoundarydashComponent } from './mboundarydash/mboundarydash.component';
+import { BoundarysComponent } from './boundarys/boundarys.component';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path:'mis',
+  component : MISComponent
   },
   {
     path: '',
@@ -171,10 +185,10 @@ const routes: Routes = [
         path:'update-data',
       component : UpdateDataComponent
       },
-      {
-        path:'mis',
-      component : MISComponent
-      },
+      // {
+      //   path:'mis',
+      // component : MISComponent
+      // },
       {
         path:'mis-Dashboard',
       component : MISDashboardComponent
@@ -187,6 +201,46 @@ const routes: Routes = [
         path:'mis-graph',
       component : MisGraphComponent
       },
+      {
+        path:'main-valuation',
+        component:MainValuationComponent
+      },
+      {
+        path:'all-module-graph',
+        component:AllModuleGraphComponent
+      },
+      {
+        path: 'val-summary',
+        component: ValSummaryComponent
+      },
+      {
+        path: 'All-Summary',
+        component: AllSummaryComponent
+      },
+      {
+        path: 'Project-Tracker',
+        component: ProjectTrackerComponent
+      },
+      {
+        path: 'Val-Mis',
+        component:ValuationMisComponent
+      },
+      {
+        path: 'Val-Dashboard',
+        component: ValuationDashboardComponent
+      },
+      {
+        path: 'Val-MonthOnMonth',
+        component:MonthOnMonthComponent
+      },
+      {
+        path:'Mboundry',
+        component:MBoundarydashComponent
+      },
+      {
+        path: 'boundarys',
+        component:BoundarysComponent
+      }
 
     ]
   }

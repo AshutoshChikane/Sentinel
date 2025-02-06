@@ -1,0 +1,226 @@
+<div style="background-color: white; ">
+
+  <div class="redirectPage" style="padding: 0%;">
+    <div class="search_export">
+      <!-- <div style=" margin-top: 20px; display: flex;">
+                <label><b>Date : &nbsp;</b></label>
+                <p class="searchinput search-field" style="color: blue; font-weight: bold;">{{Date}} </p>
+              </div> -->
+
+      <div style=" margin-top: 21px;">
+        <label><b>Search : &nbsp;</b></label>
+        <input class="searchinput search-field" type="text" [(ngModel)]="searchText" placeholder=" Search..."
+          style="width: 200px;" />
+      </div>
+
+      <!-- <div style=" margin-top: 25px;" ><h6>02/22/2024</h6></div> -->
+
+      <div style="display: flex;">
+        <div style="display: flex; padding-bottom: 6px;">
+          <label style="margin-top: 25px;"><b> Run Date: &nbsp;</b></label>
+          <div style="display: grid;">
+            <label><b>From</b></label>
+            <input class="searchinput search-field" type="date" [(ngModel)]="FromDate" placeholder="from"
+              style="width: 150px" />
+          </div>
+          <div style="margin-left: 8px; display: grid;">
+            <label><b> To</b></label>
+            <input class="searchinput search-field" type="date" [(ngModel)]="ToDate" placeholder="To"
+              style="width: 150px;" />
+          </div>
+        </div>
+        <div style="margin-top: 20px;">
+          <button mat-raised-button matTooltip="Send" color="primary" (click)="SendData()" style="margin-left: 10px;">
+            Submit </button>
+          <button mat-raised-button color="primary" *ngIf="currentDateExport" (click)="exportAsBeforeFilterCSV()"
+            style="margin-left: 10px;"> Export </button>
+          <button mat-raised-button color="primary" *ngIf="filterDateExport" (click)="exportAsAfterFilterCSV()"
+            style="margin-left: 10px;"> Export </button>
+          <button mat-raised-button color="primary" [routerLink]="['/dashboard-page/']" style="margin-left: 10px;"> Back
+          </button>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <div style="background-color: white ;padding: 0% 2% 2% 2%;">
+    <div *ngIf="openConfirmationBox">
+      <div style="width: -webkit-fill-available;height: 30%; position: absolute; z-index: 99999999999999999;">
+        <div style="padding: 30%; padding-top: 50px;padding-bottom: 0;">
+          <div class="customAlert" [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'">
+
+
+            <div class="messageheader">
+              {{ messageType }}
+            </div>
+            <div class="messagebody" style="font-weight: 500;padding-left: 30px; padding-bottom: 10px;">
+              {{ message }}
+            </div>
+            <div class="messagebody messageDetails">
+              {{ messagePopup }}
+            </div>
+            <div class="msgImg">
+              <img [src]="ImagePath">
+            </div>
+            <div class="popupDivBtn">
+              <button class="popupBtn" (click)="showAlert('OK')">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div *ngIf="displayMessage" style="padding: 30%; padding-top: 50px;padding-bottom: 0;position: absolute;">
+      <div class="customAlert" [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'" style="
+                height: 190px;
+                border: groove;
+                box-shadow: 5px 10px #888888;">
+        <div class="messageheader" style="padding: 30px;font-weight: 500;font-size: 25px;padding-bottom: 15px;
+                                            background: #f16af8;color: white;
+                                            padding-top: 10px;margin-bottom: 15px">
+          <!-- Information Message :   -->
+          {{ messageType }}
+        </div>
+        <div class="messagebody" style="font-weight: 500;padding-left: 30px; padding-bottom: 10px;">
+          <!-- server [ error_code : 1 ]  -->
+          {{ message }}
+        </div>
+        <div class="messagebody" style="text-align: center;font-weight: 500;font-size: 20px;">
+          <!-- No Data Available -->
+          {{ messageDetails }}
+        </div>
+
+        <div style="text-align: right;margin-top: 30px;padding-right: 30px;">
+          <button style="width: 20%;height: 30px;" (click)="showMessage()">OK</button>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="gridtable" *ngIf="SummaryTable">
+      <table class="table table-striped table-bordered">
+        <thead class="bg-primary">
+          <tr style="height: 55px;">
+            <th style="background-color: #bee5f5">Report Name</th>
+            <th style="background-color: #fec791">Frequency</th>
+            <!-- <th style="background-color: #dad6ff">Run Date</th> -->
+            <th style="background-color: #d4b7ee">Total Records</th>
+            <th style="background-color:#acedc5">Pass Count</th>
+            <th style="background-color: #f19fa3;">Fail Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="TDbody" *ngFor="let item of Data | defect : searchText" style="background-color: white">
+            <td style="font-weight: 600;">{{ item.REPORTNAME }}</td>
+            <td>{{ item.FREQUENCY }}</td>
+            <!-- <td>{{ item.REPORT_DATE }}</td> -->
+            <td>{{ item.TOTAL_RECORD }}</td>
+            <td>{{ item.PASS_COUNT }}</td>
+            <td>{{ item.FAIL_COUNT }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+    <div class="gridtable" *ngIf="SummaryDateFormat">
+      <table class="table table-striped table-bordered">
+        <thead class="bg-primary">
+          <tr style="height: 55px;">
+            <th style="background-color: #bee5f5">Report Name</th>
+            <th style="background-color: #fec791">Frequency</th>
+            <!-- <th style="background-color: #dad6ff">Run Date</th> -->
+            <th style="background-color: #d4b7ee">Total Records</th>
+            <th style="background-color:#acedc5">Pass Count</th>
+            <th style="background-color: #f19fa3;">Fail Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="TDbody" *ngFor="let item of Datas | defect : searchText" style="background-color: white">
+            <td style="font-weight: 600;">{{ item.REPORTNAME }}</td>
+            <td>{{ item.FREQUENCY }}</td>
+            <!-- <td>{{ item.REPORT_DATE }}</td> -->
+            <td>{{ item.TOTAL_RECORD }}</td>
+            <td>{{ item.PASS_COUNT }}</td>
+            <td>{{ item.FAIL_COUNT }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ================================Loader==================================== -->
+<div class="my-overlay1" *ngIf="QCloder" style="display: flex; flex-direction: column;">
+  <div class="ring">Loading...
+    <span></span>
+  </div>
+</div>
+
+
+
+<!-- =============================================================== -->
+
+<!-- <table>
+  <tr>
+    <th>Name</th>
+    <th>Subject</th>
+    <th>Marks</th>
+  </tr>
+  <tr *ngFor="let item of jsonData">
+    <td >{{ item.name || '-' }}</td>
+    <td>{{ item.subject || '00'}}</td>
+    <td *ngFor="let mark of item.marks">{{ mark }}</td>
+  </tr>
+</table> -->
+
+
+
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th scope="col">Poster name</th>
+      <th scope="col">Color</th>
+      <th scope="col">Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="6" scope="rowgroup">Zodiac</th>
+      <th rowspan="3" scope="rowgroup" >Full color</th>
+    <td>1</td>
+   
+    </tr>
+    <tr>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th rowspan="3" scope="rowgroup">Black and white</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>13</td>
+    </tr>
+  </tbody>
+</table> -->
+
+
+
+
+
+
+

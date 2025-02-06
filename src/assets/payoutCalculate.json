@@ -22,7 +22,7 @@
       "uin": 568999,
       "dateOfSubmission": "2021/06/04",
       "PQ_QC_FLAG":"Fail",
-      "PQ_QC_REMARKS":"Clear case but MF not recovered" 
+      "PQ_QC_REMARKS":["Option 1","Option 2", "Option 3", "other" ]
     },
     {
       "POLICY_NO": "1G826775502",

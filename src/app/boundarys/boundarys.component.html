@@ -1,0 +1,686 @@
+
+  <!-- <div style="display: flex; justify-content: space-between;">
+    <div style="display: flex; gap: 10px;" class="mt-2">
+      <button type="button" class="btn btn-primary" (click)="addNew()">Add</button>
+      <button type="button" class="btn btn-primary" (click)="showExisting()">Existing</button>
+     
+    </div>
+    <div>
+      <button class="mt-3 ml-2"   style="float: left; margin-right: 20px;" *ngIf="showexisting" mat-raised-button matTooltip="Export policy data to excel sheet" color="primary" (click)="exportAsXLSX()" >
+        Export To Excel
+    </button>
+    </div>
+  </div> -->
+
+  <!-- <div style="
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 15px 20px; 
+  background: #f8f9fa; 
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+">
+  
+  <div style="display: flex; gap: 15px;">
+    <button type="button" class="btn btn-primary" style="padding: 8px 20px; font-weight: 600;" (click)="addNew()">  
+      ➕ Add
+    </button>
+    <button type="button" class="btn btn-outline-primary" style="padding: 8px 20px; font-weight: 600;" (click)="showExisting()">
+      📁 Existing
+    </button>
+
+
+  <button type="button" class="btn btn-danger" (click)="showFailedCases()">
+    ❌ Failed Cases
+  </button>
+  </div>
+
+ 
+  <div *ngIf="showexisting">
+    <button mat-raised-button 
+      matTooltip="Export policy data to Excel sheet" 
+      color="accent"
+      (click)="exportAsXLSX()" 
+      class="btn btn-success"
+      style="padding: 8px 20px; font-weight: 600;">
+      ⬇️ Export To Excel
+    </button>
+  </div>
+</div> -->
+
+
+<div style="
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+">
+  <!-- Left Section -->
+  <div style="display: flex; gap: 15px;">
+    <button type="button" class="btn btn-primary" style="padding: 8px 20px; font-weight: 600;" (click)="addNew()">  
+      ➕ Add
+    </button>
+    <button type="button" class="btn btn-outline-primary" style="padding: 8px 20px; font-weight: 600;" (click)="showExisting()">
+      📁 Existing
+    </button>
+    <button type="button" class="btn btn-danger" style="padding: 8px 20px; font-weight: 600;" (click)="showFailedCases()">
+      ❌ Failed Cases
+    </button>
+  </div>
+
+  <!-- Right Section -->
+  <div *ngIf="showexisting">
+    <button mat-raised-button 
+      matTooltip="Export policy data to Excel sheet" 
+      color="accent"
+      (click)="exportAsXLSX()" 
+      class="btn btn-success"
+      style="padding: 8px 20px; font-weight: 600;">
+      ⬇️ Export To Excel
+    </button>
+  </div>
+  <div *ngIf="showfailed">
+    <button mat-raised-button 
+      matTooltip="Export policy data to Excel sheet" 
+      color="accent"
+      (click)="exportAsXLSXFAiled()" 
+      class="btn btn-success"
+      style="padding: 8px 20px; font-weight: 600;">
+      ⬇️ Export To Excel
+    </button>
+  </div>
+</div>
+
+  <div class="container mt-5" *ngIf="showNew">
+    <h2 class="mb-4" style="color: #b714e6;">Product Plan Form</h2>
+    <form [formGroup]="productPlanForm" class="row g-3">
+      <!-- Plan ID -->
+      <div class="col-4 mt-2">
+        <label for="planId" class="form-label">Plan ID</label>
+        <input type="text" id="planId" class="form-control" formControlName="planId" placeholder="Enter Plan ID" />
+      </div>
+
+      <div class="col-4 mt-2">
+        <label for="PlanType" class="form-label">Plan Type</label>
+        <input type="text" id="PlanType" class="form-control" formControlName="PlanType"
+          placeholder="Enter Plan Type" />
+      </div>
+
+      <div class="col-4 mt-2">
+        <label for="UIN" class="form-label">UIN</label>
+        <input type="text" id="UIN" class="form-control" formControlName="UIN" placeholder="Enter UIN" />
+      </div>
+
+
+      <!-- System -->
+      <div class="col-4 mt-2">
+        <label for="system" class="form-label">System</label>
+        <select id="system" class="form-select" formControlName="system">
+          <option value="" disabled>Select System</option>
+          <option>UAT</option>
+          <option>Production</option>
+        </select>
+      </div>
+
+      <!-- Minimum Entry Age -->
+      <div class="col-4 mt-2">
+        <label for="minimumEntryAge" class="form-label">Minimum Entry Age</label>
+        <input type="text" id="minimumEntryAge" class="form-control" formControlName="minimumEntryAge" />
+      </div>
+
+      <!-- Maximum Entry Age -->
+      <div class="col-4 mt-2">
+        <label for="maximumEntryAge" class="form-label">Maximum Entry Age</label>
+        <input type="text" id="maximumEntryAge" class="form-control" formControlName="maximumEntryAge" />
+      </div>
+
+      <!-- Minimum Term -->
+      <div class="col-4 mt-2">
+        <label for="minimumTerm" class="form-label">Minimum Term</label>
+        <input type="text" id="minimumTerm" class="form-control" formControlName="minimumTerm" />
+      </div>
+
+      <!-- Maximum Term -->
+      <div class="col-4 mt-2">
+        <label for="maximumTerm" class="form-label">Maximum Term</label>
+        <input type="text" id="maximumTerm" class="form-control" formControlName="maximumTerm" />
+      </div>
+
+      <!-- Minimum SA -->
+      <div class="col-4 mt-2">
+        <label for="minSA" class="form-label">Minimum SA</label>
+        <input type="text" id="minSA" class="form-control" formControlName="minSA" />
+      </div>
+
+      <!-- Maximum SA -->
+      <div class="col-4 mt-2">
+        <label for="maxSA" class="form-label">Maximum SA</label>
+        <input type="text" id="maxSA" class="form-control" formControlName="maxSA" />
+      </div>
+
+      <!-- Minimum PPT -->
+      <div class="col-4 mt-2">
+        <label for="minPPT" class="form-label">Minimum PPT</label>
+        <input type="text" id="minPPT" class="form-control" formControlName="minPPT" />
+      </div>
+
+      <!-- Maximum PPT -->
+      <div class="col-4 mt-2">
+        <label for="maxPPT" class="form-label">Maximum PPT</label>
+        <input type="text" id="maxPPT" class="form-control" formControlName="maxPPT" />
+      </div>
+
+      <!-- Minimum Cover Start Date -->
+      <div class="col-4 mt-2">
+        <label for="minCoverStartDate" class="form-label">Minimum Cover Start Date</label>
+        <mat-form-field appearance="fill">
+          <!-- <mat-label>Minimum Cover Start Date</mat-label> -->
+          <input matInput [matDatepicker]="minCoverStartDatePicker" id="minCoverStartDate"
+            formControlName="minCoverStartDate" placeholder="Choose a date" />
+          <mat-datepicker-toggle matSuffix [for]="minCoverStartDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #minCoverStartDatePicker startView="multi-year"></mat-datepicker>
+        </mat-form-field>
+
+      </div>
+
+
+
+      <!-- Revival Interest -->
+      <div class="col-4 mt-2">
+        <label for="revivalInterest" class="form-label">Revival Interest (%)</label>
+        <input type="text" id="revivalInterest" class="form-control" formControlName="revivalInterest" step="0.01" />
+      </div>
+
+      <!-- Loan Interest -->
+      <div class="col-4 mt-2">
+        <label for="loanInterest" class="form-label">Loan Interest (%)</label>
+        <input type="text" id="loanInterest" class="form-control" formControlName="loanInterest" step="0.01" />
+      </div>
+
+      <!-- Backdating Interest -->
+      <div class="col-4 mt-2">
+        <label for="backDatingInterest" class="form-label">Backdating Interest (%)</label>
+        <input type="text" id="backDatingInterest" class="form-control" formControlName="backdatingInterest"
+          step="0.01" />
+      </div>
+
+      <!-- GST Rate for Backdated Interest -->
+      <div class="col-4 mt-2">
+        <label for="gstBackdatedInterest" class="form-label">GST Rate - Backdated Interest (%)</label>
+        <input type="text" id="gstBackdatedInterest" class="form-control" formControlName="gstRateBackdatedInterest"
+          step="0.01" />
+      </div>
+
+      <!-- GST Rate for Revival Interest -->
+      <div class="col-4 mt-2">
+        <label for="gstRateRevivalInterest" class="form-label">GST Rate - Revival Interest (%)</label>
+        <input type="text" id="gstRevivalInterest" class="form-control" formControlName="gstRateRevivalInterest"
+          step="0.01" />
+      </div>
+
+      <!-- Duplicate Policy Charge -->
+      <div class="col-4 mt-2">
+        <label for="duplicatePolicyCharge" class="form-label">Duplicate Policy Charge</label>
+        <input type="text" id="duplicatePolicyCharge" class="form-control" formControlName="duplicatePolicyCharge" />
+      </div>
+
+      <div class="col-4 mt-2">
+        <label for="emr" class="form-label">EMR</label>
+        <input type="text" id="emr" class="form-control" formControlName="emr" />
+      </div>
+
+      <div class="col-4 mt-2">
+        <label for="nsap" class="form-label">NSAP</label>
+        <input type="text" id="duplicatePolicyCharge" class="form-control" formControlName="nsap" />
+      </div>
+
+
+
+
+
+      <div class="col-4 mt-2">
+        <label for="gaRateInforce" class="form-label">GA Rate - Inforce
+        </label>
+        <input type="text" id="gaRateInforce" class="form-control" formControlName="gaRateInforce" />
+      </div>
+
+      <div class="col-4 mt-2">
+        <label for="gaRateLapse" class="form-label">GA Rate - Lapse
+        </label>
+        <input type="text" id="gaRateLapse" class="form-control" formControlName="gaRateLapse" />
+      </div>
+
+      <!-- Admin Charges -->
+      <div class="col-4 mt-2">
+        <label for="adminCharges" class="form-label">Admin Charges</label>
+        <input type="text" id="adminCharges" class="form-control" formControlName="adminCharges" />
+      </div>
+
+      <!-- Minimum Maturity Age -->
+      <div class="col-4 mt-2">
+        <label for="minimumMaturityAge" class="form-label">Minimum Maturity Age</label>
+        <input type="text" id="minimumMaturityAge" class="form-control" formControlName="minimumMaturityAge" />
+      </div>
+
+      <!-- Maximum Maturity Age -->
+      <div class="col-4 mt-2">
+        <label for="maximumMaturityAge" class="form-label">Maximum Maturity Age</label>
+        <input type="text" id="maximumMaturityAge" class="form-control" formControlName="maximumMaturityAge" />
+      </div>
+
+
+      <div class="col-4 mt-2">
+        <label for="minimumPremium" class="form-label">Minimum Premium</label>
+        <input type="text" id="minimumPremium" class="form-control" formControlName="minimumPremium" />
+      </div>
+
+
+      <div class="col-4 mt-2">
+        <label for="maximumPremium" class="form-label">Maximun Premium</label>
+        <input type="text" id="maximumPremium" class="form-control" formControlName="maximumPremium" />
+      </div>
+
+      <div class="col-4 mt-2">
+        <label for="discontinuanceCharges" class="form-label">Discontinuance Charges</label>
+        <input type="text" id="discontinuanceCharges" class="form-control" formControlName="discontinuanceCharges" />
+      </div>
+
+      <div class="col-4 mt-2">
+        <label for="fundSwitchesAllowed" class="form-label">Funds Switch Allowed</label>
+        <input type="text" id="fundSwitchesAllowed" class="form-control" formControlName="fundSwitchesAllowed" />
+      </div>
+
+
+      <div class="col-4 mt-2">
+        <label for="fundSwitchesAllowed" class="form-label">Premium Payment Frequency</label>
+        <input type="text" class="form-control" formControlName="premiumPaymentFrequency" />
+      </div>
+
+
+      <div class="col-4 mt-2">
+        <label for="loyaltyAdditionCriteria" class="form-label">Loyality Addition Criteria</label>
+        <input type="text" class="form-control" formControlName="loyaltyAdditionCriteria" />
+      </div>
+
+
+      <div class="col-4 mt-2">
+        <label for="staffDiscountApplicability" class="form-label">Staff Discount Appliciablity</label>
+        <input type="text" class="form-control" formControlName="staffDiscountApplicability" />
+      </div>
+
+
+      <div class="col-4 mt-2">
+        <label for="ridersPermitted" class="form-label">Riders Permitted</label>
+        <input type="text" class="form-control" formControlName="ridersPermitted" />
+      </div>
+
+
+      <div class="col-4 mt-2">
+        <label for="allocationCharges" class="form-label">Allocation Charges</label>
+        <input type="text" class="form-control" formControlName="allocationCharges" />
+      </div>
+
+      <div class="col-4 mt-2">
+        <label for="samf" class="form-label">SAMF</label>
+        <input type="text" class="form-control" formControlName="samf" />
+      </div>
+
+
+      <div class="col-3 mt-2">
+        <label for="gracePeriod" class="form-label">Grace Period </label>
+        <input type="text" class="form-control" formControlName="gracePeriod" />
+      </div>
+
+
+
+
+
+
+      <div class="col-3 mt-2">
+        <label for="revivalPeriod" class="form-label">Revival Period</label>
+        <input type="text" class="form-control" formControlName="revivalPeriod" />
+      </div>
+
+
+      <div class="col-3 mt-2">
+        <label for="flcMortalityRate" class="form-label">FLC Mortality Rate</label>
+        <input type="text" class="form-control" formControlName="flcMortalityRate" />
+      </div>
+
+      <div class="col-3 mt-2">
+        <label for="stampDuty" class="form-label">Stamp Duty</label>
+        <input type="text" class="form-control" formControlName="stampDuty" />
+      </div>
+
+      <!-- Submit Button -->
+      <!-- {{productPlanForm.valid}} -->
+      <div class="col-12">
+            <button type="button" (click)="onSubmit()" class="btn btn-primary" >Submit</button>
+          </div>
+
+      <!-- <div class="fixed-footer ">
+
+        <button type="button" (click)="onSubmit()" class="btn btn-primary">Submit</button>
+      </div> -->
+    </form>
+  </div>
+
+
+
+
+  <div class=" mt-5 " *ngIf="showexisting">
+    <!-- <div class="mb-2" style="display: flex;  align-items: center;">
+      <label><b>Search : &nbsp;</b></label>
+      <input class="form-control searchinput search-field mb-2" type="text" [(ngModel)]="searchText"
+        placeholder="Search..." style="width: auto;" />
+
+    </div> -->
+
+    <div class="search-container mb-2 mx-2">
+      <span class="search-icon">🔍</span>
+      <input class="searchinput" type="text" [(ngModel)]="searchText" placeholder="Search...">
+    </div>
+    
+    <form>
+      <table class="table table-bordered table-striped">
+        <thead class="thead-light">
+          <tr>
+            <th>Plan ID </th>
+            <th>Plan Type</th>
+            <th>Plan Name</th>
+            <!-- <th>Table Value (Fixed)</th>
+                <th>Pass / Fail (Fixed)</th>
+                <th>Comments</th>-->
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dat of plansData | defect :searchText">
+            <!-- <td></td> -->
+            <td>
+              <!-- <input  class="form-control" /> -->
+              {{dat.PLAN_ID}}
+            </td>
+            <td>
+              <!-- <input class="form-control"  /> -->
+              {{dat.PLAN_TYPE}}
+            </td>
+            <td>
+              <!-- <input class="form-control" readonly /> -->
+              {{dat.PRODUCT_NAME}}
+            </td>
+            <!-- <td>
+                  <input  class="form-control" readonly />
+                </td>
+                <td>
+                  <input  class="form-control"  />
+                </td> -->
+            <td>
+              <button type="button" class="btn btn-primary" (click)="editPlan(dat.PLAN_ID,'edit')">
+                Edit
+              </button>
+              <button type="button" class="btn btn-success mx-2" (click)="editPlan(dat.PLAN_ID,'view')">
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+
+
+  <!-- <form [formGroup]="productForm">
+        <div>
+          <label for="product_Code">Product Code:</label>
+          <input id="product_Code" formControlName="product_Code" />
+        </div>
+      
+        <div>
+          <label for="plan_id">Plan ID:</label>
+          <input id="plan_id" formControlName="plan_id" />
+        </div>
+      
+        <div>
+          <label for="plan_type">Plan Type:</label>
+          <input id="plan_type" formControlName="plan_type" />
+        </div>
+      
+        <div>
+          <label for="product_name">Product Name:</label>
+          <input id="product_name" formControlName="product_name" />
+        </div>
+      
+        <div>
+          <label for="system">System:</label>
+          <input id="system" formControlName="system" />
+        </div>
+      
+        <div>
+          <label for="uin">UIN:</label>
+          <input id="uin" formControlName="uin" />
+        </div>
+      
+        <div formArrayName="sub_data">
+          <div *ngFor="let subGroup of productForm.get('sub_data').controls; let i = index" [formGroupName]="i">
+            <div>
+              <label for="type_of_checks_{{ i }}">Type of Checks:</label>
+              <input id="type_of_checks_{{ i }}" formControlName="type_of_checks" />
+            </div>
+      
+            <div>
+              <label for="observation_{{ i }}">Observation:</label>
+              <input id="observation_{{ i }}" formControlName="observation" />
+            </div>
+      
+            <div>
+              <label for="duff_values_{{ i }}">Duff Values:</label>
+              <input id="duff_values_{{ i }}" formControlName="duff_values" />
+            </div>
+      
+            <div>
+              <label for="table_value_{{ i }}">Table Value:</label>
+              <input id="table_value_{{ i }}" formControlName="table_value" />
+            </div>
+      
+            <div>
+              <label for="Passfail_{{ i }}">Pass/Fail:</label>
+              <input id="Passfail_{{ i }}" formControlName="Passfail" />
+            </div>
+          </div>
+        </div>
+      
+        <button type="submit" (click)="edits()">Submit</button>
+      </form> -->
+
+  <!-- 
+      <div class="form-container mt-5" *ngIf="editrecord">
+        <form [formGroup]="productForm">
+          <div class="table-wrapper">
+            <table class="form-table" formArrayName="sub_data">
+              <thead class="thead-light">
+                <tr>
+                  <th>Type of check </th>
+                  <th>Observation</th>
+                  <th> DUFF</th>
+                  <th>Tabel Value</th>
+                  <th>Pass/Fail</th>
+                  <th>Comments</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let subGroup of productForm.get('sub_data').controls; let i = index" [formGroupName]="i">
+                  <td><input id="type_of_checks_{{ i }}" formControlName="type_of_checks" class="form-input" readonly /></td>
+                  <td><input id="observation_{{ i }}" formControlName="observation" class="form-input" /></td>
+                  <td><input id="duff_values_{{ i }}" formControlName="duff_values" class="form-input" /></td>
+                  <td><input id="table_value_{{ i }}" formControlName="table_value" class="form-input" readonly/></td>
+                  <td><input id="Passfail_{{ i }}" formControlName="Passfail" class="form-input" readonly/></td>
+                  <td><input id="comments{{ i }}" formControlName="comments" class="form-input" /></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </form>
+      
+       
+        <div class="fixed-footer">
+          <button type="button" (click)="onSubmit()" class="btn btn-primary">Submit</button>
+        </div>
+      </div> -->
+
+
+  <div class="form-container mt-5" *ngIf="editrecord">
+    <form [formGroup]="productForm">
+      <div class="table-wrapper">
+        <table class="table-container form-table" formArrayName="sub_data">
+          <thead class="thead-light">
+            <tr>
+              <th>Type of check </th>
+              <th>Observation</th>
+              <th>DUFF</th>
+              <th>Table Value</th>
+              <th *ngIf="isview">Pass/Fail</th>
+              <th>Comments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let subGroup of productForm.get('sub_data').controls; let i = index" [formGroupName]="i">
+              <td><input id="type_check{{ i }}" formControlName="type_check" class="form-input" readonly /></td>
+              <td><input id="observation_{{ i }}" formControlName="observation" class="form-input" /></td>
+              <td><input id="duff_values_{{ i }}" formControlName="duff_values" class="form-input" /></td>
+              <td><input id="table_value_{{ i }}" formControlName="table_value" class="form-input" readonly /></td>
+              <td *ngIf="isview"><input id="Passfail_{{ i }}" formControlName="Passfail" class="form-input" readonly />
+              </td>
+              <td><input id="comments{{ i }}" formControlName="comments" class="form-input" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </form>
+
+
+
+    
+    
+    <!-- Fixed Footer -->
+    <div class="fixed-footer">
+      <button *ngIf="!isview" type="button" (click)="onSave()" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+
+
+
+  <div class=" mt-4" *ngIf="showfailed">
+    <!-- <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>PLAN ID</th>
+          <th>PLAN TYPE</th>
+          <th>PRODUCT NAME</th>
+          <th>UIN</th>
+          <th>SYSTEM</th>
+          <th>TYPE CHECK</th>
+          <th>TABLE VALUE</th>
+          <th>DUFF VALUES</th>
+          <th>RESULT</th>
+          <th>OBSERVATION</th>
+          <th>COMMENTS</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of failedData">
+          <td><b>{{data.PLAN_ID}}</b></td>
+          <td>{{data.PLAN_TYPE}}</td>
+          <td>{{data.PRODUCT_NAME}}</td>
+          <td>{{data.UIN}}</td>
+          <td>{{data.SYSTEM}}</td>
+          <td>{{data.TYPE_CHECK}}</td>
+          <td>{{data.TABLE_VALUE}}</td>
+          <td>{{data.DUFF_VALUES}}</td>
+          <td>{{data.RESULT}}</td>
+          <td>{{data.OBSERVATION}}</td>
+          <td>{{data.COMMENTS}}</td>
+        </tr>
+      </tbody>
+    </table> -->
+
+    <!-- <table class="table table-bordered table-hover custom-table">
+      <thead class="thead-dark text-center">
+        <tr>
+          <th>PLAN ID</th>
+          <th>PLAN TYPE</th>
+          <th>PRODUCT NAME</th>
+          <th>UIN</th>
+          <th>SYSTEM</th>
+          <th>TYPE CHECK</th>
+          <th>TABLE VALUE</th>
+          <th>DUFF VALUES</th>
+          <th>RESULT</th>
+          <th>OBSERVATION</th>
+          <th>COMMENTS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of failedData" [ngClass]="{'fail-result': data.RESULT === 'FAIL'}">
+          <td><b>{{ data.PLAN_ID }}</b></td>
+          <td>{{ data.PLAN_TYPE }}</td>
+          <td>{{ data.PRODUCT_NAME }}</td>
+          <td>{{ data.UIN }}</td>
+          <td>{{ data.SYSTEM }}</td>
+          <td>{{ data.TYPE_CHECK }}</td>
+          <td>{{ data.TABLE_VALUE }}</td>
+          <td>{{ data.DUFF_VALUES }}</td>
+          <td class="text-center">{{ data.RESULT }}</td>
+          <td>{{ data.OBSERVATION }}</td>
+          <td>{{ data.COMMENTS }}</td>
+        </tr>
+      </tbody>
+    </table> -->
+    <!-- Table Wrapper with Fixed Height -->
+<!-- Table Wrapper with Scroll -->
+<div class="table-container mt-4" *ngIf="showfailed">
+  <table class="table table-bordered table-hover">
+    <thead class="thead-dark text-center">
+      <tr>
+        <th>PLAN ID</th>
+        <th>PLAN TYPE</th>
+        <th>PRODUCT NAME</th>
+        <th>UIN</th>
+        <th>SYSTEM</th>
+        <th>TYPE CHECK</th>
+        <th>TABLE VALUE</th>
+        <th>DUFF VALUES</th>
+        <th>RESULT</th>
+        <th>OBSERVATION</th>
+        <th>COMMENTS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of failedData" [ngClass]="{'fail-result': data.RESULT === 'FAIL'}">
+        <td><b>{{ data.PLAN_ID }}</b></td>
+        <td>{{ data.PLAN_TYPE }}</td>
+        <td>{{ data.PRODUCT_NAME }}</td>
+        <td>{{ data.UIN }}</td>
+        <td>{{ data.SYSTEM }}</td>
+        <td>{{ data.TYPE_CHECK }}</td>
+        <td>{{ data.TABLE_VALUE }}</td>
+        <td>{{ data.DUFF_VALUES }}</td>
+        <td class="text-center">{{ data.RESULT }}</td>
+        <td>{{ data.OBSERVATION }}</td>
+        <td>{{ data.COMMENTS }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+  </div>

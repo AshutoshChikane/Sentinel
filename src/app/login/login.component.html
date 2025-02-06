@@ -1,5 +1,4 @@
 <body class="loginpg">
-  
   <mat-expansion-panel class="login-box" expanded="true" hideToggle="true" disabled="true"
     style="box-shadow: 0px 0px 7px rgba(234, 232, 232, 0.94);">
     <mat-expansion-panel-header style="padding-bottom: 10px;">
@@ -15,8 +14,9 @@
     <form [formGroup]="signInForm" (keyup.enter)="submit()">
       <div class="field">
         <mat-label style="color: white;">Select User Type</mat-label>
-        <mat-form-field class="labelFont" >
-          <mat-select style="background-color: white; padding: 8px; border-radius: 15px;" [(value)]="selected" formControlName="user_type" required>
+        <mat-form-field class="labelFont">
+          <mat-select style="background-color: white; padding: 8px; border-radius: 15px;" [(value)]="selected"
+            formControlName="user_type" required>
             <mat-option>None</mat-option>
             <mat-option value="Developer">Approver</mat-option>
             <mat-option value="Tester">Checker</mat-option>
@@ -25,19 +25,20 @@
       </div>
       <div class="field">
         <mat-label style="color: white;">Enter user id</mat-label>
-        <mat-form-field class="labelFont" >
-          <input style="background-color: white; padding: 8px; border-radius: 15px;" matInput type="text" name="user_id" formControlName="user_id" placeholder="Enter user id"
-            autocomplete="off" required>
+        <mat-form-field class="labelFont">
+          <input style="background-color: white; padding: 8px; border-radius: 15px;" matInput type="text" name="user_id"
+            formControlName="user_id" placeholder="Enter user id" autocomplete="off" required>
         </mat-form-field>
       </div>
       <div class="field">
         <mat-label style="color: white;">Enter Password</mat-label>
         <mat-form-field class="labelFont">
-          <input style="background-color: white; padding: 8px;  border-radius: 15px;" id="txtPassword" matInput appBlockCopyPaste type="text" formControlName="password" name="password"
-            placeholder="Enter Password" autocomplete="off" required>
+          <input style="background-color: white; padding: 8px;  border-radius: 15px;" id="txtPassword" matInput
+            appBlockCopyPaste type="text" formControlName="password" name="password" placeholder="Enter Password"
+            autocomplete="off" required>
         </mat-form-field>
       </div>
-      
+
     </form>
     <div *ngIf="account_locked" style="margin-bottom: 20px; color: red;">
       {{errorMessage}}
@@ -47,8 +48,8 @@
     <button style="margin-right: 10px;"   (click)="resetPassword()" mat-raised-button color="primary">Change Password
     </button>
     -->
-      <button  (click)="submit()" [disabled]="!canSubmit() || account_locked" mat-raised-button
-        color="primary" style="font-size: 18px;">
+      <button (click)="submit()" [disabled]="!canSubmit() || account_locked" mat-raised-button color="primary"
+        style="font-size: 18px;">
         <span></span>
         <span></span>
         <span></span>

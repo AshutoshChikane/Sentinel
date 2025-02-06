@@ -1,12 +1,17 @@
 <div class="box-container">
     <div class="grid-2">
-      
+        <div  style="display: flex;">      
+            <h5>MODULENAME:</h5>
+            <h5 style="color: blue;">{{MODULENAME}}</h5>
+         </div>
         <div class="redirectPage">                
             <a [routerLink]="['/dashboard-page/']">
                 Redirect to process page 
             </a>
         </div>
+       
     </div>
+
    
     <div>
         
@@ -75,12 +80,37 @@
                             <mat-cell *matCellDef="let element;" style="margin-right:20px ;"> 
                                 <mat-form-field>
                                     <input type="text" placeholder="QC_REMARKS" matInput [(ngModel)]= "element['QC_REMARK']" 
-                                    [disabled]="element['edit'] == true"
-                                   
-                                    autocomplete="off">
+                                    [disabled]="element['edit'] == true" autocomplete="off">
                                 </mat-form-field>
                             </mat-cell>
                         </ng-container>
+
+
+
+
+                        <!-- <ng-container matColumnDef="QC_REMARKS">
+                            <mat-header-cell *matHeaderCellDef>QC_REMARKS</mat-header-cell>
+                            <mat-cell *matCellDef="let element" style="margin-right: 20px;">
+                                <mat-form-field  *ngIf="element['QC_REMARK'] !== 'other'">
+                                    <mat-label> Select Remark</mat-label>
+                                    <mat-select [(value)]="element['QC_REMARK']" [disabled]="element['edit']" >
+                                        <mat-option *ngFor="let option of dropValue" [value]="option"> {{ option }} </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field *ngIf="element['QC_REMARK'] === 'other'" >
+                                    <input matInput type="text" placeholder="Write here..." [(ngModel)]=" element['otherQC_REMARK']"   [disabled]="element['edit']">
+                                </mat-form-field>
+                            </mat-cell>
+                        </ng-container>  -->
+
+
+                        <!-- <ng-container matColumnDef="Unique_id">
+                            <mat-header-cell *matHeaderCellDef> Unique Id </mat-header-cell>
+                            <mat-cell *matCellDef="let element;"> {{element.UNI_ID_POL_DT }}</mat-cell>
+                        </ng-container> -->
+
+                                     
+                        
                         <ng-container *ngIf="!showAfterQCData" matColumnDef="actionsColumn">
                             <mat-header-cell *matHeaderCellDef > Action </mat-header-cell>
                             <mat-cell *matCellDef="let element;"> 
@@ -94,7 +124,10 @@
                     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
+                    
+
                 </mat-table>
+
             </div>    
             <div *ngIf= "noData" class="noDataContainer">
                 <span>

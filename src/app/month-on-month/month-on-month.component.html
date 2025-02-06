@@ -1,0 +1,103 @@
+<div class="Val_Dash" *ngIf="Current_Data">
+    <h5 style="padding: 10px 0px 0px 13px; display: flex;">Selected Module :&nbsp;<p style="color: blue;">  {{ subModule}}  </p>  </h5>
+    
+      <div class="backEle"  style="display: flex; justify-content: end; padding-right: 20px;">
+        <button type="button" class="btn btn-success" (click)="Submit()">Submit</button>
+        <button type="button" class="btn btn-primary" (click)="exportData()">Export</button>
+        <button type="button" class="btn btn-danger" (click)="AddCheckPoint()">Add Check-Points</button>
+        <button type="button" class="btn btn-secondary" [routerLink]="['/Val-Mis']"> Back </button>
+      </div>
+    
+  
+    <div class="contain">
+        <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="background-color: aquamarine">Check_Points</th>
+                    <th style="background-color: aquamarine">Valuation Month</th>
+                    <th style="background-color: aquamarine">Pass Count</th>
+                    <th style="background-color: aquamarine">Fail Count</th>
+                    <th style="background-color: aquamarine">Issue</th>
+                    <th style="background-color: aquamarine">Reason</th>     
+                    <th style="background-color: aquamarine;">Sample</th> 
+                    <th style="background-color: aquamarine">Action</th>  
+                    <th style="background-color: aquamarine">Comments</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="TDbody" *ngFor="let item of formData; let i = index" style="background-color: white">
+                    <td style="font-weight: 600;">{{ item.Check_points }}</td>
+                    <td> <input type="date" [(ngModel)]="formData[i].Date" name="date{{i}}" style="width: 100%;"> </td>
+                    <td> <input type="number" [(ngModel)]="formData[i].Pass_Count" name="Pass_Count{{i}}"> </td>
+                    <td> <input type="number" [(ngModel)]="formData[i].Fail_Count" name="Fail_Count{{i}}" > </td>
+                    <td> <input type="text" [(ngModel)]="formData[i].Issue" name="Issue{{i}}" > </td>
+                    <td> <textarea  id="" [(ngModel)]="formData[i].Reason" name="Reason{{i}}"  ></textarea> </td>
+                    <td> <input type="text" [(ngModel)]="formData[i].Sample" name="sample{{i}}" > </td>
+                    <td> <input type="text" [(ngModel)]="formData[i].Action" name="Action{{i}}" > </td>
+                    <td> <textarea  id="" [(ngModel)]="formData[i].Comment" name="comment{{i}}"  ></textarea> </td>
+
+                  </tr>
+            </tbody>
+        </table>
+    </div>
+  
+    </div>
+  </div>
+
+
+  <div  class="Val_Dash" *ngIf="Previous_Data">
+    
+      <h5 style="padding: 10px 0px 0px 13px; display: flex;">Selected Module :&nbsp;<p style="color: blue;">  {{ subModule}}  </p>  </h5>
+      <div style="display:flex; justify-content: space-between; padding: 5px 16px 0px 12px" >
+          
+        <div class="backEle">
+          <b>Valuation Month :</b>
+          <input type="month" [(ngModel)]="selectedMonthData1"> 
+          <input type="month" [(ngModel)]="selectedMonthData2">
+          <input type="month" [(ngModel)]="selectedMonthData3">
+          <button type="button" class="btn btn-info" (click)="monthSend()">Send</button>
+        </div>
+        <div class="backEle">
+          <button type="button" class="btn btn-primary" (click)="exportData1()" >Export</button>
+          <button type="button" class="btn btn-secondary" [routerLink]="['/Val-Mis']"> Back </button>
+        </div>
+      </div>
+
+      <div class="contain" *ngIf="ShowMonthWise">
+        <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="background-color: aquamarine">Check_Points</th>
+                    <th style="background-color: aquamarine">{{firstMonth}}</th>
+                    <th style="background-color: aquamarine">{{secondMonth}}</th>
+                    <th style="background-color: aquamarine">{{thirdMonth}}</th>
+                    <th style="background-color: aquamarine">Reason</th>     
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="TDbody" *ngFor="let item of monthData; let i = index" style="background-color: white">
+                    <td>{{item.Check_points}}</td>
+                    <td>{{item.First_Month}}</td>
+                    <td>{{item.Second_Month}}</td>
+                    <td>{{item.Third_Month}}</td>
+                    <td>{{item.Reason}}</td>
+                  </tr>
+            </tbody>
+        </table>
+    </div>
+  
+    </div>
+    
+    
+  </div>
+  
+  
+  <div class="my-overlay1" *ngIf="QCloder" style="display: flex; flex-direction: column;">
+    <div class="ring">Loading...
+      <span></span>
+    </div>
+  </div>

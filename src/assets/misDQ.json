@@ -1,0 +1,174 @@
+
+
+{
+    "response_code": 1,
+    "response_message": "Code executed successfully",
+    "response_text":[
+        
+         {
+            "Module":"Allocation charges",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "Pass_Cases": "95",
+          "Fail_Cases": "5",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "Module":"Mortality Charges",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "Pass_Cases": "80",
+          "Fail_Cases": "20",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "Module":"Discontinuance Charges",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "Pass_Cases":" 90",
+          "Fail_Cases": "10",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "Module":"Admin charges",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "Pass_Cases": "70",
+          "Fail_Cases": "30",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "Module":"Admin Skipped",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "Pass_Cases": "NA",
+          "Fail_Cases": "NA",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "Module":"Unclaim Movement",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "Pass_Cases": "80",
+          "Fail_Cases": "20",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "Module":"Admin Charges Unitization",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "Pass_Cases":"99",
+          "Fail_Cases": "1",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "Module":"Discontinuance Charges",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "Pass_Cases": "85",
+          "Fail_Cases": "15",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "Module":"Admin Charges Unitization",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "Pass_Cases": "92",
+          "Fail_Cases": "8",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "Module":"Mortality Charges",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "Pass_Cases": "80",
+          "Fail_Cases": "20",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "Module":"Admin charges",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "Pass_Cases":"75",
+          "Fail_Cases": "25",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "Module":"Mortality Skipped Cases",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "Pass_Cases": "30",
+          "Fail_Cases": "NA",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "Module":"Admin Skipped Cases",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "Pass_Cases": "norecord",
+          "Fail_Cases": "NA",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          }
+      
+      
+    ]
+   
+  }
+  
+  
+      
+  
+  
+    

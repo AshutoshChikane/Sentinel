@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Data, Router } from '@angular/router';
 import { DefectTrackerService } from '../Service/defect-tracker.service';
 import { JsontoexcelService } from '../Service/jsontoexcel.service';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -19,6 +19,9 @@ export class DefectTrackerComponent implements OnInit {
   data: any;
   Data: any;
   misTable: boolean;
+  // DataQuality:boolean=false;
+  
+
 
 
 
@@ -28,16 +31,18 @@ export class DefectTrackerComponent implements OnInit {
   defectform = false;
   displayedColumns: any;
   ngOnInit(): void {
-    // this.dateDisable();
-    //   this.displayedColumns = ['Whizible_id', 'DOR_to_OPS/IT', 'Val_DQ_IRDA','Dept_Resposible','System',
-    // 'ULIP_Non_ULIP_Grps_VIP','Resource','Impacted_Policies','Amount_impacted','Current_Status_of_Whizible_id'];
+
+    // this.defectform = false;
+    // this.existingtable = false;
+    // this.misTable = false;
+
     this.registration = this.fb.group({
       ID: ['', [Validators.required]],
       MONTH: ['', [Validators.required]],
       VAL_DQ_IRDA: ['', [Validators.required]],
       WHIZIBLE: ['', [Validators.required]],
       DEPT: ['', [Validators.required]],
-      CATEGORY: ['', [Validators.required]],
+      // CATEGORY: ['', [Validators.required]],
       SYSTEM: ['', [Validators.required]],
       ASPECT: ['', [Validators.required]],
       ULIP_NONULIP_GRPS_VIP: ['', [Validators.required]],
@@ -54,40 +59,22 @@ export class DefectTrackerComponent implements OnInit {
       RESOURCE: ['', [Validators.required]],
       DATE_CLOSURE: ['', [Validators.required]],
       SEVERITY :['', [Validators.required]],
-
-
+      TYPEOF:['', [Validators.required]]
     })
+
+    
+    // this.Existing()
   }
 
-  // Submit(){
-  //   this.registration.value;
-  //   console.log(this.registration.value);
-  //   this.isSubmitted=true;
-  //   // this.route.navigate(['login']);
-
-  //   // this.ser.postData(this.registration.value).subscribe((res)=>{
-  //   //   console.log(res);
-  //   // })
-
-  // }
-
+  
+  
 
 
   backPage() {
     this.router.navigate(['ChooseDashboardComponent']);
   }
 
-  //   maxDate:any;
-  //    /* Date disable */
-  // dateDisable() {
-  //   var date = new Date();
-  //   var todayDate: any = date.getDate();
-  //   var month: any = date.getMonth() + 1;
-  //   var year: any = date.getFullYear();
-  //   this.maxDate = year ;
-  // console.log('year',this.maxDate = year )
-
-  // }
+  
 
   ADD() {
     this.defectform = true;
@@ -101,7 +88,7 @@ export class DefectTrackerComponent implements OnInit {
   VAL_DQ_IRDA: any;
   WHIZIBLE_ID: any;
   DEPT_RESPOSIBLE: any;
-  CATEGORY: any;
+  // CATEGORY: any;
   SYSTEM: any;
   ASPECT: any;
   ULIP_NONULIP_GRPS_VIP: any;
@@ -118,6 +105,9 @@ export class DefectTrackerComponent implements OnInit {
   RESOURCE: any;
   DATE_CLOSURE: any;
   SEVERITY : any;
+  TYPEOF: any;
+  searchText: any;
+  Export: boolean= false
 
   submit() {
 
@@ -130,7 +120,7 @@ export class DefectTrackerComponent implements OnInit {
       VAL_DQ_IRDA: this.VAL_DQ_IRDA,
       WHIZIBLE_ID: this.WHIZIBLE_ID,
       DEPT_RESPOSIBLE: this.DEPT_RESPOSIBLE,
-      CATEGORY: this.CATEGORY,
+      // CATEGORY: this.CATEGORY,
       SYSTEM: this.SYSTEM,
       ASPECT: this.ASPECT,
       ULIP_NONULIP_GRPS_VIP: this.ULIP_NONULIP_GRPS_VIP,
@@ -147,6 +137,7 @@ export class DefectTrackerComponent implements OnInit {
       RESOURCE: this.RESOURCE,
       DATE_CLOSURE: this.DATE_CLOSURE,
       SEVERITY: this.SEVERITY,
+      TYPEOF:this.TYPEOF,
       moduleId: '401',
       request_action: 'Defect Tracker',
 
@@ -170,7 +161,7 @@ export class DefectTrackerComponent implements OnInit {
     this.VAL_DQ_IRDA = "";
     this.WHIZIBLE_ID = "";
     this.DEPT_RESPOSIBLE = "";
-    this.CATEGORY = "";
+    // this.CATEGORY = "";
     this.SYSTEM = "";
     this.ASPECT = "";
     this.ULIP_NONULIP_GRPS_VIP = "";
@@ -187,11 +178,15 @@ export class DefectTrackerComponent implements OnInit {
     this.RESOURCE = "";
     this.DATE_CLOSURE = "";
     this.SEVERITY = "";
+    this.TYPEOF = ";"
 
   }
 
   table_data: any;
   existingtable: any
+  valDqIrdaOptions: string[] = [];
+  filteredData: any[] = [];
+  whizibleStatusOptions:string[] = []
 
   Existing() {
     this.misTable = false
@@ -203,33 +198,59 @@ export class DefectTrackerComponent implements OnInit {
       request_action: 'Defect Tracker',
     }
     this.defect.defecttable(obj).subscribe(res => {
-      console.log('submit data')
+      console.log('submit data');
       console.log('res', res);
       console.log('res', res.response_text);
-      this.Data = res.response_text;
+      this.Data = res.response_text || [];
       this.message = res.response_message;
       this.displayMessage = true;
+      this.Export = true;
+
 
       // console.log(res.response_text.DOR_TO_OPS_IT)
+      this.valDqIrdaOptions = this.getUniqueValDqIrdaValues();
+      this.whizibleStatusOptions= this.getUniquewhizibleStatusValues();
+      this.filteredData = [...this.Data];
+
 
       console.log(this.Data)
 
-    })
+    },
+    (error) =>{
+      alert("404 Not Found")
+    }
+  )
 
   }
-  // getAnnualSummary() {
-  //   this.excelService.getMonthlySummary().subscribe((res :any) => {
-  //     // this.annualSummaryData = res;
-  //     // console.log(this.annualSummaryData);
-  //     // this.rowData = res;
-  //     // console.log('row data', this.rowData);
-  //   })
-  // }
 
+  getUniqueValDqIrdaValues(): string[] {
+    const uniqueValues = new Set<string>(this.Data.map(item => item.VAL_DQ_IRDA))
+    return Array.from(uniqueValues);
+  }
+
+  getUniquewhizibleStatusValues(): string[]{
+    const unique = new Set<string>(this.Data.map(item => item.STATUS_OF_WHIZIBLE_ID));
+    return Array.from(unique);
+  }
+
+  selectedValDqIrda: string = '';
+  selectedWhizibleStatus:string = '';
+
+  filterTable() {
+    this.filteredData = this.Data.filter(item => {
+      const matchesValDqIrda = this.selectedValDqIrda ? item.VAL_DQ_IRDA === this.selectedValDqIrda : true;
+      const matchesWhizibleStatus = this.selectedWhizibleStatus ? item.STATUS_OF_WHIZIBLE_ID === this.selectedWhizibleStatus : true;
+      return matchesValDqIrda && matchesWhizibleStatus;
+    });
+  }
+  
+  
 
   exportAsXLSX() {
-    this.excelService.exportAsExcelFile(this.Data, 'table_data');
+    this.excelService.exportAsExcelFile(this.filteredData, 'table_data');
     // console.log(this.table_data);
+     
+    this.searchText = '';
   }
 
   showMessage() {
@@ -243,8 +264,8 @@ export class DefectTrackerComponent implements OnInit {
 
 
   onEdit(ID: any, data: any) {
-    console.log(ID);
-    console.log(data);
+    console.log(ID, "id");
+    console.log(data, "data");
     this.defect.setMessage(ID, data)
     this.router.navigate(['update-data']);
   }
@@ -294,4 +315,5 @@ export class DefectTrackerComponent implements OnInit {
   Render(){
     this.router.navigate(['mis']);
   }
+  
 }

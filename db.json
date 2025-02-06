@@ -15,5 +15,95 @@
   ],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "mayur": [
+    {
+      "id": 1,
+      "Check_points": "Item1fgd",
+              "Date": "none",
+              "Month": "none",
+              "Issue": "none",
+              "Count": "none",
+              "Sample": "none"
+    },
+    {
+      "id": 2,
+      "Check_points": "Item2",
+      "Date": "",
+              "Month": "",
+              "Issue": "",
+              "Count": "",
+              "Sample": ""
+    },
+    {
+      "id": 3,
+      "Check_points": "Item3"
+    },
+    {
+      "id": 4,
+      "Check_points": "Item4"
+    },
+    {
+      "id": 5,
+      "Check_points": "Item5"
+    },
+    {
+      "id": 6,
+      "Check_points": "Item6"
+    },
+    {
+      "id": 7,
+      "Check_points": "Item7"
+    },
+    {
+      "id": 8,
+      "Check_points": "Item8"
+    },
+    {
+      "id": 9,
+      "Check_points": "Item9"
+    },
+    {
+      "id": 10,
+      "Check_points": "Item10"
+    },
+    {
+      "id": 11,
+      "Check_points": "Item11"
+    },
+    {
+      "id": 12,
+      "Check_points": "Item12"
+    },
+    {
+      "id": 13,
+      "Check_points": "Delete Old data Files"
+    },
+    {
+      "id": 14,
+      "Check_points": "Delete Old data Files"
+
+    },
+    {
+      "Check_points": "Item1",
+      "Date": "2024-06-19",
+      "Month": "2024-07",
+      "Issue": "Yes",
+      "Count": 4,
+      "Sample": "yes ",
+      "id": 15
+    },
+    {
+      "Check_points": "Item1",
+      "Date": "2024-06-19",
+      "Month": "2024-07",
+      "Issue": "Yes",
+      "Count": 4,
+      "Sample": "yes ",
+      "id": 16
+    }
+  ],
+  "UpdatedData": [
+    
+  ]
 }

@@ -1,0 +1,287 @@
+
+label {
+    font-weight: bold;
+  }
+  
+  button {
+    grid-column: span 2;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+
+  .tabel{
+    background-color: var(--bs-light) !important;
+  }
+
+
+  /* Styling the table */
+.form-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.form-table th,
+.form-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Styling input fields inside the table */
+.form-input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Adding some spacing and hover effects */
+.form-input:focus {
+  outline: none;
+  border-color: #007bff;
+  background-color: #f0f8ff;
+}
+
+/* Styling the nested sub-table */
+.sub-table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+}
+
+.sub-table th,
+.sub-table td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Submit button style */
+.submit-btn {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+table{
+  th{
+    color:#470dfd;
+  }
+}
+
+
+::ng-deep .snackbar-success {
+  background-color: green !important;
+  color: white !important;
+}
+
+::ng-deep .snackbar-error {
+  background-color: red !important;
+  color: white !important;
+}
+
+::ng-deep .mat-simple-snackbar {
+  .mat-button-wrapper{
+    color:rgb(25, 188, 200)
+  }
+}
+
+::ng-deep .mat-simple-snackbar-action button{
+  background-color: white;
+}
+
+
+
+// .form-container {
+//   position: relative;
+//   min-height: 100vh; /* Full height */
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .table-wrapper {
+//   flex-grow: 1;
+//   overflow-y: auto; /* Enable scrolling for the table body */
+//   max-height: calc(100vh - 100px); /* Adjust height to fit the page */
+//   position: relative;
+// }
+
+// .table-container {
+//   position: relative;
+//   border-collapse: collapse;
+//   width: 100%;
+// }
+
+// .thead-light {
+//   position: sticky;
+//   top: 0;
+//   background: white; /* Keep background solid */
+//   z-index: 2;
+// }
+
+// .fixed-footer {
+//   position: fixed;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+//   background-color: blueviolet;
+//   padding: 10px;
+//   text-align: center;
+// }
+
+
+.form-container {
+  position: relative;
+ // min-height: 100vh; /* Full height */
+  display: flex;
+  flex-direction: column;
+}
+
+.table-wrapper {
+  flex-grow: 1;
+  overflow-y: auto; /* Enable scrolling for the table body */
+  max-height: calc(100vh - 250px); /* Adjust height to fit the page */
+  position: relative;
+}
+
+.table-container {
+  position: relative;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.thead-light {
+  position: sticky;
+  top: 0;
+  background: white; /* Keep background solid */
+  z-index: 2;
+}
+
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: blueviolet;
+  padding: 10px;
+  text-align: center;
+}
+
+
+/* Search Container */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(227, 222, 234, 0.121); /* Glassmorphism */
+  backdrop-filter: blur(10px);
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 2px,solid,#007bff;
+  box-shadow: 0px 4px 8px rgba(125, 37, 202, 0.911);
+  width: fit-content;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Search Icon */
+.search-icon {
+  font-size: 18px;
+  color: #007bff;
+}
+
+/* Search Input */
+.searchinput {
+  width: 220px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+/* On Focus Effect */
+.searchinput:focus {
+  width: 250px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+
+
+//custom table
+.custom-table {
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.custom-table th {
+  background-color: #343a40 !important;
+  color: white;
+  padding: 12px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.custom-table td {
+  padding: 10px;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.custom-table tbody tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #e9ecef;
+  transition: 0.3s ease-in-out;
+}
+
+.fail-result {
+  background-color: white !important;
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+
+/* Table wrapper: Fixed height + Scroll */
+.table-container {
+  max-height: 600px; /* Adjust as needed */
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  position: relative;
+}
+
+/* Sticky header */
+.thead-dark th {
+  position: sticky;
+  top: 0;
+  background: #343a40 !important; /* Ensures background stays fixed */
+  color: white;
+  padding: 10px;
+  z-index: 100;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Prevent overlapping issues */
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}

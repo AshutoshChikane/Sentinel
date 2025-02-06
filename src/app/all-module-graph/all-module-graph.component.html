@@ -1,0 +1,59 @@
+<div style="background-color:white; height: fit-content;">
+    <div style="padding-top: 20px;">
+        <form #sellerSignUp="ngForm" (ngSubmit)="sendData(sellerSignUp.value)"  class="common-form">
+            <!-- <label style="margin-left: 20px"><b> Case Status:</b></label>
+            <select class="form-input" ngModel name="dropdown1" required  style="margin-left: 20px; height: 35px;">
+                <option value="" disabled selected>Select an option</option>
+                <option *ngFor="let element1 of DropdownPassFail" [value]="element1">{{element1}}</option>
+              </select>
+              <label style="margin-left: 20px" ><b> Modules :</b></label>
+            <select class="form-input" ngModel name="dropdown2" required  style="margin-left: 20px; height: 35px;">
+                <option value="" disabled selected>Select an option</option>
+                <option *ngFor="let element of ModuleName" [value]="element">{{element}}</option>
+                
+              </select> -->
+            <!-- <button mat-raised-button color="primary" class="form-button"  style="margin-left: 20px">Send</button> -->
+            <button mat-raised-button color="primary"  (click)="redirectPage()" style="margin-left: 35%; text-align: end;" >
+                Redirect to page
+            </button>
+        </form>
+    </div>
+
+
+    <div style="width: 100%; overflow-x: scroll; overflow-y: hidden;">
+        <div class="col-6">
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+</div>
+
+<div class="my-overlay1" *ngIf="QCloder" style="display: flex; flex-direction: column;">
+    <!-- <div class="ring">Loading...
+        <span></span>
+      </div> -->
+
+      <div class='container'>
+        <div class='dash-spinner'>
+          <div class='dash-spinner__bottom'>
+            <div class='dash-bar dash-bar__one'></div>
+            <div class='dash-bar dash-bar__two'></div>
+            <div class='dash-bar dash-bar__three'></div>
+          </div>
+          <div class='dash-spinner__background'>
+            <div class='dash-dot dash-dot__one'></div>
+            <div class='dash-dot dash-dot__two'></div>
+            <div class='dash-dot dash-dot__three'></div>
+            <div class='dash-dot dash-dot__four'></div>
+            <div class='dash-spinner__bottom'>
+              <div class='dash-vert dash-vert__one'></div>
+              <div class='dash-vert dash-vert__two'></div>
+              <div class='dash-vert dash-vert__three'></div>
+              <div class='dash-vert dash-vert__four'></div>
+            </div>
+          </div>
+        </div> 
+          <div class='dash-spinner__bottom'>
+            <!-- <div class='dash-spinner-title'><p>Loading...<p></div> -->
+          </div>
+        </div>
+  </div>

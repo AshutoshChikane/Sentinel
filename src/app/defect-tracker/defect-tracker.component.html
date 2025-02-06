@@ -12,7 +12,8 @@
                                                   padding-top: 10px;margin-bottom: 15px">
                         {{ messageType }}
                     </div>
-                    <div class="messagebody" style="font-weight: 500;padding-left: 30px; padding-bottom: 10px;">
+                    <div class="messagebody"
+                        style="font-weight: 500;padding-left: 30px; padding-bottom: 10px; background-color: white;">
                         {{ message }}
                     </div>
                     <div class="messagebody" style="text-align: center;font-weight: 500;font-size: 20px;">
@@ -25,381 +26,472 @@
             </div>
         </div>
     </div>
-<div class="box-container">
-    <div style="display: flex; margin-top: 10px;">
-        <!-- <div class="Add"><button class="backBtn" value="ADD New" (click)="Render()">render</button></div> -->
-        <div class="Add"><button class="backBtn" value="ADD New" (click)="ADD()">ADD</button></div>
-        <div class="Existing"><button class="backBtn" (click)="Existing()">EXISTING </button></div>
-        <div class="Aging"><button class="backBtn" (click)="Aging()">MIS</button></div>
-        <div class="backEle"><button class="backBtn" (click)="backPage()"><i
-                    class="fa-solid fa-arrow-left"></i></button></div>
-    </div>
-    <div *ngIf="defectform">
-
-        <div class="card1  mb-3" style="max-width: 50rem;">
-            <div class="card-header">
-                <h3>ADD NEW DEFFECT</h3>
+    <div class="box-container">
+        <!-- <div style="display: flex; justify-content: space-between;" >
+            <div style="display: flex; gap: 30px;">
+                <button type="button" class="btn btn-primary btn-lg" (click)="showDATAQuality()">Data Quality</button>
+                <button type="button" class="btn btn-primary btn-lg" (click)="showValuationData()">Valuation</button>
             </div>
-            <div class="card-body" style="font-family: emoji;">
-                <form [formGroup]="registration" (ngSubmit)="submit()" class="form">
-                    <div class="filed1">
-                        <div class="form-group">
-                            <label>MONTH:<span style="color: red;">*</span></label>
-                            <input type="text" formControlName="MONTH" class="form-control" name="MONTH"
-                                style="margin-left: 64%;" placeholder="Enter" [(ngModel)]="MONTH" required
-                                [ngClass]="{'is-invalid': isSubmitted && f.MONTH.errors}"
-                                [ngModelOptions]="{standalone: true}">
-                        </div>
-                        <div class="form-group" style="margin-left: 21%;">
-                            <label>VAL,DQ,IRDA:<span style="color: red;">*</span></label>
-                            <select name="VAL_DQ_IRDA" formControlName="VAL_DQ_IRDA" style="margin-left: 34%;
-                            padding-left: 29px;" placeholder="Enter" [(ngModel)]="VAL_DQ_IRDA"
-                                [ngModelOptions]="{standalone: true}" required>
-                                <!-- <i class="fa-solid fa-list-dropdown"></i> -->
-                                <option disabled value="" selected hidden>Type of Field</option>
-                                <option>DQ</option>
-                                <option>VALUATION</option>
-                                <option>IRDA</option>
-                                <option>OTHERS</option>
-                            </select>
-                        </div>
-                    </div><br>
-                    <div class="filed2">
-                        <div class="form-group">
-                            <label>WHIZIBLE ID:<span style="color: red;">*</span> </label>
-                            <input required type="text" formControlName="WHIZIBLE" class="form-control" name="WHIZIBLE"
-                                style="margin-left:94px" placeholder="Enter"
-                                [ngClass]="{'is-invalid': isSubmitted && f.WHIZIBLE.errors}"
-                                [ngModelOptions]="{standalone: true}" [(ngModel)]="WHIZIBLE_ID">
-                        </div>
-                        <div class="form-group" style="margin-left: 31px;">
-                            <label>DEPT RESPOSIBLE:<span style="color: red;">*</span></label>
-                            <select name="DEPT" formControlName="DEPT" placeholder="Enter" style="margin-left: 47px;"
-                                [ngClass]="{'is-invalid': isSubmitted && f.DEPT.errors}"
-                                [ngModelOptions]="{standalone: true}" [(ngModel)]="DEPT_RESPOSIBLE">
-                                <option disabled value="" selected hidden>Type of Field</option>
-                                <option>PS/LB</option>
-                                <option>IT</option>
-                                <option>CLAIMS</option>
-                                <option>RENEWALS</option>
-                                <option>NB</option>
-                                <option>OTHERS</option>
-                            </select>
-                        </div>
-
-                    </div><br>
-                    <div class="filed3">
-                        <div class="form-group">
-                            <label>CATEGORY:<span style="color: red;">*</span> </label>
-                            <input required type="text" formControlName="CATEGORY" class="form-control" name="CATEGORY"
-                                style="margin-left: 112px;" [(ngModel)]="CATEGORY" placeholder="Enter"
-                                [ngClass]="{'is-invalid': isSubmitted && f.CATEGORY.errors}"
-                                [ngModelOptions]="{standalone: true}">
-                        </div>
-                        <div class="form-group" style="margin-left: 32px;">
-                            <label>SYSTEM:<span style="color: red;">*</span></label>
-                            <select name="SYSTEM" formControlName="SYSTEM" [(ngModel)]="SYSTEM"
-                                style="margin-left: 119px;" placeholder="Enter"
-                                [ngClass]="{'is-invalid': isSubmitted && f.SYSTEM.errors}"
-                                [ngModelOptions]="{standalone: true}">
-                                <option disabled value="" selected hidden>Type of Field</option>
-                                <option>ALL </option>
-                                <option>INGENIUM </option>
-                                <option>INDIGO </option>
-                                <option>OTHERS </option>
-                            </select>
-                        </div>
-                    </div><br>
-                    <div class="filed4">
-                        <div class="form-group">
-                            <label>ASPECT:<span style="color: red;">*</span></label>
-                            <input required type="text" formControlName="ASPECT" class="form-control" name="ASPECT"
-                                style="margin-left: 136px;" [(ngModel)]="ASPECT" placeholder="Enter"
-                                [ngClass]="{'is-invalid': isSubmitted && f.ASPECT.errors}"
-                                [ngModelOptions]="{standalone: true}">
-                        </div>
-                        <div class="form-group" style="margin-left: 28px; ">
-                            <label>ULIP/NON ULIP/GRPS/VIP:<span style="color: red;">*</span></label>
-                            <select name="ULIP-NONULIP-GRPS-VIP" formControlName="ULIP_NONULIP_GRPS_VIP"
-                                [(ngModel)]="ULIP_NONULIP_GRPS_VIP" placeholder="Enter"
-                                [ngClass]="{'is-invalid': isSubmitted && f.ULIP_NONULIP_GRPS_VIP.errors}"
-                                [ngModelOptions]="{standalone: true}">
-                                <option disabled value="" selected hidden>Type of Field</option>
-                                <option>ALL</option>
-                                <option>ULIP </option>
-                                <option>NON-ULIP</option>
-                                <option>VIP</option>
-                                <option>GROUPS</option>
-                                <option>OTHERS</option>
-                            </select>
-                        </div>
-                    </div><br>
-                    <div class="filed5">
-                        <div class="form-group">
-                            <label>PRODUCT ID COVERED:<span style="color: red;">*</span> </label>
-                            <input required type="text" formControlName="PRODUCT_ID_COVERED" class="form-control"
-                                style="margin-left: 17px;" name="PRODUCTID" [(ngModel)]="PRODUCT_ID_COVERED"
-                                placeholder="Enter"
-                                [ngClass]="{'is-invalid': isSubmitted && f.PRODUCT_ID_COVERED.errors}"
-                                [ngModelOptions]="{standalone: true}">
-                        </div>
-                        <div class="form-group" style="margin-left: 34px;">
-                            <label>STATUS OF WHIZIBLE:<span style="color: red;">*</span></label>
-                            <select name="STATUS" formControlName="STATUS_OF_WHIZIBLE" style="margin-left: 23px;"
-                                [(ngModel)]="STATUS_OF_WHIZIBLE" placeholder="Enter"
-                                [ngClass]="{'is-invalid': isSubmitted && f.STATUS_OF_WHIZIBLE.errors}"
-                                [ngModelOptions]="{standalone: true}">
-                                <option disabled value="" selected hidden>Type of Field</option>
-                                <option>OPEN</option>
-                                <option>CLOSE</option>
-                                <option>WIP</option>
-                            </select>
-                        </div>
-
-                    </div><br>
-                    <div class="filed6">
-                        <div class="form-group">
-                            <label>ISSUES IN DETAIL:<span style="color: red;">*</span> </label>
-                            <input type="text" formControlName="ISSUES_IN_DETAIL" class="form-control" name="ISSUES"
-                                style="margin-left: 58px;" [(ngModel)]="ISSUES_IN_DETAIL" placeholder="Enter" required
-                                [ngClass]="{'is-invalid': isSubmitted && f.ISSUES_IN_DETAIL.errors}"
-                                [ngModelOptions]="{standalone: true}">
-                        </div>
-                        <div class="form-group" style="margin-left: 31px;">
-                            <label>IMPACTED POLICIES:<span style="color: red;">*</span> </label>
-                            <input required type="number" formControlName="IMPACTED_POLICIES" class="form-control"
-                                style="margin-left: 34px;" name="IMPACTED" [(ngModel)]="IMPACTED_POLICIES"
-                                placeholder="Enter"
-                                [ngClass]="{'is-invalid': isSubmitted && f.IMPACTED_POLICIES.errors}"
-                                [ngModelOptions]="{standalone: true}">
-                        </div>
-
-                    </div><br>
-                    <div class="filed7">
-                        <div class="form-group">
-                            <label>SAMPLE POL/CUST ID:<span style="color: red;">*</span></label>
-                            <input required type="text" formControlName="SAMPLE_POL_CUST_ID" class="form-control"
-                                style="margin-left: 31px;" name="POL-CUST" [(ngModel)]="SAMPLE_POL_CUST_ID"
-                                placeholder="Enter"
-                                [ngClass]="{'is-invalid': isSubmitted && f.SAMPLE_POL_CUST_ID.errors}"
-                                [ngModelOptions]="{standalone: true}">
-                        </div>
-                        <div class="form-group" style="margin-left: 31px;">
-                            <label>AMOUNT IMPACTED:<span style="color: red;">*</span> </label>
-                            <input required type="number" formControlName="AMOUNT_IMPACTED" class="form-control"
-                                style="margin-left: 32px;" name="AMOUNT" [(ngModel)]="AMOUNT_IMPACTED"
-                                placeholder="Enter" [ngClass]="{'is-invalid': isSubmitted && f.AMOUNT_IMPACTED.errors}"
-                                [ngModelOptions]="{standalone: true}">
-                        </div>
-
-                    </div><br>
-                    <div class="filed8">
-                        <div class="form-group">
-                            <label>RESOURCE:<span style="color: red;">*</span></label>
-                            <input required type="text" formControlName="RESOURCE" class="form-control" name="RESOURCE"
-                                style="margin-left: 111px;" [(ngModel)]="RESOURCE" placeholder="Enter"
-                                [ngClass]="{'is-invalid': isSubmitted && f.RESOURCE.errors}"
-                                [ngModelOptions]="{standalone: true}">
-                        </div>
-                        <div class="form-group" style="margin-left: 32px;">
-                            <label>DOR TO OPS/IT:<span style="color: red;">*</span> </label>
-                            <input required type="date" formControlName="DOR_TO_OPS_IT" class="form-control"
-                                style="margin-left: 74px;" name="OPS/IT" [(ngModel)]="DOR_TO_OPS_IT" placeholder="Enter"
-                                [ngClass]="{'is-invalid': isSubmitted && f.DOR_TO_OPS_IT.errors}"
-                                [ngModelOptions]="{standalone: true}">
-                        </div>
-
-                    </div><br>
-                    <div class="filed9">
-                        <div class="form-group">
-                            <label>REMARKS:<span style="color: red;">*</span> </label>
-                            <input required type="text" formControlName="REMARKS" class="form-control" name="REMARKS"
-                                style=" margin-left: 118px;" [(ngModel)]="REMARKS" placeholder="Enter"
-                                [ngClass]="{'is-invalid': isSubmitted && f.REMARKS.errors}"
-                                [ngModelOptions]="{standalone: true}">
-                        </div>
-                        <div class="form-group" style="margin-left: 34px;">
-                            <label>FY:<span style="color: red;">*</span></label>
-                            <input required type="text" formControlName="FY" class="form-control" name="FY"
-                                style="margin-left: 165px;" [(ngModel)]="FY" placeholder="Enter"
-                                [ngClass]="{'is-invalid': isSubmitted && f.FY.errors}"
-                                [ngModelOptions]="{standalone: true}">
-                        </div>
-
-                    </div><br>
-                    <div class="filed9" >
-                    <div class="form-group">
-                        <label>SEVERITY:<span style="color: red;">*</span></label>
-                        <select name="SEVERITY" formControlName="SEVERITY" style="margin-left: 118px;"
-                            [(ngModel)]="SEVERITY" placeholder="Enter"
-                            [ngClass]="{'is-invalid': isSubmitted && f.SEVERITY.errors}"
-                            [ngModelOptions]="{standalone: true}">
-                            <option disabled value="" selected hidden>Type of Field</option>
-                            <option>Major</option>
-                            <option>Minor</option>
-                         
-                        </select>
-                    </div>
-
-                    <div class="d-grid gap-2 " style="margin-left: 233px;">
-                        <input type="submit" value="submit" class="btn btn-primary form-control">
-                    </div>
-                </div>
-
-                </form>
+            <div>
+                <button class="backBtn" (click)="backPage()"><i class="fa-solid fa-arrow-left"></i></button>
             </div>
+        </div> -->
+
+        <div style="display: flex; margin-top: 10px;">
+            <!-- <div class="Add"><button class="backBtn" value="ADD New" (click)="Render()">render</button></div> -->
+            <div class="Add"><button class="backBtn" value="ADD New" (click)="ADD()">ADD</button></div>
+            <div class="Existing"><button class="backBtn" (click)="Existing()">EXISTING </button></div>
+            <div class="Aging"><button class="backBtn" (click)="Aging()">MIS</button></div>
+            <div class="backEle"><button class="backBtn" (click)="backPage()"><i
+                        class="fa-solid fa-arrow-left"></i></button></div>
         </div>
 
-    </div>
+        <!-- <div style="height: 400px; overflow-y: scroll;"> -->
+        <div *ngIf="defectform">
 
-    <!-- table   -->
-    <div *ngIf="existingtable">
-        <div class="searchdefect">
-            <div style="margin-left: 141px;">
-                <label><b>Search:</b></label>
-                <input class="searchinput search-field" type="text" [(ngModel)]="searchText" placeholder=" Search"
-                    style="width: 240px;" />
+            <div class="card1  mb-3" style="max-width: 50rem;">
+                <div class="card-header">
+                    <h3>ADD NEW DEFFECT</h3>
+                </div>
+                <div class="card-body" style="font-family: emoji;">
+                    <form [formGroup]="registration" (ngSubmit)="submit()" class="form">
+                        <div class="filed1">
+                            <div class="form-group">
+                                <label>MONTH:<span style="color: red;">*</span></label>
+                                <input type="text" formControlName="MONTH" class="form-control" name="MONTH"
+                                    style="margin-left: 64%;" placeholder="Enter" [(ngModel)]="MONTH" required
+                                    [ngClass]="{'is-invalid': isSubmitted && f.MONTH.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="form-group" style="margin-left: 21%;">
+                                <label>VAL,DQ,IRDA:<span style="color: red;">*</span></label>
+                                <select name="VAL_DQ_IRDA" formControlName="VAL_DQ_IRDA" style="margin-left: 34%;
+                            padding-left: 29px;" placeholder="Enter" [(ngModel)]="VAL_DQ_IRDA"
+                                    [ngModelOptions]="{standalone: true}" required>
+                                    <!-- <i class="fa-solid fa-list-dropdown"></i> -->
+                                    <option disabled value="" selected hidden>Type of Field</option>
+                                    <option>Data Quality</option>
+                                    <option>Valuation Data</option>
+                                    <option>IRDA</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div><br>
+                        <div class="filed2">
+                            <div class="form-group">
+                                <label>WHIZIBLE ID:<span style="color: red;">*</span> </label>
+                                <input required type="text" formControlName="WHIZIBLE" class="form-control"
+                                    name="WHIZIBLE" style="margin-left:94px" placeholder="Enter"
+                                    [ngClass]="{'is-invalid': isSubmitted && f.WHIZIBLE.errors}"
+                                    [ngModelOptions]="{standalone: true}" [(ngModel)]="WHIZIBLE_ID">
+                            </div>
+                            <div class="form-group" style="margin-left: 31px;">
+                                <label>DEPT RESPOSIBLE:<span style="color: red;">*</span></label>
+                                <select name="DEPT" formControlName="DEPT" placeholder="Enter"
+                                    style="margin-left: 47px;" [ngClass]="{'is-invalid': isSubmitted && f.DEPT.errors}"
+                                    [ngModelOptions]="{standalone: true}" [(ngModel)]="DEPT_RESPOSIBLE">
+                                    <option disabled value="" selected hidden>Type of Field</option>
+                                    <option>PS/LB</option>
+                                    <option>IT</option>
+                                    <option>CLAIMS</option>
+                                    <option>RENEWALS</option>
+                                    <option>NB</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+
+                        </div><br>
+                        <div class="filed3">
+                            <!-- <div class="form-group">
+                                <label>CATEGORY:<span style="color: red;">*</span> </label>
+                                <input required type="text" formControlName="CATEGORY" class="form-control"
+                                    name="CATEGORY" style="margin-left: 112px;" [(ngModel)]="CATEGORY"
+                                    placeholder="Enter" [ngClass]="{'is-invalid': isSubmitted && f.CATEGORY.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                            </div> -->
+                            <div class="form-group">
+                                <label>SEVERITY:<span style="color: red;">*</span></label>
+                                <select name="SEVERITY" formControlName="SEVERITY"
+                                    style="margin-left: 118px; height: 40px;" [(ngModel)]="SEVERITY" placeholder="Enter"
+                                    [ngClass]="{'is-invalid': isSubmitted && f.SEVERITY.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                                    <option disabled value="" selected hidden>Type of Field</option>
+                                    <option>Major</option>
+                                    <option>Minor</option>
+
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-left: 32px;">
+                                <label>SYSTEM:<span style="color: red;">*</span></label>
+                                <select name="SYSTEM" formControlName="SYSTEM" [(ngModel)]="SYSTEM"
+                                    style="margin-left: 119px;" placeholder="Enter"
+                                    [ngClass]="{'is-invalid': isSubmitted && f.SYSTEM.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                                    <option disabled value="" selected hidden>Type of Field</option>
+                                    <option>ALL </option>
+                                    <option>INGENIUM </option>
+                                    <option>INDIGO </option>
+                                    <option>OTHERS </option>
+                                </select>
+                            </div>
+                        </div><br>
+                        <div class="filed4">
+                            <div class="form-group">
+                                <label>ASPECT:<span style="color: red;">*</span></label>
+                                <input required type="text" formControlName="ASPECT" class="form-control" name="ASPECT"
+                                    style="margin-left: 136px;" [(ngModel)]="ASPECT" placeholder="Enter"
+                                    [ngClass]="{'is-invalid': isSubmitted && f.ASPECT.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="form-group" style="margin-left: 28px; ">
+                                <label>ULIP/NON ULIP/GRPS/VIP:<span style="color: red;">*</span></label>
+                                <select name="ULIP-NONULIP-GRPS-VIP" formControlName="ULIP_NONULIP_GRPS_VIP"
+                                    [(ngModel)]="ULIP_NONULIP_GRPS_VIP" placeholder="Enter"
+                                    [ngClass]="{'is-invalid': isSubmitted && f.ULIP_NONULIP_GRPS_VIP.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                                    <option disabled value="" selected hidden>Type of Field</option>
+                                    <option>All</option>
+                                    <option>ULIP </option>
+                                    <option>NON-ULIP</option>
+                                    <option>VIP</option>
+                                    <option>GROUPS</option>
+                                    <option>OTHERS</option>
+                                </select>
+                            </div>
+                        </div><br>
+                        <div class="filed5">
+                            <div class="form-group">
+                                <label>PRODUCT ID COVERED:<span style="color: red;">*</span> </label>
+                                <input required type="text" formControlName="PRODUCT_ID_COVERED" class="form-control"
+                                    style="margin-left: 17px;" name="PRODUCTID" [(ngModel)]="PRODUCT_ID_COVERED"
+                                    placeholder="Enter"
+                                    [ngClass]="{'is-invalid': isSubmitted && f.PRODUCT_ID_COVERED.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="form-group" style="margin-left: 34px;">
+                                <label>STATUS OF WHIZIBLE:<span style="color: red;">*</span></label>
+                                <select name="STATUS" formControlName="STATUS_OF_WHIZIBLE" style="margin-left: 23px;"
+                                    [(ngModel)]="STATUS_OF_WHIZIBLE" placeholder="Enter"
+                                    [ngClass]="{'is-invalid': isSubmitted && f.STATUS_OF_WHIZIBLE.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                                    <option disabled value="" selected hidden>Type of Field</option>
+                                    <option>Open</option>
+                                    <option>Closed</option>
+                                    <option>WIP</option>
+                                </select>
+                            </div>
+
+                        </div><br>
+                        <div class="filed6">
+                            <div class="form-group">
+                                <label>ISSUES IN DETAIL:<span style="color: red;">*</span> </label>
+                                <input type="text" formControlName="ISSUES_IN_DETAIL" class="form-control" name="ISSUES"
+                                    style="margin-left: 58px;" [(ngModel)]="ISSUES_IN_DETAIL" placeholder="Enter"
+                                    required [ngClass]="{'is-invalid': isSubmitted && f.ISSUES_IN_DETAIL.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="form-group" style="margin-left: 31px;">
+                                <label>IMPACTED POLICIES:<span style="color: red;">*</span> </label>
+                                <input required type="number" formControlName="IMPACTED_POLICIES" class="form-control"
+                                    style="margin-left: 34px;" name="IMPACTED" [(ngModel)]="IMPACTED_POLICIES"
+                                    placeholder="Enter"
+                                    [ngClass]="{'is-invalid': isSubmitted && f.IMPACTED_POLICIES.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                            </div>
+
+                        </div><br>
+                        <div class="filed7">
+                            <div class="form-group">
+                                <label>SAMPLE POL/CUST ID:<span style="color: red;">*</span></label>
+                                <input required type="text" formControlName="SAMPLE_POL_CUST_ID" class="form-control"
+                                    style="margin-left: 31px;" name="POL-CUST" [(ngModel)]="SAMPLE_POL_CUST_ID"
+                                    placeholder="Enter"
+                                    [ngClass]="{'is-invalid': isSubmitted && f.SAMPLE_POL_CUST_ID.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="form-group" style="margin-left: 31px;">
+                                <label>AMOUNT IMPACTED:<span style="color: red;">*</span> </label>
+                                <input required type="number" formControlName="AMOUNT_IMPACTED" class="form-control"
+                                    style="margin-left: 32px;" name="AMOUNT" [(ngModel)]="AMOUNT_IMPACTED"
+                                    placeholder="Enter"
+                                    [ngClass]="{'is-invalid': isSubmitted && f.AMOUNT_IMPACTED.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                            </div>
+
+                        </div><br>
+                        <div class="filed8">
+                            <div class="form-group">
+                                <label>RESOURCE:<span style="color: red;">*</span></label>
+                                <input required type="text" formControlName="RESOURCE" class="form-control"
+                                    name="RESOURCE" style="margin-left: 111px;" [(ngModel)]="RESOURCE"
+                                    placeholder="Enter" [ngClass]="{'is-invalid': isSubmitted && f.RESOURCE.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="form-group" style="margin-left: 32px;">
+                                <label>DOR TO OPS/IT:<span style="color: red;">*</span> </label>
+                                <input required type="date" formControlName="DOR_TO_OPS_IT" class="form-control"
+                                    style="margin-left: 74px;" name="OPS/IT" [(ngModel)]="DOR_TO_OPS_IT"
+                                    placeholder="Enter"
+                                    [ngClass]="{'is-invalid': isSubmitted && f.DOR_TO_OPS_IT.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                            </div>
+
+                        </div><br>
+                        <div class="filed9">
+                            <div class="form-group">
+                                <label>REMARKS:<span style="color: red;">*</span> </label>
+                                <input required type="text" formControlName="REMARKS" class="form-control"
+                                    name="REMARKS" style=" margin-left: 118px;" [(ngModel)]="REMARKS"
+                                    placeholder="Enter" [ngClass]="{'is-invalid': isSubmitted && f.REMARKS.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="form-group" style="margin-left: 34px;">
+                                <label>FY:<span style="color: red;">*</span></label>
+                                <input required type="text" formControlName="FY" class="form-control" name="FY"
+                                    style="margin-left: 165px;" [(ngModel)]="FY" placeholder="Enter"
+                                    [ngClass]="{'is-invalid': isSubmitted && f.FY.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                            </div>
+
+                        </div><br>
+                        <div class="filed9">
+
+                            <div class="form-group" >
+                                <label>TYPE OF:<span style="color: red;">*</span></label>
+                                <select name="TYPEOF" formControlName="TYPEOF" style="margin-left: 132px;"
+                                    [(ngModel)]="TYPEOF" placeholder="Enter"
+                                    [ngClass]="{'is-invalid': isSubmitted && f.TYPEOF.errors}"
+                                    [ngModelOptions]="{standalone: true}">
+                                    <option disabled value="" selected hidden>Type of Field</option>
+                                    <option>Data Extraction</option>
+                                    <option>Data System Issue</option>
+                                    <option>Data Error</option>
+                                </select>
+                            </div>
+
+
+                            <div class="d-grid gap-2 " style="margin-left: 118px;">
+                                <input type="submit" value="submit" class="btn btn-primary form-control">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
             </div>
 
-            <div style="margin: 20px 343px">
-                <button mat-raised-button matTooltip="Export policy data to excel sheet" color="primary"
-                    (click)="exportAsXLSX()" >
-                    Export To Excel
-                </button>
+        </div>
 
-            <!-- <div class="exportBtn">
-                <button (click)="downloadFile()">Export to CSV</button>
+        <!-- table   -->
+        <div *ngIf="existingtable">
+            <div class="searchdefect">
+                <div style="align-items: center; display: flex; gap: 5px;">
+                    <label><b>Search: </b></label>
+                    <input class="Searchinput search-field" type="text" [(ngModel)]="searchText" placeholder=" Search"
+                        style="width: 200px; border-radius: 5px; height:30px;" />
+                </div>
+
+                <!-- ------------------------------------------------------------------------------- -->
+                <div>
+                    <label><b>DQ/VAlUATION/IRDA: &nbsp; </b></label>
+                    <select [(ngModel)]="selectedValDqIrda" (change)="filterTable()" style="border-radius: 5px; height: 30px;">
+                      <option value="">Select</option>
+                      <option *ngFor="let val of valDqIrdaOptions" [value]="val">{{ val }}</option>
+                    </select>
+                  </div>
+
+                <div>
+                    <label ><b>Whizible Status: &nbsp;</b></label>
+                    <select [(ngModel)]="selectedWhizibleStatus" (change)="filterTable()" style="border-radius: 5px; height: 30px;">
+                      <option value="">Select</option>
+                      <option *ngFor="let value of whizibleStatusOptions" [value]="value">{{ value }}</option>
+                    </select>
+                  </div>
+
+                <!-- ----------------------------------------------------------------------------- -->
+
+                <div>
+                    <button mat-raised-button matTooltip="Export policy data to excel sheet"  *ngIf="Export" color="primary"
+                        (click)="exportAsXLSX()">
+                        Export To Excel
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- <div class="gridtable" style="width: 100%; overflow-x: scroll; border: 1px solid black;">
+                <table class="table table-striped table-bordered">
+                        <thead class="bg-primary" style="border: 2px solid black; ">
+                            <tr style="height: 55px;">
+                                <th style="background-color: #acedc5 ; width: 80px  ;border-right: 2px solid black;">ID                                </th>
+                                <th style="background-color: #acedc5 ; width: 120px ;border-right: 2px solid black;">MONTH</th>
+                                <th style="background-color: #acedc5 ; width: 120px ;border-right: 2px solid black;">WHIZIBLE ID</th>
+                                <th style="background-color: #acedc5 ; width: 120px ;border-right: 2px solid black">DOR TO OPS IT</th>
+                                <th style="background-color: #acedc5 ; width: 120px ;border-right: 2px solid black">FY</th>
+                                <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black">VAL DQ IRDA</th>
+                                <th style="background-color: #acedc5 ; width: 300px ;border-right: 2px solid black;">ASPECT PROCESS</th>
+                                <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;"> DEPT RESPOSIBLE</th>
+                                <th style="background-color: #acedc5 ; width: 120px ;border-right: 2px solid black;"> SYSTEM</th>
+                                <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;"> PRODUCT ID</th>
+                                <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;"> ULIP/NON ULIP/GRPS/VIP</th>
+                                <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;"> RESOURCE </th>
+                                <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;"> IMPACTED POLICIES </th>
+                                <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;">  AMOUNT IMPACTED</th>
+                                <th style="background-color: #acedc5 ; width: 300px ;border-right: 2px solid black;">ISSUES IN BRIEF</th>
+                                <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;"> POL/CUST ID</th>
+                                <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;"> STATUS OF WHIZIBLE</th>
+                                <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;"> CURRENT IT STATUS</th>
+                                <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;"> REASON</th>
+                                <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;"> DATE OF CLOSURE </th>
+                                <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;">REMARKS </th>
+                                <th style="background-color: #acedc5 ; width: 150px ;border-right: 2px solid black;">SEVERITY </th>
+                                <th style="background-color: #acedc5 ; width: 80px;"> ACTION</th>
+                            </tr>
+                        </thead>
+                    <tbody style="overflow-y: scroll;  ">
+                        <tr class="TDbody" *ngFor="let element of filteredData | defect:searchText"
+                            style="background-color: white;">
+                            <td style="width:80px  ;">{{element.ID}}</td>
+                            <td style="width:120px  ;">{{element.MONTH}}</td>
+                            <td style="width:120px  ;">{{element.WHIZIBLE_ID}}</td>
+                            <td style="width:120px  ;">{{element.DOR_TO_OPS_IT}}</td>
+                            <td style="width:120px;">{{element.FY}}</td>
+                            <td style="width:150px;">{{element.VAL_DQ_IRDA}}</td>
+                            <td style="width:300px   ;">{{element.ASPECT}}</td>
+                            <td style="width:150px  ;">{{element.DEPT_RESPOSIBLE}}</td>
+                            <td style="width:120px  ;">{{element.SYSTEM}}</td>
+                            <td style="width:150px  ;">{{element.PRODUCT_ID_COVERED}}</td>
+                            <td style="width:150px  ;">{{element.ULIP_NONULIP_GRPS_VIP }}</td>
+                            <td style="width:150px  ;">{{element.RESOURCE}}</td>
+                            <td style="width:150px  ;">{{element.IMPACTED_POLICIES}}</td>
+                            <td style="width:150px  ;">{{element.AMOUNT_IMPACTED}}</td>
+                            <td style="width:300px;">{{element.ISSUES_IN_DETAIL}}</td>
+                            <td style="width:150px  ;">{{element.SAMPLE_POL_CUST_ID}}</td>
+                            <td style="width:150px  ;">{{element.STATUS_OF_WHIZIBLE_ID}}</td>
+                            <td style="width:150px  ;">{{element.CURRENT_IT_STATUS}}</td>
+                            <td style="width:150px  ;">{{element.REASON_FOR_CLOSING}}</td>
+                            <td style="width:150px  ;">{{element.DATE_CLOSURE}}</td>
+                            <td style="width:150px  ;">{{element.REMARKS}}</td>
+                            <td style="width:150px  ;">{{element.SEVERITY}}</td>
+                            <td style="width: 65px;"><i class="far fa-edit" style="color: blue;"
+                                    (click)="onEdit(element.id, element)"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div> -->
 
 
-            <!-- <button mat-raised-button matTooltip="Export policy data to excel sheet" color="primary"
-                routerLink="/update-data" >
-                    Edit
-                </button> -->
+            <div class="table-container">
+                <table class="table-striped table-bordered">
+                    <thead>
+                        <tr style="height: 55px;">
+                            <th style="background-color: #acedc5">ID</th>
+                            <th style="background-color: #acedc5">MONTH</th>
+                            <th style="background-color: #acedc5">WHIZIBLE ID</th>
+                            <th style="background-color: #acedc5">DOR TO OPS IT</th>
+                            <th style="background-color: #acedc5">FY</th>
+                            <th style="background-color: #acedc5">VAL DQ IRDA</th>
+                            <th style="background-color: #acedc5">ASPECT PROCESS</th>
+                            <th style="background-color: #acedc5"> DEPT RESPOSIBLE</th>
+                            <th style="background-color: #acedc5"> SYSTEM</th>
+                            <th style="background-color: #acedc5"> PRODUCT ID</th>
+                            <th style="background-color: #acedc5"> ULIP/NON ULIP/GRPS/VIP</th>
+                            <th style="background-color: #acedc5"> RESOURCE </th>
+                            <th style="background-color: #acedc5"> IMPACTED POLICIES </th>
+                            <th style="background-color: #acedc5">  AMOUNT IMPACTED</th>
+                            <th style="background-color: #acedc5">ISSUES IN BRIEF</th>
+                            <th style="background-color: #acedc5"> POL/CUST ID</th>
+                            <th style="background-color: #acedc5"> STATUS OF WHIZIBLE</th>
+                            <th style="background-color: #acedc5"> CURRENT IT STATUS</th>
+                            <th style="background-color: #acedc5"> REASON</th>
+                            <th style="background-color: #acedc5"> DATE OF CLOSURE </th>
+                            <th style="background-color: #acedc5">REMARKS </th>
+                            <th style="background-color: #acedc5">SEVERITY </th>
+                            <th style="background-color: #acedc5">TYPEOF </th>
+                            <th style="background-color: #acedc5"> ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TDbody" *ngFor="let element of filteredData | defect:searchText"
+                        style="background-color: white;">
+                        <td >{{element.ID}}</td>
+                        <td >{{element.MONTH}}</td>
+                        <td >{{element.WHIZIBLE_ID}}</td>
+                        <td >{{element.DOR_TO_OPS_IT}}</td>
+                        <td >{{element.FY}}</td>
+                        <td >{{element.VAL_DQ_IRDA}}</td>
+                        <td >{{element.ASPECT}}</td>
+                        <td >{{element.DEPT_RESPOSIBLE}}</td>
+                        <td >{{element.SYSTEM}}</td>
+                        <td >{{element.PRODUCT_ID_COVERED}}</td>
+                        <td >{{element.ULIP_NONULIP_GRPS_VIP }}</td>
+                        <td >{{element.RESOURCE}}</td>
+                        <td >{{element.IMPACTED_POLICIES}}</td>
+                        <td >{{element.AMOUNT_IMPACTED}}</td>
+                        <td >{{element.ISSUES_IN_DETAIL}}</td>
+                        <td >{{element.SAMPLE_POL_CUST_ID}}</td>
+                        <td >{{element.STATUS_OF_WHIZIBLE_ID}}</td>
+                        <td >{{element.CURRENT_IT_STATUS}}</td>
+                        <td >{{element.REASON_FOR_CLOSING}}</td>
+                        <td >{{element.DATE_CLOSURE}}</td>
+                        <td >{{element.REMARKS}}</td>
+                        <td >{{element.SEVERITY}}</td>
+                        <td>{{element.TYPEOF}}</td>
+                        <td ><i class="far fa-edit" style="color: blue;"
+                                (click)="onEdit(element.id, element)"></i></td>
+                    </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+
+
         </div>
-        <!-- <button *ngIf ='!hideDetails' mat-raised-button matTooltip="Fetch new policy details" color="primary" (click)="refreshPolicyData()" > -->
-        <!-- Refresh
-            </button> -->
-    </div>
-    <div style="width: 100%; overflow-x:scroll;">
-        <table class="table table-bordered table-striped"
-            style="text-align: center;margin-bottom: 15px; font-size: 13px;border: 1px solid; margin-top:35px">
-            <thead>
-
-                <tr class="heading">
-                    <th><b>ID </b></th>
-                    <th><b>MONTH</b></th>
-                    <th><b>WHIZIBLE ID</b></th>
-                    <th><b>DOR TO OPS IT</b></th>
-                    <th><b>FY</b></th>
-                    <th><b>VAL DQ IRDA</b></th>
-                    <th><b>CATEGORY</b></th>
-                    <th><b>ASPECT PROCESS</b></th>
-                    <th><b>DEPT RESPOSIBLE</b></th>
-                    <th><b>SYSTEM</b></th>
-                    <th><b>PRODUCT ID</b></th>
-                    <th><b>ULIP/NON ULIP/GRPS/VIP</b></th>
-                    <th><b>RESOURCE</b></th>
-                    <th><b>IMPACTED POLICIES</b></th>
-                    <th><b>AMOUNT IMPACTED</b></th>
-                    <th><b>ISSUES IN DETAIL</b></th>
-                    <th><b>POL/CUST ID</b></th>
-                    <th><b>STATUS OF WHIZIBLE</b></th>
-                    <th><b>REASON</b></th>
-                    <th><b>DATE OF CLOSURE</b></th>
-                    <th><b>REMARKS</b></th>
-                    <th><b>SEVERITY</b></th>
-                    <th><b>ACTION </b></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="TDbody" *ngFor="let element of Data | defect:searchText">
-                    <td>{{element.ID}}</td>
-                    <td>{{element.MONTH}}</td>
-                    <td>{{element.WHIZIBLE_ID}}</td>
-                    <td>{{element.DOR_TO_OPS_IT}}</td>
-                    <td>{{element.FY}}</td>
-                    <td>{{element.VAL_DQ_IRDA}}</td>
-                    <td>{{element.CATEGORY}}</td>
-                    <td>{{element.ASPECT}}</td>
-                    <td>{{element.DEPT_RESPOSIBLE}}</td>
-                    <td>{{element.SYSTEM}}</td>
-                    <td>{{element.PRODUCT_ID_COVERED}}</td>
-                    <td>{{element.ULIP_NONULIP_GRPS_VIP }}</td>
-                    <td>{{element.RESOURCE}}</td>
-                    <td>{{element.IMPACTED_POLICIES}}</td>
-                    <td>{{element.AMOUNT_IMPACTED}}</td>
-                    <td>{{element.ISSUES_IN_DETAIL}}</td>
-                    <td>{{element.SAMPLE_POL_CUST_ID}}</td>
-                    <td>{{element.CURRENT_STATUS_OF_WHIZIBLE_ID}}</td>
-                    <td>{{element.REASON_FOR_CLOSING}}</td>
-                    <td>{{element.DATE_CLOSURE}}</td>
-                    <td>{{element.REMARKS}}</td>
-                    <td>{{element.SEVERITY}}</td>
-                    <td>
-                        <button class="backBtn" (click)="onEdit(element.id, element)"><i class="fas fa-edit fa-lg"
-                                style="color: #17a2ff;"></i></button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
 
 
-<!-- MIS -->
-<div style="margin-top: 20px;">
-<div *ngIf="misTable">
-    <!-- <div class="box-container"> -->
-        <!-- <div class="redirectPage" style="margin-top: 5px;"> 
-            <button mat-raised-button color="primary" [routerLink]="['/DefectTracker/']">
-               Redirect to back page
-           </button>             
-        </div> -->
-        <!-- </div> -->
-        
-        
-        <tr style=" background-color: rgb(233, 201, 251);">
-            <th style="width: 114px;
+        <!-- MIS -->
+        <div style="margin-top: 20px;">
+            <div *ngIf="misTable">
+
+                <tr style=" background-color: rgb(233, 201, 251);">
+                    <th style="width: 117px;
             padding-left: 2%;
             border: 2px solid black;">ASPECT</th>
-           
-            <th style="width: 583px;
+
+                    <th style="width: 641px;
             border: 2px solid black;
             padding-left: 0%;">OPEN</th>
-           
-            <th style="width: 583px;
+
+                    <th style="width: 638px;
             border: 2px solid black;
             padding-left: 0%;">CLOSED</th>
-        </tr>
-        
-        <table>
-           
-              <tr style=" background-color: rgb(233, 201, 251);">
-                <th style="    width: 111px;">AGEING</th>
-                <th>LESS THAN 10</th>
-                <th>BETWEEN 11-30</th>
-                <th>GREATER THAN 30</th>
-                <th>LESS THAN 10</th>
-                <th> BETWEEN 11-30</th>
-                <th>GREATER THAN 30</th>
-                
-              </tr>
-              <tr  class="TDbody" *ngFor="let elements of data" style="background-color: rgb(227, 218, 218);">
-                <td>{{elements.AGEING}}</td>
-                <td>{{elements.OPEN_LESS_THAN_10}}</td>
-                <td>{{elements.OPEN_BETWEEN_11_30}}</td>
-                <td>{{elements.OPEN_GREATER_THAN_30}}</td>
-                <td>{{elements.CLOSE_LESS_THAN_10}}</td>
-                <td>{{elements.CLOSE_BETWEEN_11_30}}</td>
-                <td>{{elements.CLOSE_GREATER_THAN_30}}</td>
-                
-              </tr>
-            </table>
-            
-        
-</div>
-</div>
-</div>
+                </tr>
 
+                <table style="font-family: arial, sans-serif;  border-collapse: collapse; width: 100%;">
+
+                    <tr style=" background-color: rgb(233, 201, 251); border: 1px solid #000000; text-align: center; padding: 8px;">
+                        <th style="width: 111px;">AGEING</th>
+                        <th style="border: 1px solid #000000;">LESS THAN 10</th>
+                        <th style="border: 1px solid #000000;">BETWEEN 11-30</th>
+                        <th style="border: 1px solid #000000;">GREATER THAN 30</th>
+                        <th style="border: 1px solid #000000;">LESS THAN 10</th>
+                        <th style="border: 1px solid #000000;"> BETWEEN 11-30</th>
+                        <th style="border: 1px solid #000000;">GREATER THAN 30</th>
+
+                    </tr>
+                    <tr class="TDbody" *ngFor="let elements of data" style="background-color: rgb(227, 218, 218);">
+                        <td style="border: 1px solid #000000; text-align: center; padding: 8px;">{{elements.AGEING}}</td>
+                        <td style="border: 1px solid #000000; text-align: center; padding: 8px;">{{elements.OPEN_LESS_THAN_10}}</td>
+                        <td style="border: 1px solid #000000; text-align: center; padding: 8px;">{{elements.OPEN_BETWEEN_11_30}}</td>
+                        <td style="border: 1px solid #000000; text-align: center; padding: 8px;">{{elements.OPEN_GREATER_THAN_30}}</td>
+                        <td style="border: 1px solid #000000; text-align: center; padding: 8px;">{{elements.CLOSE_LESS_THAN_10}}</td>
+                        <td style="border: 1px solid #000000; text-align: center; padding: 8px;">{{elements.CLOSE_BETWEEN_11_30}}</td>
+                        <td style="border: 1px solid #000000; text-align: center; padding: 8px;">{{elements.CLOSE_GREATER_THAN_30}}</td>
+                    </tr>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
 </div>

@@ -13,84 +13,254 @@
     <div>
         <!-- <h2 class="mat-h2">Dashboard</h2> -->
         <div class="redirectPage">
-            <button mat-raised-button color="primary" [routerLink]="['/dashboard-page/']">
+            <button mat-raised-button color="primary" [routerLink]="['/main-valuation/']">
                 Redirect to dashboard page
             </button>
         </div>
 
-        <h5 style="padding: 20px;">
+        <h5 style="padding-left: 20px; padding-bottom: 30px;">
             Selected Module :
-            <span style="color: blue;"> {{actualModule}} </span>
+            <span style="color: blue;">{{module}}, {{actualModule}} </span>
         </h5>
 
         <div *ngIf="dropdown" style="margin-left: 35%;">
             <label><b>TABLE NAME:</b></label>
             <input type="text" [(ngModel)]="tablename" style="margin-left:20px" required>
         </div>
-       
+
+        <div *ngIf="Dateformatter" style="text-align: center; ">
+            <label><b>TABLE NAME:</b></label>
+            <input type="text" [(ngModel)]="tablename" style="margin-left:20px" required>
+            <label style="margin-left: 10px;"><b>VALUATION DATE:</b></label>
+            <input type="date" [(ngModel)]="Dates"  style="margin-left:20px; padding: 0px 10px 0px 10px;" required>
+        </div>
 
 
-        <div *ngIf="dropdown2" style="text-align: center; ">
+        <div *ngIf="dropdown2" style="text-align: end; ">
             <button mat-raised-button matTooltip="Export data to CSV" color="primary" (click)="exportAsCSV()">
                 Export To CSV
             </button>
         </div>
 
-       <!--  file upload start-->
-       <div *ngIf="M1page" style="display:flex;">
-        <label style="margin-left: 22%;"><b>TABLE NAME:</b></label>
-        <input type="text" [(ngModel)]="tablename" style="margin-left: 1%;" required>
-        <label style="margin-left: 10%;"><b>File:</b></label>
-        <input required type="file" class="form-control" name="uploadFile" [(ngModel)]="file"
-            (change)="onSelectedFile($event)" style="margin: 0% 24% 0% 1%;" /> <!-- <br /> -->
-    </div>
-    <div *ngIf="M1page" style="text-align: center; margin-top: 25px;">
-        <button mat-raised-button matTooltip="Process Data" color="primary" (click)="processData()">
-            Process Input
-        </button>
+<!-- **********************************************csv data shown in table data******************************************************** -->
+        <!-- <div *ngIf="showData">
+            <div style=" text-align: center;">
+                <label><b>Search:</b></label>
+                <input class="searchinput search-field" type="text" [(ngModel)]="searchText" placeholder=" Search"
+                    style="width: 240px; margin-left: 5px;"  />
+            </div>
 
-    </div>
-    <div *ngIf="M1page1" style="text-align: center; margin-top: 25px;">
-        <button mat-raised-button matTooltip="Export data to CSV" color="primary" (click)="exportAsCSV1()">
-            Export To CSV 
-        </button>
-    </div>
-    <!--  file upload end-->
+            <div style="width: 100%; height: 500px; overflow-y: scroll;">
+                <table class="table table-bordered table-striped"
+                    style="text-align: center;margin-bottom: 15px; font-size: 13px;border: 1px solid; margin-top:35px">
+                    <thead>
+                        <tr class="heading">
+                            <th><b>ID </b></th>
+                            <th><b>MONTH</b></th>
+                            <th><b>WHIZIBLE ID</b></th>
+                            <th><b>DOR TO OPS IT</b></th>
+                            <th><b>FY</b></th>
+                            <th><b>VAL DQ IRDA</b></th>
+                            <th><b>CATEGORY</b></th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr class="TDbody" *ngFor="let item of Data | defect : searchText" style="background-color: white;">
+                            <td>{{item.POL_ID}}</td>
+                            <td>{{item.FV}}</td>
+                            <td>{{item.FUND_ID}}</td>
+                            <td>{{item.maya}}</td>
+                            <td>{{item.maya}}</td>
+                            <td>{{item.maya}}</td>
+                            <td>{{item.maya}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div> -->
+        <!-- ****************************************************************************************************** -->
+
+
+        <!--  file upload start-->
+        <div *ngIf="M1page">
+            <div style="display:flex; margin-left: 24%;">
+                <label><b>TABLE NAME:&nbsp;</b></label>
+                <input type="text" [(ngModel)]="tablename" required>
+                <label style="margin-left: 6%;"><b>INTEREST RATE:&nbsp;</b></label>
+                <input type="text" [(ngModel)]="interestrate" required>
+            </div>
+            <br>
+            <!-- <label style="margin-left: 10%;"><b>File:</b></label>
+            <input required type="file" class="form-control" name="uploadFile" [(ngModel)]="file"
+                (change)="onSelectedFile($event)" style="margin: 0% 24% 0% 1%;" /> maya -->
+            <div style="display:flex; margin-left: 24%;">
+                <label><b>FROM DATE:&nbsp;</b></label>
+                <input style="margin-left: 8px; padding: 0px 38px 0px 14px;
+            text-align: justify;" type="date" [(ngModel)]="fromdate" required>
+                <label style="margin-left: 6%;"><b>TO DATE:&nbsp;</b></label>
+                <input style="margin-left: 50px;padding: 0px 38px 0px 14px;
+            text-align: justify;" type="date" [(ngModel)]="todate" required>
+
+            </div>
+        </div>
+        <div *ngIf="M1page" style="text-align: center; margin-top: 25px;">
+            <button mat-raised-button matTooltip="Process Data" color="primary" (click)="processData()">
+                Process Input
+            </button>
+
+        </div>
+        <div *ngIf="M1page1" style="text-align: center; margin-top: 25px;">
+            <button mat-raised-button matTooltip="Export data to CSV" color="primary" (click)="exportAsCSV()">
+                Export To CSV
+            </button>
+        </div>
+        <!--  file upload end-->
 
         <!-- for DOD  start -->
         <div *ngIf="DODPage">
-        <div  class="row" style=" margin-left: 100px;">
-            <div class="col" style="margin-left: -13px;">
-                <label><b> Ulip:</b></label>
-                <input type="text" [(ngModel)]="table_Ulip" style="margin-left:20px" placeholder="Enter Table Name" required>
-            </div>
-            <div class="col" style="margin-left: -64px;">
-                <label><b>Non-Ulip:</b></label>
-                <input type="text" [(ngModel)]="table_NonUlip" style="margin-left:20px" placeholder="Enter Table Name" required>
-            </div>
-            <div class="col">
-                <label><b>1M:</b></label>
-                <input type="text" [(ngModel)]="table_1M" style="margin-left:20px " placeholder="Enter Table Name" required>
-            </div>
+            <div class="row" style=" margin-left: 100px;">
+                <div class="col" style="margin-left: -13px;">
+                    <label><b> Ulip:</b></label>
+                    <input type="text" [(ngModel)]="table_Ulip" style="margin-left:20px" placeholder="Enter Table Name"
+                        required>
+                </div>
+                <div class="col" style="margin-left: -64px;">
+                    <label><b>Non-Ulip:</b></label>
+                    <input type="text" [(ngModel)]="table_NonUlip" style="margin-left:20px"
+                        placeholder="Enter Table Name" required>
+                </div>
+                <div class="col">
+                    <label><b>1M:</b></label>
+                    <input type="text" [(ngModel)]="table_1M" style="margin-left:20px " placeholder="Enter Table Name"
+                        required>
+                </div>
 
-        </div>
-        <div class="row"  style="margin-top:20px; margin-left: 100px;" 
-        >
-            <div class="col">
-                <label><b> 1E:</b></label>
-                <input type="text" [(ngModel)]="table_1E" style="margin-left:20px" placeholder="Enter Table Name" required>
             </div>
-            <div class="col">
-                <label><b>56:</b></label>
-                <input type="text" [(ngModel)]="table_56" style="margin-left:20px" placeholder="Enter Table Name" required>
+            <div class="row" style="margin-top:20px; margin-left: 108px;">
+                <div class="col" style="margin-left: 8px;">
+                    <label><b> 1E:</b></label>
+                    <input type="text" [(ngModel)]="table_1E" style="margin-left:20px" placeholder="Enter Table Name"
+                        required>
+                </div>
+                <div class="col" style="padding-right: 52px;">
+                    <label><b>56:</b></label>
+                    <input type="text" [(ngModel)]="table_56" style="margin-left:20px" placeholder="Enter Table Name"
+                        required>
+                </div>
+                <div class="col">
+                    <label style="margin-left: -78px;"><b>36 :</b></label>
+                    <input type="text" [(ngModel)]="table_Annuity" style="margin-left:20px "
+                        placeholder="Enter Table Name" required>
+                </div>
             </div>
-            <div class="col">
-                <label  style="margin-left: -60px;" ><b>Annuity:</b></label>
-                <input type="text" [(ngModel)]="table_Annuity" style="margin-left:20px " placeholder="Enter Table Name" required>
-            </div>
-        </div>
         </div>
         <!-- for DOD  end-->
+
+        <!-- Status Inconsistency-->
+        <div *ngIf="StatusIncon">
+            <div style="justify-content: space-between; text-align: center;margin-left: 22%; display: inline-flex; width: 58%;">
+                <div><label><b> Current Month</b></label></div>  
+            <div><label><b> Last Month</b></label></div>
+            </div>
+
+            <div class="row" style="margin-top:20px;">
+                <div class="col">
+                    <label><b> Ulip :</b></label>
+                    <input type="text" [(ngModel)]="Ulip_Current_Month" style="margin-left:20px" placeholder="Enter Current Month"
+                        required>
+                </div>
+                <div class="col">
+                    <label><b>Ulip :</b></label>
+                    <input type="text" [(ngModel)]="Ulip_Last_Month" style="margin-left:20px" placeholder="Enter Last Month" required>
+                </div>
+                
+            </div>
+            <div class="row" style="margin-top:20px;">
+                <div class="col" style=" margin-left: -19px;">
+                    <label><b> Non-Ulip :</b></label>
+                    <input type="text" [(ngModel)]="Non_Ulip_Current_Month" style="margin-left:20px" placeholder="Enter Current Month"
+                        required>
+                </div>
+                <div class="col" style="margin-right: 19px;">
+                    <label><b>Non-Ulip :</b></label>
+                    <input type="text" [(ngModel)]="Non_Ulip_Last_Month" style="margin-left:20px" placeholder="Enter Last Month"
+                        required>
+                </div>
+               
+            </div>
+
+            <div class="row" style="margin-top:20px;">
+                <div class="col" style="margin-left: 6px;">
+                    <label><b> 1M :</b></label>
+                    <input type="text" [(ngModel)]="_1M_Current_Month" style="margin-left:20px" placeholder="Enter Current Month"
+                        required>
+                </div>
+                <div class="col" style="margin-left: 6px;" >
+                    <label><b>1M :</b></label>
+                    <input type="text" [(ngModel)]="_1M_Last_Month" style="margin-left:20px" placeholder="Enter Last Month"
+                        required>
+                </div>
+               
+            </div>
+
+            <div class="row" style="margin-top:20px;">
+                <div class="col" style="margin-left: 13px;">
+                    <label><b> 1E :</b></label>
+                    <input type="text" [(ngModel)]="_1E_Current_Month" style="margin-left:20px" placeholder="Enter Current Month"
+                        required>
+                </div>
+                <div class="col" style="margin-left: 14px;">
+                    <label><b>1E :</b></label>
+                    <input type="text" [(ngModel)]="_1E_Last_Month" style="margin-left:20px" placeholder="Enter Last Month"
+                        required>
+                </div>
+               
+            </div>
+            <div class="row" style="margin-top:20px;">
+                <div class="col" style="margin-left: 14px;">
+                    <label><b> 56 :</b></label>
+                    <input type="text" [(ngModel)]="_56_Current_Month" style="margin-left:20px" placeholder="Enter Current Month"
+                        required>
+                </div>
+                <div class="col" style="margin-left: 15px;">
+                    <label><b>56 :</b></label>
+                    <input type="text" [(ngModel)]="_56_Last_Month" style="margin-left:20px" placeholder="Enter Last Month"
+                        required>
+                </div>
+               
+            </div>
+            <div class="row" style="margin-top:20px;">
+                <div class="col" style="margin-left: -13px;">
+                    <label><b> Pension :</b></label>
+                    <input type="text" [(ngModel)]="Annuity_Current_Month" style="margin-left:20px" placeholder="Enter Current Month"
+                        required>
+                </div>
+                <div class="col" style="margin-right: 13px;">
+                    <label><b> Pension :</b></label>
+                    <input type="text" [(ngModel)]="Annuity_Last_Month" style="margin-left:20px" placeholder="Enter Last Month"
+                        required>
+                </div>
+               
+            </div>
+            <!-- <div class="row" style="margin-top:20px;">
+                <div class="col" style="margin-left: -29px;">
+                    <label><b> Rinn Raksha :</b></label>
+                    <input type="text" [(ngModel)]="Rinn_Raksha_Current_Month" style="margin-left:20px" placeholder="Enter Current Month"
+                        required>
+                </div>
+                <div class="col" style="margin-right: 28px;">
+                    <label><b>Rinn Raksha :</b></label>
+                    <input type="text" [(ngModel)]="Rinn_Raksha_Last_Month" style="margin-left:20px" placeholder="Enter Last Month"
+                        required>
+                </div>
+               
+            </div> -->
+        </div>
+
+
+<!-- Status Inconsistency-->
+
+
         <div *ngIf="dropdown1" style="text-align: center; margin-top: 25px;">
             <button mat-raised-button matTooltip="Process Data" color="primary" (click)="processData()">
                 Process Input
@@ -99,22 +269,29 @@
 
     </div>
     <div style="display: flex;flex-direction: row;margin: 20px;">
-        <div *ngIf="openConfirmationBox" class="my-overlay"
-            style="    margin-left: 28%;padding-bottom: 0;position: absolute;z-index: 99999999;">
-            <div class="customAlert" [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'" style="
-                    height: 190px;
-                    border: groove;
-                    
-                    box-shadow: 5px 10px #888888;width: 500px;">
-                <div class="messagebody"
-                    style="font-weight: 500;font-size:20px;padding-left: 20px; padding-bottom: 10px;padding-top:50px;padding-right: 20px;">
-                    {{messagePopup}}
-                </div>
+        <div *ngIf="openConfirmationBox">
+            <div style="width: -webkit-fill-available;height: 30%; position: absolute; z-index: 99999999999999999;">
+                <div style="padding: 30%; padding-top: 50px;padding-bottom: 0;">
+                    <div class="customAlert" [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'">
 
-                <div style="text-align: right;margin-top: 30px;padding-right: 30px;">
-                    <button style="width: 20%;height: 30px;margin-right: 10px;" (click)="showAlert('OK')">OK</button>
-                </div>
 
+                        <div class="messageheader">
+                            {{ messageType }}
+                        </div>
+                        <div class="messagebody" style="font-weight: 500;padding-left: 30px; padding-bottom: 10px;">
+                            <!-- {{ message }} -->
+                        </div>
+                        <div class="messagebody messageDetails">
+                            {{ messagePopup }}
+                        </div>
+                        <div class="msgImg">
+                            <img [src]="ImagePath">
+                        </div>
+                        <div class="popupDivBtn">
+                            <button class="popupBtn" (click)="showAlert('OK')">OK</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- UNITS_PRESENT_IN_PENDING_STATUS -->

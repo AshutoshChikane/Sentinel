@@ -22,11 +22,13 @@
        "ISSUES_IN_DETAIL":"{'FN442': 'input[2112.405]output_nav:49.9193fund_SYSTEM :FN442', 'FN444': 'input[2744.5495]output_nav:26.5053fund_SYSTEM :FN444', 'FN443': 'input[5613.3484]output_nav:35.8068fund_SYSTEM :FN443'}",
        "ID":"4308375",
        "SAMPLE_POL_CUST_ID":"None",
-       "CURRENT_STATUS_OF_WHIZIBLE_ID":"CLOSE",
+       "STATUS_OF_WHIZIBLE_ID":"Closed",
+       "IT_STATUS": "DONE",
         "REASON_FOR_CLOSING":"maya",
         "DATE_CLOSURE":"uhguag",
         "SEVERITY": "yfgyd",
-        "REMARKS":"mjhguj"
+        "REMARKS":"mjhguj",
+        "TYPEOF": "Data Extraction"
 
 },
     {
@@ -49,8 +51,9 @@
        "AMOUNT_IMPACTED":"2",
        "ISSUES_IN_DETAIL":"{'FN361': 'input[0.1367]output_nav:137.2123fund_SYSTEM :FN361', 'FN365': 'input[4764.0965]output_nav:53.9431fund_SYSTEM :FN365'}",
        "ID":"4309532",
+       "IT_STATUS": "DONE",
        "SAMPLE_POL_CUST_ID":"None",
-       "CURRENT_STATUS_OF_WHIZIBLE_ID":"CLOSE",
+       "STATUS_OF_WHIZIBLE_ID":"CLOSE",
        "REASON_FOR_CLOSING":"maya",
        "DATE_CLOSURE":"2022-03-22",
        "SEVERITY": "Major",
@@ -79,10 +82,11 @@
        "ISSUES_IN_DETAIL":"{'FN366': 'input[20074.8076]output_nav:40.1284fund_SYSTEM :FN366'}",
        "ID":"4300433",
        "SAMPLE_POL_CUST_ID":"None asdfghjklqwertyui bgyftyftygiotyyt gfuygiy ygyug ggy hjygygui jhggyj hjgyug hjgyug hjgyjg",
-       "CURRENT_STATUS_OF_WHIZIBLE_ID":"CLOSE",
+       "STATUS_OF_WHIZIBLE_ID":"CLOSE",
        "REASON_FOR_CLOSING":"maya jdzxck",
        "DATE_CLOSURE":"uhguag",
        "SEVERITY": "Major",
+       "IT_STATUS": "DONE",
        "REMARKS":"mjhguj "
 
 },
@@ -102,12 +106,13 @@
        "ULIP_NONULIP_GRPS_VIP":"VIP",
        "RESOURCE":"0.0",
        "audited_net_payable":"178358.05",
+       "IT_STATUS": "DONE",
        "IMPACTED_POLICIES":"180358.05",
        "AMOUNT_IMPACTED":"2",
        "ISSUES_IN_DETAIL":"{'FN361': 'input[1301.1855]output_nav:137.0735fund_SYSTEM :FN361'}",
        "ID":"4300783",
        "SAMPLE_POL_CUST_ID":"None",
-       "CURRENT_STATUS_OF_WHIZIBLE_ID":"CLOSE",
+       "STATUS_OF_WHIZIBLE_ID":"CLOSE",
 "REASON_FOR_CLOSING":"maya",
 "DATE_CLOSURE":"uhguag",
 "SEVERITY": "Major",
@@ -135,9 +140,10 @@
        "ISSUES_IN_DETAIL":"{'FN366': 'input[5422.6578]output_nav:40.1829fund_SYSTEM :FN366'}",
        "ID":"4214523",
        "SAMPLE_POL_CUST_ID":"None",
-       "CURRENT_STATUS_OF_WHIZIBLE_ID":"CLOSE",
+       "STATUS_OF_WHIZIBLE_ID":"CLOSE",
 "REASON_FOR_CLOSING":"maya",
 "DATE_CLOSURE":"uhguag",
+"IT_STATUS": "DONE",
 "SEVERITY": "yfgyd",
 "REMARKS":"mjhguj"
 
@@ -163,8 +169,8 @@
        "ISSUES_IN_DETAIL":"{'FN366': 'input[1997.5412]output_nav:40.1931fund_SYSTEM :FN366', 'FN361': 'input[739.9627]output_nav:137.6323fund_SYSTEM :FN361'}",
        "ID":"4217462",
        "SAMPLE_POL_CUST_ID":"None",
-       "CURRENT_STATUS_OF_WHIZIBLE_ID":"CLOSE",
-
+       "STATUS_OF_WHIZIBLE_ID":"CLOSE",
+       "IT_STATUS": "DONE",
 "REASON_FOR_CLOSING":"maya",
 "DATE_CLOSURE":"uhguag",
 "SEVERITY": "yfgyd",
@@ -192,7 +198,8 @@
        "ISSUES_IN_DETAIL":"{'FN367': 'input[2335.2297]output_nav:28.5765fund_SYSTEM :FN367', 'FN361': 'input[535.8493]output_nav:128.9751fund_SYSTEM :FN361', 'FN366': 'input[5064.1019]output_nav:40.0745fund_SYSTEM :FN366'}",
        "ID":"4262735",
        "SAMPLE_POL_CUST_ID":"None",
-       "CURRENT_STATUS_OF_WHIZIBLE_ID":"CLOSE",
+       "STATUS_OF_WHIZIBLE_ID":"CLOSE",
+       "IT_STATUS": "DONE",
 
 "REASON_FOR_CLOSING":"maya",
 "DATE_CLOSURE":"uhguag",
@@ -221,8 +228,8 @@
        "ISSUES_IN_DETAIL":"{'FN361': 'input[262.4578]output_nav:128.9751fund_SYSTEM :FN361', 'FN366': 'input[955.7809]output_nav:40.0745fund_SYSTEM :FN366'}",
        "ID":"4262413",
        "SAMPLE_POL_CUST_ID":"None",
-       "CURRENT_STATUS_OF_WHIZIBLE_ID":"CLOSE",
-
+       "STATUS_OF_WHIZIBLE_ID":"CLOSE",
+       "IT_STATUS": "DONE",
 "REASON_FOR_CLOSING":"maya",
 "DATE_CLOSURE":"uhguag",
 "SEVERITY": "yfgyd",
@@ -249,7 +256,9 @@
        "AMOUNT_IMPACTED":"2",
        "ISSUES_IN_DETAIL":"{'FN366': 'input[3276.2885]output_nav:40.1066fund_SYSTEM :FN366'}",
        "ID":"4252756",
-       "SAMPLE_POL_CUST_ID":"None"
+       "IT_STATUS": "DONE",
+       "SAMPLE_POL_CUST_ID":"None",
+       "STATUS_OF_WHIZIBLE_ID":"OPEN"
     },
     {
      
@@ -271,7 +280,9 @@
        "AMOUNT_IMPACTED":"2",
        "ISSUES_IN_DETAIL":"{'FN365': 'input[1458.9325]output_nav:51.6095fund_SYSTEM :FN365', 'FN361': 'input[1253.772]output_nav:125.953fund_SYSTEM :FN361', 'FN366': 'input[1715.6407]output_nav:39.9859fund_SYSTEM :FN366'}",
        "ID":"4274307",
-       "SAMPLE_POL_CUST_ID":"None"
+       "IT_STATUS": "DONE",
+       "SAMPLE_POL_CUST_ID":"None",
+       "STATUS_OF_WHIZIBLE_ID":"OPEN"
     },
     {
       
@@ -293,14 +304,16 @@
        "AMOUNT_IMPACTED":"2",
        "ISSUES_IN_DETAIL":"{'FN442': 'input[2053.7706]output_nav:47.3128fund_SYSTEM :FN442', 'FN444': 'input[4539.0414]output_nav:26.4632fund_SYSTEM :FN444', 'FN443': 'input[10975.8841]output_nav:35.7324fund_SYSTEM :FN443'}",
        "ID":"4259343",
-       "SAMPLE_POL_CUST_ID":"None"
+       "IT_STATUS": "DONE",
+       "SAMPLE_POL_CUST_ID":"None",
+       "STATUS_OF_WHIZIBLE_ID":"OPEN"
     },
     {
       
        "WHIZIBLE_ID":"50023693609",
        "MONTH":"50",
        "AUDITED_NET_PAYABLE":"2021-11-06",
-       "VAL_DQ_IRDA":"VALUATION",
+       "VAL_DQ_IRDA":"VALUATION data",
        "FY":"2022-02-07",
        "DOR_TO_OPS_IT":"2022-03-01",
        "CATEGORY":"2022-02-07",
@@ -315,7 +328,34 @@
        "AMOUNT_IMPACTED":"2",
        "ISSUES_IN_DETAIL":"{'FN366': 'input[1541.7681]output_nav:39.6975fund_SYSTEM :FN366', 'FN361': 'input[547.7543]output_nav:137.5421fund_SYSTEM :FN361'}",
        "ID":"4209795",
-       "SAMPLE_POL_CUST_ID":"None"
+       "SAMPLE_POL_CUST_ID":"None",
+       "IT_STATUS": "DONE",
+       "STATUS_OF_WHIZIBLE_ID":"OPEN"
+    },
+    {
+      
+       "WHIZIBLE_ID":"140788",
+       "MONTH":"Apr-22",
+       "VAL_DQ_IRDA":"VALUATION data",
+       "FY":"2022-23",
+       "DOR_TO_OPS_IT":"04/21/2022",
+       "ASPECT":"valuation data",
+       "SYSTEM":"INDIGO",
+       "DEPT_RESPOSIBLE":"IT",
+       "PRODUCT_ID_COVERED":"all product",
+       "ULIP_NONULIP_GRPS_VIP":"Ulip",
+       "RESOURCE":"sahil",
+       "IMPACTED_POLICIES":"1",
+       "AMOUNT_IMPACTED":"2",
+       "ISSUES_IN_DETAIL":"{'FN366': 'input[1541.7681]output_nav:39.6975fund_SYSTEM :FN366', 'FN361': 'input[547.7543]output_nav:137.5421fund_SYSTEM :FN361'}",
+       "ID":"4",
+       "SAMPLE_POL_CUST_ID":"None",
+       "STATUS_OF_WHIZIBLE_ID":"CLOSE",
+       "IT_STATUS": "DONE",
+"REASON_FOR_CLOSING":"maya ",
+"DATE_CLOSURE":"04/21/2022",
+"SEVERITY": "major",
+"REMARKS":"All are done"
     }
  ],
  

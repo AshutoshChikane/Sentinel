@@ -1,0 +1,43 @@
+<div class="Val_Mis">
+    <div class="backEle">
+        <button class="backBtn" [routerLink]="['/main-valuation/']"><i class="fa-solid fa-arrow-left"></i></button>
+    </div>
+    <div style="display: flex; align-items: center; padding: 13%;">
+        <div class="container">
+            <div>
+                <button class="button89" role="button" (click)="openCheckList()"  *ngIf="checkListButton">Check-List</button>
+            </div>
+                <div class="SubModuleButton"  *ngIf="openChecks">
+                    <button class="button24" role="button" (click)="openCheckPoint('Current')">Current Month Check-List</button>
+                    <button class="button24" role="button" (click)="openCheckPoint('Previous')" >Previous Month Check-List</button>
+                </div>
+            <div>
+                <button class="button89" (click)="openMonthOnMonth()" *ngIf="M_On_MButton" >M-On-M</button>
+            </div>
+                <div class="SubModuleButton1" *ngIf="openSub">
+                    <button class="button24" role="button"  (click)="Current_Month()" >Current Month Data Errors</button>
+                    <button class="button25" role="button" (click)="Data_Error_Com()" >Data Errors Comparison MOM </button> 
+                </div>
+                <div *ngIf="Product">
+                <div class="SubModuleButton2" *ngIf="Current_Month_Data_Errors" >
+                    <!-- <button class="button24" role="button" (click)="monthOnMonth( 'Current_Month_Data_Errors_Static_Checks','Static Checks', 1)">Static Checks</button>
+                    <button class="button24" role="button" (click)="monthOnMonth('Current_Month_Data_Errors_Critical_Checks','Critical Checks', 2)">Critical Checks</button>
+                    <button class="button24" role="button" (click)="monthOnMonth('Current_Month_Data_Errors_Other_Checks','Other Checks', 3)">Other Checks</button> -->
+                </div>
+                <div class="SubModuleButton2" *ngIf="Data_Errors_Comparison_MOM">
+                    <!-- <button class="button25" role="button" (click)="monthOnMonth( 'Data_Errors_Comparison_MOM_Static_Checks','Static Checks', 1)">Static Checks</button>
+                    <button class="button25" role="button" (click)="monthOnMonth( 'Data_Errors_Comparison_MOM_Critical_Checks','Critical Checks', 2)">Critical Checks</button>
+                    <button class="button25" role="button" (click)="monthOnMonth( 'Data_Errors_Comparison_MOM_Other_Checks','Other Checks', 3)">Other Checks</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="my-overlay1" *ngIf="QCloder" style="display: flex; flex-direction: column">
+    <div class="ring">Loading...<span></span></div>
+</div>
+
+
+
+

@@ -48,10 +48,10 @@
                         <select name="VAL_DQ_IRDA"   style="margin-left: 34%;
                         padding-left: 29px;" formControlName="VAL_DQ_IRDA" 
                             >
-                            <option>DQ</option>
-                            <option>VALUATION</option>
+                            <option>Data Quality</option>
+                            <option>Valuation Data</option>
                             <option>IRDA</option>
-                            <option>OTHERS</option>
+                            <option>Other</option>
                         </select>
                     </div>
                 </div><br>
@@ -70,17 +70,25 @@
                             <option>CLAIMS</option>
                             <option>RENEWALS</option>
                             <option>NB</option>
-                            <option>OTHERS</option>
+                            <option>Other</option>
                         </select>
                     </div>
 
                 </div><br>
                 <div class="filed3">
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>CATEGORY:<span style="color: red;">*</span> </label>
                         <input required type="text"  class="form-control" name="CATEGORY"  style="margin-left: 112px;"
                         formControlName="CATEGORY"
                             >
+                    </div> -->
+                    <div class="form-group">
+                        <label>SEVERITY:<span style="color: red;">*</span></label>
+                        <select name="SEVERITY" style="height: 40px; margin-left: 120px;" formControlName="SEVERITY">
+                            <option>Major</option>
+                            <option>Minor</option>
+                          
+                        </select>
                     </div>
                     <div class="form-group" style="margin-left: 32px;">
                         <label>SYSTEM:<span style="color: red;">*</span></label>
@@ -100,13 +108,13 @@
                     </div>
                     <div class="form-group" style="margin-left: 28px; ">
                         <label>ULIP/NON ULIP/GRPS/VIP:<span style="color: red;">*</span></label>
-                        <select name="ULIP_NONULIP_GRPS_VIP"  formControlName="ULIP_NONULIP_GRPS_VIP"
-                             >
+                        <select name="ULIP_NONULIP_GRPS_VIP"  formControlName="ULIP_NONULIP_GRPS_VIP" >
                             <option>ULIP</option>
                             <option>NON-ULIP</option>
                             <option>VIP</option>
                             <option>GROUPS</option>
                             <option>OTHERS</option>
+                            <option>All</option>
                         </select>
                     </div>
                 </div><br>
@@ -119,10 +127,9 @@
                     </div>
                     <div class="form-group" style="margin-left: 34px;">
                         <label>STATUS OF WHIZIBLE:<span style="color: red;">*</span></label>
-                        <select name="CURRENT_STATUS_OF_WHIZIBLE_ID"   style="margin-left: 23px;" formControlName="CURRENT_STATUS_OF_WHIZIBLE_ID"
-                          >
-                            <option>OPEN</option>
-                            <option>CLOSE</option>
+                        <select name="STATUS_OF_WHIZIBLE_ID"   style="margin-left: 23px;" formControlName="STATUS_OF_WHIZIBLE_ID" >
+                            <option>Open</option>
+                            <option>Closed</option>
                             <option>WIP</option>
                         </select>
                     </div>
@@ -198,15 +205,16 @@
                
 
                 <div class="filed9">
-                <div class="form-group">
-                    <label>SEVERITY:<span style="color: red;">*</span></label>
-                    <select name="SEVERITY" style="height: 40px; margin-left: 120px;" formControlName="SEVERITY">
-                        <option>Major</option>
-                        <option>Minor</option>
-                      
-                    </select>
-                </div>
-                
+                    <div class="form-group" style="margin-left: 34px;">
+                        <label>TYPE OF:<span style="color: red;">*</span></label>
+                        <select name="TYPEOF"   style="margin-left: 23px;" formControlName="TYPEOF" >
+                            <option>Data Extraction</option>
+                            <option>Data System Issue</option>
+                            <option>Data Error</option>
+                        </select>
+                    </div>
+
+
                 <div class="d-grid gap-2 ">
                     <input type="submit" value="submit" class="btn btn-primary form-control" style="margin-left: 233px;">
                 </div>

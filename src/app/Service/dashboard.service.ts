@@ -78,7 +78,7 @@ export class DashboardService {
 
 
 
-  public updatePolicyData(policyData, moduleId, processId, requested_by, subModuleId, userid) {
+  public updatePolicyData(policyData,uniqueid, moduleId, processId, requested_by, subModuleId, userid) {
     console.log('updatePolicyData :: policyData =>', policyData, moduleId, processId, requested_by, subModuleId, userid);
 
     console.log('currentDate >>', new Date());
@@ -116,7 +116,8 @@ export class DashboardService {
       'qc_remarks': policyData['QC_REMARK'],
       'qc_date': dateStamp,
       'qc_time': timeStamp,
-      'userid': userid
+      'userid': userid,
+      'UNI_ID_POL_DT':uniqueid
     };
 
     console.log('policyDetail ::', policyDetail);

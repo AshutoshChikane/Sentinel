@@ -1,4 +1,3 @@
-
 <div class="my-overlay1" *ngIf="showOverlay" style="display: flex; flex-direction: column;">
     <i class="fa fa-spinner fa-spin" aria-hidden="true" style="color: white;"></i>
     <span style="color:white; font-size: 30px;">Please wait...</span>
@@ -9,43 +8,64 @@
     <div>
         <!-- <h2 class="mat-h2">Dashboard</h2> -->
         <div class="redirectPage">
-            <button mat-raised-button color="primary" [routerLink]="['/dashboard-page/']">
+            <button mat-raised-button color="primary" [routerLink]="['/main-valuation/']">
                 Redirect to dashboard page
             </button>
         </div>
 
         <h5 style="padding: 20px;">
             Selected Module :
-            <span style="color: blue;"> {{actualModule}} </span>
+            <span style="color: blue;">{{module}}, {{actualModule}} </span>
         </h5>
 
         <div *ngIf="dropdown" style="margin-left: 35%;">
+
+            <label><b>TABLE NAME:</b></label>
+
+            <input type="text" [(ngModel)]="tablename" style="margin-left:20px" required>
+        </div>
         
-                <label><b>TABLE NAME:</b></label>
-               
-                <input type="text" [(ngModel)]="tablename" style="margin-left:20px" required>
-            </div>
-            <div class="box-container" style="border: solid 1px #212529;width: 100%;">
+        <div class="box-container" *ngIf="showBox" style="border: solid 1px #212529;width: 100%;">
             <div style="display: flex; justify-content: center;">
                 <!-- <div style="margin: 12px;font-weight: 500;">Enter date range :</div> -->
-                <div style="margin: 10px;" >
-                    
-                        <mat-label>Current_month &nbsp; </mat-label>
-                        <input type="text" [(ngModel)]="table1">
+                <div style="margin: 10px;">
+
+                    <mat-label><b>Current_month : &nbsp; </b></mat-label>
+                    <input type="text" [(ngModel)]="table1">
                 </div>
                 <div style="margin: 10px;">
-                        <mat-label>Last_month &nbsp;</mat-label>
-                        <input type="text" [(ngModel)]="table2">
+                    <mat-label><b>Last_month : &nbsp;</b></mat-label>
+                    <input type="text" [(ngModel)]="table2">
                 </div>
                 <div style="margin-top: 5px; margin-left: 20px;">
                     <button mat-raised-button color="primary" (click)="submitTableDate()">
-                        Process Input                                       
+                        Process Input
                     </button>
                 </div>
             </div>
         </div>
-            
-           
+
+        <div class="box-container" *ngIf="showTableAndDate" style="border: solid 1px #212529;width: 100%;">
+            <div style="display: flex; justify-content: center;">
+                <!-- <div style="margin: 12px;font-weight: 500;">Enter date range :</div> -->
+                <div style="margin: 10px;">
+
+                    <mat-label><b>Table_Name : &nbsp; </b></mat-label>
+                    <input type="text" [(ngModel)]="table1">
+                </div>
+                <div style="margin: 10px;">
+                    <mat-label><b>Date : &nbsp;</b></mat-label>
+                    <input type="date" [(ngModel)]="table2" style="width: 150px; height: 30px;">
+                </div>
+                <div style="margin-top: 5px; margin-left: 20px;">
+                    <button mat-raised-button color="primary" (click)="submitTableDate()">
+                        Process Input
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
         <!-- <div *ngIf="!export" style="text-align: center; margin-top: 25px;">
             <button mat-raised-button matTooltip="Process Data" color="primary" (click)="processData()">
                 Process Input
@@ -66,7 +86,7 @@
 
 
     </div>
-    
+
     <div style="display: flex;flex-direction: row;margin: 20px;">
         <div *ngIf="openConfirmationBox" class="my-overlay"
             style="padding: 30%; padding-top: 50px;padding-bottom: 0;position: absolute;z-index: 99999999;">
@@ -86,10 +106,10 @@
 
             </div>
         </div>
-        
 
 
-        <div *ngIf="displayMessage" style="padding: 30%; padding-top: 50px;padding-bottom: 0;position: absolute; margin-top: -170px;">
+        <div *ngIf="displayMessage"
+            style="padding: 30%; padding-top: 50px;padding-bottom: 0;position: absolute; margin-top: -170px;">
             <div class="customAlert" [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'" style="
                     height: 190px;
                     border: groove;
@@ -116,3 +136,4 @@
             </div>
         </div>
     </div>
+   

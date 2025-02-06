@@ -1,0 +1,49 @@
+{ "Module":"static",
+    "response_text" :[
+    { "Check_points": "Mayur"},
+    { "Check_points": "Item2"},
+  {
+    "Check_points": "Item3"
+  },
+  {
+    "Check_points": "Item4"
+  },
+  {
+    "Check_points": "Item5"
+  },
+  {
+    "Check_points": "Item6"
+  },
+  {
+    "Check_points": "Item7"
+  },
+  {
+    "Check_points": "Item8"
+  },
+  {
+    "Check_points": "Item9"
+  },
+  {
+    "Check_points": "Item10"
+  },
+  {
+    "Check_points": "Item11"
+  },
+  {
+    "Check_points": "Item12"
+  },
+  {
+    "Check_points": "Delete Old data Files"
+  },
+  {
+    "Check_points": "Delete Old data Files"
+
+  },
+  {
+    "Check_points": "Item1"
+  },
+  {
+    "Check_points": "Item1"
+  }
+]
+}

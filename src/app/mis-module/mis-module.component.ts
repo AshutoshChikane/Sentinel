@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Button } from 'protractor';
 import { DataQualityMisService } from '../Service/data-quality-mis.service';
 import { DefectTrackerService } from '../Service/defect-tracker.service';
+import { formatDate } from '@angular/common';
+import * as Chart from 'chart.js';
 
 @Component({
   selector: 'app-mis-module',
@@ -11,141 +13,166 @@ import { DefectTrackerService } from '../Service/defect-tracker.service';
 })
 export class MisModuleComponent implements OnInit {
 
-  Daily: boolean = false;
-  Weekly: boolean;
-  Monthly: boolean;
-  firstPage: boolean;
-  secondPage: boolean;
-  MonthlyFirstPage: boolean;
-  MonthlyFourPage: boolean;
-  MonthlythirdPage: boolean;
-  MonthlySecondPage: boolean;
-  DailyData: any;
-  constructor(private router: Router, private Data_Quality_Mis: DataQualityMisService) { }
+  misReportDate = formatDate(new Date(), "dd/MM/yyyy", "en");
+  displayMessage:boolean=false;
+  moduleName: any;
+  dailymodule: boolean = false;
+  QCloder: boolean = true;
+  Daily_Qc_check:boolean = false;
+  
 
-  // ---------------------Daily Modules ----------------//
-  Allocation_Charges: any;
-  Mortality_Charges: any;
-  Discontinuance_Charges: any;
-  Maturity_over_but_status_not_changed: any;
-  Admin_charges: any;
-  Admin_Skipped_cases: any;
-  Mortality_Skipped_Cases: any;
-  Allocation_Charges_Unitization: any;
-  Mortality_Charges_Unitization: any;
-  Admin_charges_Unitization: any;
-  Policies_Matured_But_Not_In_Due_List: any;
-  Deposit_Present_but_not_Allocated: any;
-  Status_not_lapsed_after_grace_Period: any;
-  LTR_not_Preceed_after_Lock_in_period: any;
-  SB_Skipped_Cases: any;
-  Unclaimed_Movement: any;
+  REPORT_NAMES: string;
+  // module1: string;
+  module1=localStorage.getItem('Day')
+  // console.log(localStorage.getItem('Day'));
+ module2=localStorage.getItem('week')
+ module3=localStorage.getItem('allModule')
+ 
 
-  // ---------------------Daily Modules ----------------//
+  selectedRowD: number;
+  moduleData: any;
+  // console.log(localStorage.getItem('week'));
 
+  constructor(private mis:DataQualityMisService, private router: Router, private defect:DefectTrackerService) {
+    // constructor(private router: Router, private Data_Quality_Mis: DataQualityMisService) { }
+
+
+  }
+ 
   ngOnInit(): void {
-    const x = localStorage.getItem('Daily');
-    const y = localStorage.getItem("Weekly");
-    const z = localStorage.getItem('Monthly')
-    if (x === 'Daily') {
-      this.Daily = true;
-      this.Weekly = false;
-      this.Monthly = false
-      this.router.navigate(['Mis-Module']);
 
-      let Obj = {
-        moduleId: '123',
-        request_action: 'daily pass/fail cases',
-      }
-      this.Data_Quality_Mis.Daily(Obj).subscribe(res => {
-        console.log(res.response_text, 'Result')
-        this.Allocation_Charges = res.response_text[0].Allocation_Charges;
-        this.Mortality_Charges = res.response_text[0].Mortality_Charges;
-        this.Discontinuance_Charges = res.response_text[0].Discontinuance_Charges
-        this.Maturity_over_but_status_not_changed = res.response_text[0].Maturity_over_but_status_not_changed;
-        this.Admin_charges = res.response_text[0].Admin_charges;
-        this.Admin_Skipped_cases = res.response_text[0].Admin_Skipped_cases;
-        this.Mortality_Skipped_Cases = res.response_text[0].Mortality_Skipped_Cases;
-        this.Allocation_Charges_Unitization = res.response_text[0].Allocation_Charges_Unitization;
-        this.Mortality_Charges_Unitization = res.response_text[0].Mortality_Charges_Unitization;
-        this.Admin_charges_Unitization = res.response_text[0].Admin_charges_Unitization;
-        this.Policies_Matured_But_Not_In_Due_List = res.response_text[0].Policies_Matured_But_Not_In_Due_List;
-        this.Deposit_Present_but_not_Allocated = res.response_text[0].Deposit_Present_but_not_Allocated;
-        this.Status_not_lapsed_after_grace_Period = res.response_text[0].Status_not_lapsed_after_grace_Period;
-        this.LTR_not_Preceed_after_Lock_in_period = res.response_text[0].LTR_not_Preceed_after_Lock_in_period;
-        this.SB_Skipped_Cases = res.response_text[0].SB_Skipped_Cases;
-        this.Unclaimed_Movement = res.response_text[0].Unclaimed_Movement;
-      })
+    if (this.module1=== 'Daily1') {
+      console.log("dayly print");
+      this.daily();
+      localStorage.clear();
+    }
+    else if(this.module1 === 'Summary'){
+      this.load_QC();
+      localStorage.clear();
+    }
+    else if (this.module2=== 'Weekly1') {
+      console.log("Weekly1 print");
+      this.Weekly();
+      localStorage.clear();
+    }
+    else if (this.module3=== 'allModule') {
+      console.log("1234r5t67890");
+      // this.Weekly();
+      localStorage.clear();
     }
 
-    if (y === 'Weekly') {
-      this.Weekly = true;
-      this.Daily = false;
-      this.Monthly = false
-      this.router.navigate(['Mis-Module']);
+
+
+    // this.run()
+     
+
+  }
+ 
+
+  daily() {
+   this.QCloder = true;
+    let obj = {
+      moduleId: '501',
+      Date:this.misReportDate,
+      request_action: 'mis',
     }
 
-    if (z === 'Monthly') {
-      this.Weekly = false;
-      this.Daily = false;
-      this.Monthly = true
-      this.router.navigate(['Mis-Module']);
+    this.mis.misdaily(obj).subscribe(res => {
+      console.log("res", res)
+      // console.log("res.response_text", res.response_text);
+      this.moduleData = res.response_text
+      // console.log(" this.moduleData", this.moduleData);
+      this.dailymodule = true;
+      this.QCloder = false;
+      this.Daily_Qc_check = false;
+      
+
+    })
+  }
+
+
+  Weekly() {
+    let obj = {
+      moduleId: '401',
+      request_action: 'Defect Tracker',
     }
-    this.firstPage = true;
-    this.secondPage = false;
-    this.MonthlyFirstPage = true;
-    this.MonthlyFourPage = false;
-    this.MonthlythirdPage = false;
-    this.MonthlySecondPage = false;
+
+    // this.mis.misdaily(obj).subscribe(res => {
+    //   console.log("res", res)
+
+    // console.log("res.response_text", res.response_text);
+    // this.moduleName=res.response_text
+    // console.log(" this.moduleName",  this.moduleName);
+    // this.dailymodule = true;
+
+    // this.message = res.response_message;
+    // this.openConfirmationBox = true;
+    // this.showMessageButton = true;
+    // this.displayMessage = true;
+
+    console.log('week page');
+
+    // })
   }
 
-  page1() {
-    this.firstPage = true;
-    this.secondPage = false;
-  }
-  page2() {
-    this.secondPage = true;
-    this.firstPage = false
-  }
+  // daylibtn() {
+    // localStorage.setItem('REPORT_NAME', this.REPORT_NAMES);
+    // console.log(localStorage.setItem('REPORT_NAME', this.REPORT_NAMES))
+    
+    alldata:any;
+    onEdit(ID: any, data: any) {
+      // console.log(ID);
+      // console.log(data);
+      this.defect.setMessage(ID, data)
+      // this.alldata= data;
+      console.log('data',data);
 
-  nextM1() {
-    this.MonthlyFirstPage = true;
-    this.MonthlySecondPage = false;
-    this.MonthlythirdPage = false;
-    this.MonthlyFourPage = false;
-  }
-  nextM2() {
-    this.MonthlyFirstPage = false;
-    this.MonthlySecondPage = true;
-    this.MonthlythirdPage = false;
-    this.MonthlyFourPage = false;
-  }
-  nextM3() {
-    this.MonthlyFirstPage = false;
-    this.MonthlySecondPage = false;
-    this.MonthlythirdPage = true;
-    this.MonthlyFourPage = false;
-  }
-  nextM4() {
-    this.MonthlyFirstPage = false;
-    this.MonthlySecondPage = false;
-    this.MonthlythirdPage = false;
-    this.MonthlyFourPage = true;
-  }
+      console.log('data',data.Module);
+      localStorage.setItem('data',data.Module)
 
-
-
-  redirct(){
-    if(true){
-      this.router.navigate(['mis']);
-      setTimeout(()=>{
-        localStorage.clear();
-      },1000)
+      
+      this.router.navigate(['mis-graph'])
     }
+  
+  // }
+
+//   mode(Event:any)
+//   {
+// console.log(Event, "Event..");
+//   }
+
+Qc_ids={
+  'Daily_Extraction_Summary':1001
+}
+
+Data: any;
+moduleId :any
+subModuleId :any
+
+
+load_QC(){
+  this.QCloder = true;
+  this.moduleName = 'Daily Extraction Summary'
+  this.moduleId = '1001'
+  this.subModuleId = '0'
+  let obj = {
+    'moduleName': this.moduleName,
+    'moduleid': this.moduleId,
+    'subModuleId' : this.subModuleId
   }
-  View(data:any){
-    console.log(data, 'event')
-    this.router.navigate(['mis-graph'])
-  }
+
+  this.mis.QCData(obj).subscribe(res => {
+    this.dailymodule = false;
+      this.QCloder = false;
+      this.Daily_Qc_check = true;
+
+this.Data = res.response_text;
+console.log(this.Data, "QC data")
+  })
+}
+
+
+
+
 
 }

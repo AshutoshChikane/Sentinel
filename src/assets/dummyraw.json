@@ -1,0 +1,91 @@
+{ 
+
+  "plan_id": "UN0115", 
+
+  "plan_type": "RP/LPPT", 
+
+  "product_name": "Saral Swadhan Supreme", 
+
+  "system" : "UAT/Production", 
+
+  "uin": "123445UIN", 
+
+  "sub_data": [ 
+
+    {"type_check": "minimumPremium", "observation": "","duff_values": "","comments":"hello"}, 
+
+    {"type_check": "maximumPremium", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "minimumTerm", "observation": "","duff_values": "15","comments":""}, 
+
+    {"type_check": "maximumTerm", "observation": "ssss","duff_values": "30","comments":"new"}, 
+
+    {"type_check": "minPPT", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "maxPPT", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "minSA", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "maxSA", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "minimumMaturityAge", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "maximumMaturityAge", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "minimumEntryAge", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "maximumEntryAge", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "staffDiscountApplicability", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "gstRateBackdatedInterest", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "loanInterest", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "backdatingInterest", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "fundSwitchesAllowed", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "duplicatePolicyCharge", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "emr", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "nsap", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "revivalPeriod", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "ridersPermitted", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "adminCharges", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "gracePeriod", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "discontinuanceCharges", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "gstRateRevivalInterest", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "loyaltyAdditionCriteria", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "revivalInterest", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "samf", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "gaRateInforce", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "gaRateLapse", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "allocationCharges", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "premiumPaymentFrequency", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "minCoverStartDate", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "flcMortalityRate", "observation": "","duff_values": "","comments":""}, 
+
+    {"type_check": "stampDuty", "observation": "","duff_values": "","comments":""} 
+
+     
+
+        ] 
+
+    } 

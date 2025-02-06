@@ -5,8 +5,11 @@
 // this distribution. If the LICENSE file was not attached to this
 // distribution or for further clarifications, please contact
 // legal@nseit.com.
+import { formatDate } from '@angular/common';
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import { interval } from 'rxjs';
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -16,6 +19,16 @@ export class LayoutComponent implements OnInit {
   userType = '';
   userName='';
 
+  // misReportDate : any;
+  // updateDateTime() {
+  //   interval(1000).pipe(
+  //     map(() => formatDate(new Date(), "dd/MM/yyyy", "en"))
+  //   ).subscribe(date => {
+  //     this.misReportDate = date;
+  //     console.log(date, "continue");
+      
+  //   });
+  // }
 
   constructor(private router: Router) {
   }
@@ -40,6 +53,9 @@ export class LayoutComponent implements OnInit {
       this.userName =  sessionStorage.getItem('userName');   
     }
     console.log('layout :: userType >>', this.userType);
+
+
+    // this.updateDateTime();
   }
 
   logout() {

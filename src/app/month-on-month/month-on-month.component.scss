@@ -1,0 +1,199 @@
+.Val_Dash {
+    width: 100%;
+    // height: 100%;
+    background: rgb(246, 246, 246);
+  
+  }
+  
+  .backEle {
+    gap: 20px;
+    display: flex;
+    align-items: baseline;
+  }
+  
+  .backBtn {
+    padding: 5px 18px;
+    border: none;
+    background: #3f51b5;
+    border-radius: 6px;
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px,
+      rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px,
+      rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+  
+  .contain {
+    // background-color: #ffffff;
+    padding-top: 10px;
+  
+  }
+  
+  
+  
+//   .gridtable tbody {
+//     display: block;
+//     max-height: 400px;
+//     overflow-y: scroll;
+  
+//   }
+  
+//   .gridtable thead,
+//   .gridtable tbody tr {
+//     display: table;
+//     table-layout: fixed;
+//     width: 96%;
+//     justify-content: center;
+//     text-align: center;
+//     margin-left: 2%;
+//     margin-right: 2%;
+//     border: 1px solid;
+  
+//   }
+  
+//   ::-webkit-scrollbar {
+//     width: 0px;
+//     background: transparent;
+//   }
+  
+  
+.table-container {
+    width: 99%;
+    overflow: scroll;
+    margin-left: 1%;
+    max-height: 400px; /* Set the max height as needed */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+thead th {
+    position:sticky;
+    top: 0;
+    background: yellow;
+    z-index: 1;
+    padding: 10px;
+    cursor: pointer;
+}
+tbody td {
+    background: #fff;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+  // ---------------------------------Loader-----------------------------------------
+  
+  
+  .my-overlay1 {
+    left: 0 !important;
+    top: 0 !important;
+    z-index: 10000 !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed !important;
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    cursor: pointer !important;
+    visibility: visible !important;
+    transition: visibility 0s, opacity 0.4s linear !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: wait !important;
+  }
+  
+  .my-overlay i.fa.fa-spinner.fa-spin,
+  .spinner-big {
+    font-size: 100px !important;
+  }
+  
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: #262626;
+  }
+  
+  .ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background: transparent;
+    // border:1px solid #3c3c3c;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 150px;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #9e63e2;
+    letter-spacing: 4px;
+    // text-transform:uppercase;
+    text-shadow: 0 0 10px #9e63e2;
+    // box-shadow:0 0 20px rgba(0,0,0,.5);
+  }
+  
+  .ring:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-top: 3px solid #9e63e2;
+    border-right: 3px solid #9e63e2;
+    border-radius: 50%;
+    animation: animateC 2s linear infinite;
+  }
+  
+  span {
+    display: block;
+    position: absolute;
+    top: calc(50% - 2px);
+    left: 50%;
+    width: 50%;
+    height: 4px;
+    background: transparent;
+    transform-origin: left;
+    animation: animate 2s linear infinite;
+  }
+  
+  span:before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    // background:#fff000;
+    background-image: linear-gradient(to right, #9e63e2, #e859c2);
+    top: -6px;
+    right: -8px;
+    box-shadow: 0 0 20px #9e63e2;
+  }
+  
+  @keyframes animateC {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: rotate(45deg);
+    }
+  
+    100% {
+      transform: rotate(405deg);
+    }
+  }

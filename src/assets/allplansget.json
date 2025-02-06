@@ -1,0 +1,20 @@
+{
+    "response_message": "Successful",
+    "response_code": 1,
+    "response_text": [
+      {
+        "PLAN_ID": "UN0115",
+        "UIN": "123445UIN",
+        "SYSTEM": "UAT",
+        "PLAN_TYPE": "RP/SP",
+        "PRODUCT_NAME": "PROD"
+      },
+      {
+        "PLAN_ID": "UN0116",
+        "UIN": "123435UIN",
+        "SYSTEM": "UAT",
+        "PLAN_TYPE": "RP/SP",
+        "PRODUCT_NAME": "PROD"
+      }
+    ]
+  }

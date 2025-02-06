@@ -1,0 +1,20 @@
+{
+ 
+    "response_text":[
+     {"REMARKS": "error1sndxjsandjdzncjjedn",  "TABLE_NAME": "Dd_e1jsndjjefncjdncjdnjsefndcj", "TOTAL_COUNT":33, "MONTH":"feb", "TABLE_NAME1": "Dq_tablensdbfjcnjszdfnhc", "TOTAL_COUNT1":22, "MONTH1":"jan"},
+     {"REMARKS": "error2",  "TABLE_NAME": "ble2", "TOTAL_COUNT":5, "MONTH":"mar" ,"TABLE_NAME1": "ble2", "TOTAL_COUNT1":5, "MONTH1":"mar"},
+     {"REMARKS": "error3",  "TABLE_NAME": "Dq_table", "TOTAL_COUNT":3, "MONTH":"fan","TABLE_NAME1": "Dq_table", "TOTAL_COUNT1":2, "MONTH1":"jan"},
+     {"REMARKS": "error4",  "TABLE_NAME": "Dq_table", "TOTAL_COUNT":2, "MONTH":"jan" ,"TABLE_NAME1": "ble2", "TOTAL_COUNT1":5, "MONTH1":"mar"},
+     {"REMARKS": "error5",  "TABLE_NAME": "Dq_e1", "TOTAL_COUNT":3, "MONTH":"feb", "TABLE_NAME1": "Dq_table", "TOTAL_COUNT1":3, "MONTH1":"fan"},
+     {"REMARKS": "error6",  "TABLE_NAME": "ble2", "TOTAL_COUNT":5, "MONTH":"mar", "TABLE_NAME1": "Dq_table", "TOTAL_COUNT1":22, "MONTH1":"jan"},
+     {"REMARKS": "error7",  "TABLE_NAME": "Dq_table", "TOTAL_COUNT":3, "MONTH":"fan","TABLE_NAME1": "Dq_table", "TOTAL_COUNT1":2, "MONTH1":"jan"},
+     {"REMARKS": "error8",  "TABLE_NAME": "Dq_table", "TOTAL_COUNT":2, "MONTH":"jan" ,"TABLE_NAME1": "ble2", "TOTAL_COUNT1":5, "MONTH1":"mar"},
+     {"REMARKS": "error9",  "TABLE_NAME": "Dq_e1", "TOTAL_COUNT":3, "MONTH":"feb","TABLE_NAME1": "Dq_table", "TOTAL_COUNT1":22, "MONTH1":"jan"},
+     {"REMARKS": "error10",  "TABLE_NAME": "ble2", "TOTAL_COUNT":5, "MONTH":"mar" ,"TABLE_NAME1": "Dq_table", "TOTAL_COUNT1":3, "MONTH1":"fan"},
+     {"REMARKS": "error11",  "TABLE_NAME": "Dq_table", "TOTAL_COUNT":3, "MONTH":"fan","TABLE_NAME1": "Dq_table", "TOTAL_COUNT1":3, "MONTH1":"fan"},
+     {"REMARKS": "error12",  "TABLE_NAME": "Dq_table", "TOTAL_COUNT":22, "MONTH":"jan","TABLE_NAME1": "Dq_table", "TOTAL_COUNT1":2, "MONTH1":"jan"}
+  
+    ],
+    "response_code": 1,
+    "response_message": "Code executed successfully"
+ }

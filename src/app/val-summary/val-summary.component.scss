@@ -1,0 +1,134 @@
+.redirectPage {
+    text-align: end;
+    margin: 5px;
+  }
+  .heading{
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .errorbgcolor {
+    background-color: #f1f18a;
+  }
+  .messagebgcolor {
+    background-color: white;
+  }
+
+  .customAlert {
+    // height: 260px;
+    width: 35%;
+    border: groove;
+    position: fixed; 
+    top: 28%
+  }
+  
+  .messageheader {
+    padding: 10px 10px;
+    font-weight: 500;
+    font-size: 25px;
+    // padding-bottom: 15px;
+    background: linear-gradient(to right, #9e63e2, #e859c2);
+    color: white;
+    // padding-top: 10px;
+    margin-bottom: 15px
+  }
+  
+  .messageDetails {
+    padding: 0px 8px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px; 
+    margin-bottom: 6px;
+  }
+
+  .popupDivBtn {
+    text-align: right;
+    padding-right: 13px; 
+    border-top: 1.9px solid #ccc; 
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+  
+  .popupBtn {
+    // width: 20%;
+    // height: 30px; 
+    padding: 8px 31px;
+    border: none; 
+    outline: none; 
+    background: #0078d4; 
+    color: #fff; 
+    border-radius: 3px;
+  }
+
+  .btn{
+    display: inline-flex;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    width: 10%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .length{
+    text-align: center;
+     margin-top: 7px;
+      white-space: nowrap;
+       overflow: hidden;
+        text-overflow: ellipsis
+  }
+
+  
+  
+  .gridtable tbody{
+    display:block;
+    max-height: 300px;
+    overflow-y: scroll;
+    
+  }
+  .gridtable thead, .gridtable tbody tr{
+    display: table;
+    table-layout:fixed;
+    width: 90%;
+    justify-content: center;
+    text-align: center;
+    margin-left: 5%;
+    border: 1px solid;
+    
+  }
+
+  // .gridtable tbody{
+  //   display: block;
+  //   max-height: 300px;
+  //   overflow-y: scroll;
+    
+  // }
+  // .gridtable thead, .gridtable tbody tr{
+  //   display: table;
+  //   table-layout:fixed;
+  //   width: 95%;
+  //   justify-content: center;
+  //   text-align: center;
+  //   margin-left: 5%;
+  //   border: 1px solid;
+    
+  // }
+
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+.search_export{
+  text-align: center;
+  margin-top: 0px;
+  display: flex;
+  justify-content: space-between;
+  width: 94%;
+  margin-left: 5%;
+
+}
+//
+
+
+
+

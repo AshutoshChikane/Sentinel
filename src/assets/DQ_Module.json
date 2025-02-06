@@ -1,0 +1,22 @@
+{
+    "response_code": 1,
+    "response_message": "Code executed successfully",
+    "response_text":[
+        
+         {
+          "ModuleName":["DISCO ULIP"," 1m", "2m","3m","DISCO ULIP"," 1m", "2m","3m", "DISCO ULIP"," 1m", "2m","3m","DISCO ULIP"," 1m", "2m","3m" ,"DISCO ULIP"," 1m", "2m","3m","DISCO ULIP"," 1m", "2m","3m", "DISCO ULIP"," 1m", "2m","3m","DISCO ULIP"," 1m", "2m","3m"],
+            "Module_Pass" :[80,85,90,100,60,65,70,75, 80,85,90,100,60,65,70,75,80,85,90,100,60,65,70,75, 80,85,90,100,60,65,70,75],
+            "Module_Fail": [20,15,10,0,40,35,30,25, 20,15,10,0,40,35,30,25,20,15,10,0,40,35,30,25, 20,15,10,0,40,35,30,25],
+            "Cases" : ["PASS", "FAIL"]
+          }
+      
+      
+    ]
+   
+  }
+  
+  
+      
+  
+  
+    

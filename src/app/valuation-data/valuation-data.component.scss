@@ -92,4 +92,30 @@
   
 
   
+  .heading{
+    background-color: rgb(233, 201, 251);
+    font-size: 15px;
+    height: 55px;
+  }
+  
+  .redirectPage {
+    text-align: end;
+    margin: 20px;
+  }
+  
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    // width: 100%;
+  }
+  
+  td, th {
+    border: 2px solid #000000;
+    text-align: center;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
   

@@ -21,7 +21,7 @@ export class UpdateDataComponent implements OnInit {
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router,
     private UpdateData: DefectTrackerService) {
     this.UpdateData.getMessage().subscribe((result) => {
-      console.log(result)
+      console.log(result, "ssssssssss")
       console.log("ID", result.Id);
       console.log("MONTH", result.MONTH);
       console.log("VAL_DQ_IRDA", result.VAL_DQ_IRDA);
@@ -32,7 +32,7 @@ export class UpdateDataComponent implements OnInit {
       console.log("ASPECT", result.ASPECT);
       console.log("ULIP_NONULIP_GRPS_VIP", result.ULIP_NONULIP_GRPS_VIP);
       console.log("PRODUCT_ID_COVERED", result.PRODUCT_ID_COVERED);
-      console.log("STATUS_OF_WHIZIBLE", result.STATUS_OF_WHIZIBLE);
+      console.log("STATUS_OF_WHIZIBLE", result.STATUS_OF_WHIZIBLE_ID);
       console.log("ISSUES_IN_DETAIL", result.ISSUES_IN_DETAIL);
       console.log("IMPACTED_POLICIES", result.IMPACTED_POLICIES);
       console.log("SAMPLE_POL_CUST_ID", result.SAMPLE_POL_CUST_ID);
@@ -44,6 +44,7 @@ export class UpdateDataComponent implements OnInit {
       console.log("RESOURCE", result.RESOURCE);
       console.log("DATE_CLOSURE", result.DATE_CLOSURE);
       console.log("SEVERITY", result.SEVERITY);
+      console.log("SEVERITY", result.TYPEOF);
 
       this.dataPoint = result
     })
@@ -58,12 +59,12 @@ export class UpdateDataComponent implements OnInit {
       VAL_DQ_IRDA: [this.dataPoint.VAL_DQ_IRDA],
       WHIZIBLE_ID: [this.dataPoint.WHIZIBLE_ID],
       DEPT_RESPOSIBLE: [this.dataPoint.DEPT_RESPOSIBLE],
-      CATEGORY: [this.dataPoint.CATEGORY],
+      // CATEGORY: [this.dataPoint.CATEGORY],
       SYSTEM: [this.dataPoint.SYSTEM],
       ASPECT: [this.dataPoint.ASPECT],
       ULIP_NONULIP_GRPS_VIP: [this.dataPoint.ULIP_NONULIP_GRPS_VIP],
       PRODUCT_ID_COVERED: [this.dataPoint.PRODUCT_ID_COVERED],
-      CURRENT_STATUS_OF_WHIZIBLE_ID: [this.dataPoint.CURRENT_STATUS_OF_WHIZIBLE_ID],
+      STATUS_OF_WHIZIBLE_ID: [this.dataPoint.STATUS_OF_WHIZIBLE_ID],
       ISSUES_IN_DETAIL: [this.dataPoint.ISSUES_IN_DETAIL],
       IMPACTED_POLICIES: [this.dataPoint.IMPACTED_POLICIES],
       SAMPLE_POL_CUST_ID: [this.dataPoint.SAMPLE_POL_CUST_ID],
@@ -75,6 +76,7 @@ export class UpdateDataComponent implements OnInit {
       RESOURCE: [this.dataPoint.RESOURCE],
       DATE_CLOSURE: [this.dataPoint.DATE_CLOSURE],
       SEVERITY :  [this.dataPoint.SEVERITY],
+      TYPEOF:  [this.dataPoint.TYPEOF],
 
     })
 
@@ -93,12 +95,12 @@ export class UpdateDataComponent implements OnInit {
   VAL_DQ_IRDA: any;
   Whizible_id: any;
   DEPT_RESPOSIBLE: any;
-  CATEGORY: any;
+  // CATEGORY: any;
   SYSTEM: any;
   ASPECT: any;
   ULIP_NONULIP_GRPS_VIP: any;
   PRODUCT_ID_COVERED: any;
-  CURRENT_STATUS_OF_WHIZIBLE_ID: any;
+  STATUS_OF_WHIZIBLE_ID: any;
   ISSUES_IN_DETAIL: any;
   IMPACTED_POLICIES: any;
   SAMPLE_POL_CUST_ID: any;
@@ -110,6 +112,7 @@ export class UpdateDataComponent implements OnInit {
   RESOURCE: any;
   DATE_CLOSURE: any;
   SEVERITY : any;
+  TYPEOF: any;
 
   backPage() {
     this.router.navigate(['DefectTracker']);

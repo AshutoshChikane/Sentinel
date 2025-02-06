@@ -1,0 +1,381 @@
+[
+    {
+        "data": [
+            {
+                "product_Code": "3M",
+                "plan_id": "TN0162",
+                "plan_type": "RP/LPPT",
+                "product_name": " Swadhan Supreme",
+                "system": "UAT/Production",
+                "uin": "",
+                "sub_data": [
+                    {
+                        "type_of_checks": "Minimum Entry Age",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"na"
+                    },
+                    {
+                        "type_of_checks": "Maximum Entry Age",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "fail",
+                         "comments":"policy"
+                    },
+                    {
+                        "type_of_checks": "Minimum Term",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"policy"
+                    }
+                ]
+            },
+            {
+                "product_Code": "3M",
+                "plan_id": "TN0169",
+                "plan_type": "RP/LPPT",
+                "product_name": "Saral  Supreme",
+                "system": "UAT/Production",
+                "uin": "",
+                "sub_data": [
+                    {
+                        "type_of_checks": "Minimum Entry Age",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"rgfgsfg"
+                    },
+                    {
+                        "type_of_checks": "Maximum Entry Age",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "fail",
+                        "comments":"rgrgrgrg"
+                    },
+                    {
+                        "type_of_checks": "Minimum Term",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"grfgrgrg"
+                    }
+                ]
+            },
+            {
+                "product_Code": "3M",
+                "plan_id": "TN0165",
+                "plan_type": "RP/LPPT",
+                "product_name": "Saral  Supreme",
+                "system": "UAT/Production",
+                "uin": "",
+                "sub_data": [
+                    {
+                        "type_of_checks": "Minimum Entry Age",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"rgregreg"
+                    },
+                    {
+                        "type_of_checks": "Maximum Entry Age",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "fail",
+                        "comments":"fwfewfwef"
+                    },
+                    {
+                        "type_of_checks": "Minimum Term",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"efewfwef"
+                    },
+                    {
+                        "type_of_checks": "Maximum Term",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"rgregreg"
+                    },
+                    {
+                        "type_of_checks": "Min SA",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "fail",
+                        "comments":"fwfewfwef"
+                    },
+                    {
+                        "type_of_checks": "Max SA",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"efewfwef"
+                    },
+                    {
+                        "type_of_checks": "Min PPt",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"rgregreg"
+                    },
+                    {
+                        "type_of_checks": "Max PPT",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "fail",
+                        "comments":"fwfewfwef"
+                    },
+                    {
+                        "type_of_checks": "Min Cover Start Date",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"efewfwef"
+                    },
+                    {
+                        "type_of_checks": "Revival Interest",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"rgregreg"
+                    },
+                    {
+                        "type_of_checks": "Loan Interest",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "fail",
+                        "comments":"fwfewfwef"
+                    },
+                    {
+                        "type_of_checks": "Back dating Interest",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"efewfwef"
+                    },
+                    {
+                        "type_of_checks": "GST Rate - Backdated Interest",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"rgregreg"
+                    },
+                    {
+                        "type_of_checks": "GST Rate - Revival Interest",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "fail",
+                        "comments":"fwfewfwef"
+                    },
+                    {
+                        "type_of_checks": "Dupicate Policy Charge",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"efewfwef"
+                    },
+                    {
+                        "type_of_checks": "EMR",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"rgregreg"
+                    },
+                    {
+                        "type_of_checks": "NSAP",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "fail",
+                        "comments":"fwfewfwef"
+                    },
+                    {
+                        "type_of_checks": "GA Rate - Inforce",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"efewfwef"
+                    },
+                    {
+                        "type_of_checks": "GA Rate - Lapse",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"rgregreg"
+                    },
+                    {
+                        "type_of_checks": "Admin Charges",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "fail",
+                        "comments":"fwfewfwef"
+                    },
+                    {
+                        "type_of_checks": "Minimum Term",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"efewfwef"
+                    },
+                    {
+                        "type_of_checks": "Minimum Maturity Age",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"rgregreg"
+                    },
+                    {
+                        "type_of_checks": "Maximum Maturity Age",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "fail",
+                        "comments":"fwfewfwef"
+                    },
+                    {
+                        "type_of_checks": "Minimum Premium",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"efewfwef"
+                    },
+                    {
+                        "type_of_checks": "Minimum Premium",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"rgregreg"
+                    },
+                    {
+                        "type_of_checks": "Discountinuance charges",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "fail",
+                        "comments":"fwfewfwef"
+                    },
+                    {
+                        "type_of_checks": "No of the Fund Switches allowed",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"efewfwef"
+                    },
+                    {
+                        "type_of_checks": "Premium Payment Frequency allowed",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"rgregreg"
+                    },
+                    {
+                        "type_of_checks": "Loyality addition crieteria, if applicable",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "fail",
+                        "comments":"fwfewfwef"
+                    },
+                    {
+                        "type_of_checks": "Staff discount applicability",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"efewfwef"
+                    },
+                    {
+                        "type_of_checks": "Riders permitted as per product plan",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"rgregreg"
+                    },
+                    {
+                        "type_of_checks": "Allocation charges",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "fail",
+                        "comments":"fwfewfwef"
+                    },
+                    {
+                        "type_of_checks": "SAMF",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"efewfwef"
+                    },
+                    {
+                        "type_of_checks": "REVIVAL PERIOD",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"rgregreg"
+                    },
+                    {
+                        "type_of_checks": "Grace PERIOD",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "fail",
+                        "comments":"fwfewfwef"
+                    },
+                    {
+                        "type_of_checks": "FLC MORTALITY RATE",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"efewfwef"
+                    },
+                    {
+                        "type_of_checks": "STAMP DUITY",
+                        "observation": "",
+                        "duff_values": "",
+                        "table_value": "12",
+                        "Passfail": "pass",
+                        "comments":"efewfwef"
+                    }
+                    
+                ]
+            }
+        ]
+    }
+]

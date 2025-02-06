@@ -1,0 +1,58 @@
+
+    //back btn
+    .backEle {
+        display: inline-block;
+        margin:89px 9px 0px 0px;
+        position: fixed;
+        right: 9px;
+        width: 50px;
+    }
+    
+    .backBtn {
+        padding: 5px 18px;
+        border: none;
+        background: #3f51b5;
+        border-radius: 6px;
+        color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, 
+            rgba(0, 0, 0, 0.12) 0px -12px 30px,
+            rgba(0, 0, 0, 0.12) 0px 4px 6px,
+            rgba(0, 0, 0, 0.17) 0px 12px 13px, 
+            rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+    
+
+    .errorbgcolor {
+      background-color: #f1f18a;
+    }
+    .messagebgcolor {
+      background-color: white;
+    }
+  
+    .display_none{
+      display: none;
+    }
+  
+    .mat-toolbar {
+      background: linear-gradient(to right,#f68bd6, #a753f6);
+      position: fixed;
+      // width: 100%;
+      // top:px;
+      z-index: 5;
+    
+    }
+    .mat-toolbar-row{
+      background: linear-gradient(to right, #a753f6, #f68bd6);
+     
+  
+    }
+   
+  //   .main{
+  //     background-image: url('../../assets/image/mainpage.jpg');
+   
+  //    background-size: 150% 150%;
+  //   //  position: fixed;
+  //   //  width: 100%;
+  //    padding-top:30%;
+  //   //  z-index: 5;
+  //  }

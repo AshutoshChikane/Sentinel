@@ -78,6 +78,20 @@ import { MISComponent } from './mis/mis.component';
 import { MISDashboardComponent } from './misdashboard/misdashboard.component';
 import { MisModuleComponent } from './mis-module/mis-module.component';
 import { MisGraphComponent } from './mis-graph/mis-graph.component';
+import { MainValuationComponent } from './main-valuation/main-valuation.component';
+import { MispipePipe } from './mis-graph/mispipe.pipe';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AllModuleGraphComponent } from './all-module-graph/all-module-graph.component';
+import { ValSummaryComponent } from './val-summary/val-summary.component';
+import { AllSummaryComponent } from './all-summary/all-summary.component';
+import { ProjectTrackerComponent } from './project-tracker/project-tracker.component';
+import { ValuationMisComponent } from './valuation-mis/valuation-mis.component';
+import { ValuationDashboardComponent } from './valuation-dashboard/valuation-dashboard.component';
+import { MonthOnMonthComponent } from './month-on-month/month-on-month.component';
+import { MBoundarydashComponent } from './mboundarydash/mboundarydash.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BoundarysComponent } from './boundarys/boundarys.component';
+
 
 
 @NgModule({
@@ -116,7 +130,18 @@ import { MisGraphComponent } from './mis-graph/mis-graph.component';
     MISComponent,
     MISDashboardComponent,
     MisModuleComponent,
-    MisGraphComponent
+    MisGraphComponent,
+    MainValuationComponent,
+    MispipePipe,
+    AllModuleGraphComponent,
+    ValSummaryComponent,
+    AllSummaryComponent,
+    ProjectTrackerComponent,
+    ValuationMisComponent,
+    ValuationDashboardComponent,
+    MonthOnMonthComponent,
+    MBoundarydashComponent,
+    BoundarysComponent
 
   ],
   imports: [
@@ -157,8 +182,11 @@ import { MisGraphComponent } from './mis-graph/mis-graph.component';
     MatPaginatorModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule,
     BackButtonDisableModule.forRoot({
-      preserveScrollPosition: true
+      preserveScrollPosition: true,
+  
     })
     
   ],

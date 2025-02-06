@@ -1,0 +1,18 @@
+{
+    "response_code": 1,
+    "response_message": "Code executed successfully", 
+    "response_text":[
+       { "REPORTNAME" : "DISCO CHARGES", "REPORT_DATE_TIME" :"09/02/2024 -06h:09", "REPORT_DATE": "01/02/2024", "FREQUENCY" : "Daily", "TOTAL_RECORD" : "1000", "PASS_COUNT": "700","FAIL_COUNT" :"200"},
+       { "REPORTNAME" : "ALLOCATION CHARGES", "REPORT_DATE_TIME" :"", "REPORT_DATE": "", "FREQUENCY" : "", "TOTAL_RECORD" : "", "PASS_COUNT": "","FAIL_COUNT" :" " },
+       { "REPORTNAME" : "SB SKIPPED", "REPORT_DATE_TIME" :"", "REPORT_DATE": "01/02/2024 to 29/02/2024", "FREQUENCY" : "", "TOTAL_RECORD" : "", "PASS_COUNT": "","FAIL_COUNT" :" " },
+       { "REPORTNAME" : "ADMIN SKIPPED", "REPORT_DATE_TIME" :"", "REPORT_DATE": "", "FREQUENCY" : "Weekly", "TOTAL_RECORD" : "", "PASS_COUNT": "","FAIL_COUNT" :" " },
+       { "REPORTNAME" : "MORTALITY CHARGES", "REPORT_DATE_TIME" :"", "REPORT_DATE": "", "FREQUENCY" : "", "TOTAL_RECORD" : "", "PASS_COUNT": "","FAIL_COUNT" :" " },
+       { "REPORTNAME" : "STATUS NOT CHANGE", "REPORT_DATE_TIME" :"", "REPORT_DATE": "", "FREQUENCY" : "", "TOTAL_RECORD" : "", "PASS_COUNT": "","FAIL_COUNT" :" " },
+       { "REPORTNAME" : "DISCO CHARGES", "REPORT_DATE_TIME" :"", "REPORT_DATE": "", "FREQUENCY" : "", "TOTAL_RECORD" : "", "PASS_COUNT": "","FAIL_COUNT" :" " },
+       { "REPORTNAME" : "DISCO", "REPORT_DATE_TIME" :"", "REPORT_DATE": "", "FREQUENCY" : "", "TOTAL_RECORD" : "", "PASS_COUNT": "","FAIL_COUNT" :" " },
+       { "REPORTNAME" : "DISCO CHARGES", "REPORT_DATE_TIME" :"", "REPORT_DATE": "", "FREQUENCY" : " Monthly", "TOTAL_RECORD" : "", "PASS_COUNT": "","FAIL_COUNT" :" " },
+       { "REPORTNAME" : "ALLOCATION CHARGES", "REPORT_DATE_TIME" :"", "REPORT_DATE": "", "FREQUENCY" : "", "TOTAL_RECORD" : "", "PASS_COUNT": "","FAIL_COUNT" :" " },
+       { "REPORTNAME" : "SB SKIPPED", "REPORT_DATE_TIME" :"", "REPORT_DATE": "", "FREQUENCY" : "", "TOTAL_RECORD" : "", "PASS_COUNT": "","FAIL_COUNT" :" " },
+       { "REPORTNAME" : "ADMIN SKIPPED", "REPORT_DATE_TIME" :"", "REPORT_DATE": "", "FREQUENCY" : "", "TOTAL_RECORD" : "", "PASS_COUNT": "","FAIL_COUNT" :" " }
+    ]
+ }

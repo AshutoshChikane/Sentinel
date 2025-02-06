@@ -80,6 +80,9 @@ export class FetchDataComponent implements OnInit {
   export: boolean = false;
   count;
   displayCount: boolean = false;
+
+
+
   fetchData(){
     // this.moduleClicked = false;
     let obj={
@@ -114,19 +117,13 @@ export class FetchDataComponent implements OnInit {
           // this.displayMessage = true;
           this.noData = true;
         }
-
         if(res.count) {
           this.displayCount = true;
           this.count = res.count[0];
-
         }
         else{
           this.noData = true;
         }
-
-
-
-
       },
       (error) => {
         this.showOverlay = false;
@@ -145,6 +142,7 @@ export class FetchDataComponent implements OnInit {
   showMessage() {
     this.displayMessage = false;
   }
+
   exportAsXLSX() {
     this.es.exportAsExcelFile(this.responseData, 'DataQuality');
     

@@ -478,7 +478,7 @@ export class BulkApprovalComponent implements OnInit {
 
 
     } else {
-      this.dashboardService.updatePolicyData(policy, this.moduleId, this.processId, this.requested_by, this.subModuleId, this.userid)
+      this.dashboardService.updatePolicyData(policy,policy, this.moduleId, this.processId, this.requested_by, this.subModuleId, this.userid)
         .subscribe(
           (response) => {
             console.log(response);
