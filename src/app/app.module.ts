@@ -91,6 +91,7 @@ import { MonthOnMonthComponent } from './month-on-month/month-on-month.component
 import { MBoundarydashComponent } from './mboundarydash/mboundarydash.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BoundarysComponent } from './boundarys/boundarys.component';
+import { MisGraphACModule } from './mis-graph-ac/mis-graph-ac.module'
 
 
 
@@ -183,6 +184,7 @@ import { BoundarysComponent } from './boundarys/boundarys.component';
     MatTooltipModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
+    MisGraphACModule,
     MatSnackBarModule,
     BackButtonDisableModule.forRoot({
       preserveScrollPosition: true,

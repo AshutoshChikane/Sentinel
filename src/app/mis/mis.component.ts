@@ -14,10 +14,13 @@ export class MISComponent implements OnInit {
   DailyShow: boolean=true;
 MonthlyShow:boolean=true;
 WeeklyShow :boolean = true
+dailyReportGraph :boolean = true
+
   ngOnInit(): void {
     this.DailyShow =true;
     this.MonthlyShow =true;
-    this.WeeklyShow  = true
+    this.WeeklyShow  = true;
+    this.dailyReportGraph = true;
   }
 
 
@@ -94,5 +97,13 @@ mis_Daily(){
         
     this.router.navigate(['Mis-Module']);
   }
+
+  dailyReportGraphSwitch(){
+    localStorage.setItem('month', this.week);
+    console.log(localStorage.getItem('month'));
+          
+    this.router.navigate(['Mis-Module-Ac']);
+  }
    
+
 }

@@ -32,6 +32,7 @@ import { UpdateDataComponent } from './update-data/update-data.component';
 import { MISComponent } from './mis/mis.component';
 import { MISDashboardComponent } from './misdashboard/misdashboard.component';
 import { MisModuleComponent } from './mis-module/mis-module.component';
+import { MenuPageComponent } from './mis-graph-ac/menu-page/menu-page.component'
 import { MisGraphComponent } from './mis-graph/mis-graph.component';
 import { MainValuationComponent } from './main-valuation/main-valuation.component';
 import { AllModuleGraphComponent } from './all-module-graph/all-module-graph.component';
@@ -196,6 +197,10 @@ const routes: Routes = [
       {
         path:'Mis-Module',
       component : MisModuleComponent
+      },
+      {
+        path:'Mis-Module-Ac',
+      component : MenuPageComponent
       },
       {
         path:'mis-graph',
