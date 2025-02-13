@@ -14,13 +14,13 @@ export class MISComponent implements OnInit {
   DailyShow: boolean=true;
 MonthlyShow:boolean=true;
 WeeklyShow :boolean = true
-dailyReportGraph :boolean = true
+dailyReportGraph :boolean = false
 
   ngOnInit(): void {
     this.DailyShow =true;
     this.MonthlyShow =true;
     this.WeeklyShow  = true;
-    this.dailyReportGraph = true;
+    this.dailyReportGraph = false;
   }
 
 
