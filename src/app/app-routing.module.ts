@@ -58,6 +58,10 @@ const routes: Routes = [
     path: '',
     component: LoginComponent
   },
+  {
+    path:'Mis-Module-Ac',
+    component : MenuPageComponent
+  },
   { path: 'home', pathMatch: 'full', redirectTo: 'login' },
   {
     path: '',
@@ -197,10 +201,6 @@ const routes: Routes = [
       {
         path:'Mis-Module',
       component : MisModuleComponent
-      },
-      {
-        path:'Mis-Module-Ac',
-      component : MenuPageComponent
       },
       {
         path:'mis-graph',
