@@ -14,7 +14,7 @@ html, body {
 
 /* Header Styles */
 .nav_header {
-    background-color: rgb(255, 0, 251);
+    background: linear-gradient(to right, #ff00fb, #ff0000);
     padding: 1px;
     text-align: center;
 }
@@ -57,4 +57,8 @@ h4 {
     background-color: #f8f9fa;
     height: calc(50% - 5px); /* Adjust to account for margin */
     margin-bottom: 10px;
+}
+
+.outer_div{
+    background: linear-gradient(to right, #ff00fb, #ff0000);
 }
