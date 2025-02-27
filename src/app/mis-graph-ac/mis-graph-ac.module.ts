@@ -5,10 +5,9 @@ import { MenuPageComponent } from './menu-page/menu-page.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [MenuPageComponent],
   imports: [
-    CommonModule,
-    MenuPageComponent
+    CommonModule
   ]
 })
 export class MisGraphACModule { }
