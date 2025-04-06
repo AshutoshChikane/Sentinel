@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MenuPageComponent } from './menu-page.component';
+import { SummarytablesComponent } from './summarytables.component';
 
-describe('MenuPageComponent', () => {
-  let component: MenuPageComponent;
-  let fixture: ComponentFixture<MenuPageComponent>;
+describe('SummarytablesComponent', () => {
+  let component: SummarytablesComponent;
+  let fixture: ComponentFixture<SummarytablesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuPageComponent ]
+      declarations: [ SummarytablesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MenuPageComponent);
+    fixture = TestBed.createComponent(SummarytablesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

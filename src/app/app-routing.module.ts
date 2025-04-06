@@ -32,7 +32,6 @@ import { UpdateDataComponent } from './update-data/update-data.component';
 import { MISComponent } from './mis/mis.component';
 import { MISDashboardComponent } from './misdashboard/misdashboard.component';
 import { MisModuleComponent } from './mis-module/mis-module.component';
-import { MenuPageComponent } from './mis-graph-ac/menu-page/menu-page.component'
 import { MisGraphComponent } from './mis-graph/mis-graph.component';
 import { MainValuationComponent } from './main-valuation/main-valuation.component';
 import { AllModuleGraphComponent } from './all-module-graph/all-module-graph.component';
@@ -44,6 +43,7 @@ import { ValuationDashboardComponent } from './valuation-dashboard/valuation-das
 import { MonthOnMonthComponent } from './month-on-month/month-on-month.component';
 import { MBoundarydashComponent } from './mboundarydash/mboundarydash.component';
 import { BoundarysComponent } from './boundarys/boundarys.component';
+import { SummarytablesComponent } from './summarytables/summarytables.component';
 
 const routes: Routes = [
   {
@@ -57,10 +57,6 @@ const routes: Routes = [
   {
     path: '',
     component: LoginComponent
-  },
-  {
-    path:'Mis-Module-Ac',
-    component : MenuPageComponent
   },
   { path: 'home', pathMatch: 'full', redirectTo: 'login' },
   {
@@ -245,6 +241,11 @@ const routes: Routes = [
       {
         path: 'boundarys',
         component:BoundarysComponent
+      },
+
+      {
+        path: 'summary',
+        component:SummarytablesComponent
       }
 
     ]

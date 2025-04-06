@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { User } from './models/User';
 
 @Injectable({
@@ -25,13 +25,19 @@ export class LoginService {
     localStorage.clear();
     sessionStorage.clear();
 
-    // var currentUser = '{"authenticated":true}';
+    //  var currentUser = '{"authenticated":true}';
     // var userDetailsObj = {
     //   "currentUser": currentUser,
     //   "validLogin": true
     // };
 
     // return userDetailsObj
+
+    const headers = new HttpHeaders({
+       'Accept': '*/*',
+       'User-Agent': 'Thunder Client (https://www.thunderclient.com)',
+       'Content-Type' : 'application/json'     
+    });
 
     var url = '/core/login';
 
@@ -60,10 +66,16 @@ export class LoginService {
       });
   }
 
-  logout() {
+  logout(user) {
+  
+    var url = '/core/logout';
+ 
+   // return   this.http.post(url).
     // sessionStorage.removeItem('currentUser');
-    sessionStorage.removeItem('login');
-    localStorage.clear();
+    // sessionStorage.removeItem('login');
+    // localStorage.clear();
+
+    return this.http.post(url, user)
   }
 
   errorHandler(error: HttpErrorResponse): boolean {

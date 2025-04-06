@@ -43,7 +43,8 @@ export class FetchAllDataComponent implements OnInit {
 
 
   processData() {
-    if (this.module === 'ANNUITY_SKIPPED_22_2W_2R' || this.module === 'Annuity_skip_extraction_for_the_month'||this.module === 'CASH_BONUS_DUE_SKIP') {
+    // if (this.module === 'ANNUITY_SKIPPED_22_2W_2R' || this.module === 'Annuity_skip_extraction_for_the_month'||this.module === 'CASH_BONUS_DUE_SKIP') {
+      if ( this.module === 'Annuity_skip_extraction_for_the_month'||this.module === 'CASH_BONUS_DUE_SKIP') {
       if (!this.Month) {
         this.messagePopup = 'Please Select Month';
         this.openConfirmationBox = true;

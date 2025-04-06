@@ -150,7 +150,7 @@ export class MainValuationComponent implements OnInit {
       || module === 'UNCLAIM'  || module ==='UNCLAIM_') {
       this.router.navigate(['fetch-all-data'], { state: params });
     }
-
+     
     else {
       this.router.navigate(['fetch-data'], { state: params });
     }

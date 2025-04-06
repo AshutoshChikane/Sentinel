@@ -192,6 +192,29 @@ export class DashboardPageComponent implements OnInit {
     'DUPLICATE_ENTRIES': 308,
     'RIDER_INCONSISTENCY': 309,
     'DOD_PRESENT_BUT_STATUS_NOT_DEATH': 310,
+
+
+    //daily reports
+    'ADMIN_CHARGES_Report':401,
+    'ADMIN_UNIT_REPORT':402,
+    'ADMIN_SKIPPED_CASES_REPORT':403,
+    'ALLOCATION_CHARGES_REPORT':404,
+    'ALLOCATION_UNIT_REPORT':405,
+    'DISCO_CHARGES_ULIP_REPORT':406,
+    'MORTALITY_CHARGES_REPORT':407,
+    'NOT_IN_DUE_LIST_REPORT':408,
+    'NOT_LAPSED_REPORT':409,
+    'MORTALITY_UNITIZATION_REPORT':410,
+    'SB_SKIP_REPORT':411,
+    'STATUS_NOT_CHANGE_REPORT':412
+
+
+
+
+
+
+
+
   };
 
   QCloder: boolean;
@@ -234,6 +257,7 @@ export class DashboardPageComponent implements OnInit {
       'subModuleId': this.subModuleId
     }
 
+    console.log("params:",params)
     // add the module if you not access start date and end date (derect process)
     if (module === 'LOYALTY_ADDITIONS_ULIP_PRODUCTS' || module === 'FUNDING_UNDER_PPWB_RIDER_CASES_ULIP' ||
       module === 'MATURITY_OVER_BUT_STATUS_NOT_CHANGED' || module === 'POLICIES_MATURED_BUT_NOT_IN_DUE_LIST' ||
@@ -261,7 +285,7 @@ export class DashboardPageComponent implements OnInit {
       || module === '_2W_CORRECTNESS_CHECKING_OF_COMPOUNDING_INTEREST_OPT_1.8_&_1.9' || module === 'DECREASING_SUM_ASSURED' || module === 'PPT_IS_GREATER_THAN_POLICY_TERM' || module === 'MINOR_TO_MAJOR_CORRECTNESS' || module === 'DEFERRED_ANNUITY_SKIP_DUE_CHECK'
       || module === 'GUARANTEED_ADDITION' || module === 'LOYALTY_SKIP' || module === 'FULL_PREMIUM_RECEIVED_BUT_STATUS_MOVED_TO_RPU_LAPSED_PP'
       || module === 'ANNUITY_SKIPPED_22_2W_2R' || module === 'Annuity_skip_extraction_for_the_month' || module === 'Correctness_of_SA_under_SAMF_Products_ulip'
-      || module === 'ANNUITY_CERTAIN'|| module ==='CASH_BONUS_DUE_SKIP'
+      || module === 'ANNUITY_CERTAIN'|| module ==='CASH_BONUS_DUE_SKIP'||module === 'PIPV_Fresh_Insurance' || module==='CSC_POS_SA_Check'
       // Miscellaneous
       // || module === 'FUND_VALUE_QUERY'  || module === 'ADMIN_DUPLICATE_CHARGES' || module === 'PROBABLE_LTR'|| module ==='PROBABLE_SB'
       // ||module === 'PROBABLE_MATURITY'

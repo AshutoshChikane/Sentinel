@@ -15,6 +15,7 @@ export class FetchDataProcessService {
   public fetchData (data){
     console.log('inside fetchData DQ')
     let url = '/core/fetchData';
+    // let url="../../assets/summaryrider.json"
     // let url="../../assets/dataQuality.json"
     console.log(url)
     let httpHeaders = new HttpHeaders( { 'Content-Type' : 'application/json' });    

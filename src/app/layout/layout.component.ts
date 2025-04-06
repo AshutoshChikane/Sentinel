@@ -6,10 +6,12 @@
 // distribution or for further clarifications, please contact
 // legal@nseit.com.
 import { formatDate } from '@angular/common';
-import {Component, OnInit} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import { interval } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { LoginService } from '../login/login.service';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -30,13 +32,15 @@ export class LayoutComponent implements OnInit {
   //   });
   // }
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private login :LoginService) {
   }
 
   ngOnInit() {
+    
     let user = JSON.parse(sessionStorage.getItem('currentUser'));
     console.log(user);
     let userName_ = sessionStorage.getItem('userName');
+    //console.log(JSON.stringify( userName_))
     // sessionStorage.setItem('userType', userType);
     let userType_ = sessionStorage.getItem('userType');
     
@@ -62,6 +66,27 @@ export class LayoutComponent implements OnInit {
   }
 
   gotoPage(pageName: string) {
-    this.router.navigate([pageName]);
+    var userid= localStorage.getItem  ('userid' )
+    this.login.logout( this.userName ).subscribe(data=>{
+      console.log(this.userName)
+      this.router.navigate([pageName]);
+    })
+    
+  }
+
+
+
+  //   @HostListener('window:beforeunload', ['$event'])
+  // beforeUnloadHandler(event: any) {
+  //   event.preventDefault();
+  //   if (confirm('Are you sure you want to reload?')) {
+  //     window.location.reload();
+  //   }
+  // }
+  
+  @HostListener('window:beforeunload', ['$event'])
+  unloadHandler(event: Event) {
+    // event.preventDefault();
+    navigator.sendBeacon('https://nonpayoutcheckval.sbilife.co.in/core/logout', this.userName); // Sends logout request
   }
 }

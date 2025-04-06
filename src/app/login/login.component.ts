@@ -96,34 +96,41 @@ export class LoginComponent implements OnInit {
       if (rel && rel.validLogin) {
         // let user = JSON.parse(sessionStorage.getItem('currentUser'))
         let user = JSON.parse(rel.currentUser);//07-05-21
-
+          localStorage.setItem('userid', rel.login )
         console.log('login: userDetails ::', user );
         console.log('user id name',user.login);
         console.log('user id name',user.name);
 
 
+
+        if(user.user_already_active >= "1"){
+          this.messagePopup = "User already active";
+          this.openConfirmationBox = true;
+          return
+        }
+
         
         if (user['authenticated']) {
-          if( user['login_attempts'] && user['login_attempts'] == 0 ) {
+          // if( user['login_attempts'] && user['login_attempts'] == 0 ) {
 
-            this.messagePopup = "Change the password first";//07-05-21
-            this.openConfirmationBox = true;
+          //   this.messagePopup = "Change the password first";//07-05-21
+          //   this.openConfirmationBox = true;
 
-            // var retVal = confirm("Change the password first");
-            // if( retVal == true ) {
-            //   //this.router.navigate(['change-password']);  
-            //   this.router.navigate(['change-password'], { state: { 
-            //       user_type: this.signInForm.controls['user_type'].value,
-            //       user_id: this.signInForm.controls['user_id'].value
-            //       } 
-            //     }
-            //   )        
-            // } 
-            // else{
-            //   return;
-            // }
-          }
-          else {
+          //   // var retVal = confirm("Change the password first");
+          //   // if( retVal == true ) {
+          //   //   //this.router.navigate(['change-password']);  
+          //   //   this.router.navigate(['change-password'], { state: { 
+          //   //       user_type: this.signInForm.controls['user_type'].value,
+          //   //       user_id: this.signInForm.controls['user_id'].value
+          //   //       } 
+          //   //     }
+          //   //   )        
+          //   // } 
+          //   // else{
+          //   //   return;
+          //   // }
+          // }
+          //else {
             sessionStorage.setItem('login', 'true');  
             if(this.signInForm.controls['user_type'].value === 'Group_user') {
               this.router.navigate(['groups-payout']);
@@ -132,7 +139,7 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['ChooseDashboardComponent']);
 
             }     
-          }
+         // }
         }
         else { 
           console.log('not valid login')  
@@ -159,12 +166,13 @@ export class LoginComponent implements OnInit {
   showMessage( response ) {
     this.openConfirmationBox = false;
     if ( response == 'OK' ) {
-      this.router.navigate(['change-password'], { state: { 
-          user_type: this.signInForm.controls['user_type'].value,
-          user_id: this.signInForm.controls['user_id'].value
-          } 
-        }
-      )
+      // this.router.navigate(['change-password'], { state: { 
+      //     user_type: this.signInForm.controls['user_type'].value,
+      //     user_id: this.signInForm.controls['user_id'].value
+      //     } 
+      //   }
+      // )
+      return;
     }
     if ( response == 'CANCEL' ){
       return;

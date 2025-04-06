@@ -15,7 +15,9 @@
                             <button mat-menu-item [matMenuTriggerFor]="Daily">Daily</button>
                             <button mat-menu-item [matMenuTriggerFor]="Weekly"> Weekly </button>
                             <button mat-menu-item [matMenuTriggerFor]="Monthly"> Monthly </button>
+                           
                             <button mat-menu-item [matMenuTriggerFor]="Miscellaneous"> Miscellaneous </button>
+                            <button mat-menu-item [matMenuTriggerFor]="Reports"> Daily Auto Scheduler reports </button>
 
                             <!-- <button mat-menu-item [matMenuTriggerFor]="Unclaim"> Unclaim </button> -->
                             <!-- <button mat-menu-item [matMenuTriggerFor]="Adhoc">Adhoc</button> -->
@@ -141,6 +143,66 @@
                                 Movement</button>
                         </ng-template>
                     </mat-menu>
+
+
+
+
+                    <mat-menu #Reports="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item (click)="menuenter('ADMIN_CHARGES_Report','Admin Charges',0)"
+                                title="Admin Charges">
+                                Admin Charges </button>
+       
+                            <button mat-menu-item
+                                (click)="menuenter('ADMIN_UNIT_REPORT','admin unit',0)"
+                                title=" admin unit">
+                                admin unit </button>
+                            <!-- <button mat-menu-item (click)="menuenter('ADMIN_CHARGES', 'Admin Charges',0)"
+                                title="Admin Charges"> admin skipped cases
+                            </button> -->
+                            <button mat-menu-item (click)="menuenter('ADMIN_SKIPPED_CASES_REPORT','Admin Skipped Cases',0)"
+                                title="  Admin Skipped Cases">
+                                Admin Skipped Cases </button>
+                            <button mat-menu-item
+                                (click)="menuenter('ALLOCATION_CHARGES_REPORT','Allocation Charges',0)"
+                                title=" Allocation Charges">
+                                Allocation Charges </button>
+                            <button mat-menu-item
+                                (click)="menuenter('ALLOCATION_UNIT_REPORT',' Allocation unit',0)"
+                                title=" Allocation unit">
+                                Allocation unit</button>
+                            <button mat-menu-item
+                                (click)="menuenter('DISCO_CHARGES_ULIP_REPORT','Disco Charges Ulip',0)"
+                                title="Disco Charges Ulip">
+                                Disco Charges Ulip </button>
+                            <button mat-menu-item
+                                (click)="menuenter('MORTALITY_CHARGES_REPORT','Mortality Charges',0)"
+                                title="Mortality Charges"> Mortality Charges </button>
+                            <button mat-menu-item
+                                (click)="menuenter('NOT_IN_DUE_LIST_REPORT','Not in Due List',0)"
+                                title=" Not in Due List">
+                                 Not in Due List </button>
+                            <!-- <button mat-menu-item [matMenuTriggerFor]="DEPOSIT_PRESENT_BUT_NOT_ALLOCATED"
+                                title="Deposit Present but not allocated">Deposit Present but not allocated</button> -->
+                            <button mat-menu-item
+                                (click)="menuenter('NOT_LAPSED_REPORT',' Not Lapsed ',0)"
+                                title=" Not Lapsed "> Not Lapsed 
+                            </button>
+                            <button mat-menu-item
+                                (click)="menuenter('MORTALITY_UNITIZATION_REPORT','Mortality Unitization',0)"
+                                title="Mortality Unitization"> Mortality Unitization
+                            </button>
+                            <button mat-menu-item (click)="menuenter('SB_SKIP_REPORT','SB Skip ',0)"
+                                title="SB Skip">SB Skip </button>
+
+                                <button mat-menu-item (click)="menuenter('STATUS_NOT_CHANGE_REPORT','Status Not Change ',0)"
+                                title="Status Not Change">Status Not Change </button>
+                            <!-- <button mat-menu-item [matMenuTriggerFor]="UNCLAIM_" title="Unclaim">Unclaimed
+                                Movement</button> -->
+                        </ng-template>
+                    </mat-menu>
+
+
                     <mat-menu #UNCLAIM_>
                         <ng-template matMenuContent>
                             <button mat-menu-item (click)="menuenter('UNCLAIM_',' Death',1)" title=" Death">
@@ -410,6 +472,17 @@
                                 (click)="menuenter('CASH_BONUS_DUE_SKIP','Cash Bonus Due Skip',0)"
                                 title="Cash Bonus Due Skip">
                                 Cash Bonus Due Skip </button>
+
+                                <button mat-menu-item
+                                (click)="menuenter('PIPV_Fresh_Insurance','PIPV Fresh Issuance',0)"
+                                title=" PIPV Fresh Issuance">
+                                PIPV Fresh Issuance </button>
+
+
+                                <button mat-menu-item
+                                (click)="menuenter('CSC_POS_SA_Check','CSC and POS SA Check',0)"
+                                title=" CSC and POS SA Check ">
+                                CSC and POS SA Check </button>
                         </ng-template>
                     </mat-menu>
                     <mat-menu #LOYALTY_ADDITION>

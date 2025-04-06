@@ -91,7 +91,7 @@ import { MonthOnMonthComponent } from './month-on-month/month-on-month.component
 import { MBoundarydashComponent } from './mboundarydash/mboundarydash.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BoundarysComponent } from './boundarys/boundarys.component';
-import { MisGraphACModule } from './mis-graph-ac/mis-graph-ac.module'
+import { SummarytablesComponent } from './summarytables/summarytables.component';
 
 
 
@@ -142,7 +142,8 @@ import { MisGraphACModule } from './mis-graph-ac/mis-graph-ac.module'
     ValuationDashboardComponent,
     MonthOnMonthComponent,
     MBoundarydashComponent,
-    BoundarysComponent
+    BoundarysComponent,
+    SummarytablesComponent
 
   ],
   imports: [
@@ -184,12 +185,11 @@ import { MisGraphACModule } from './mis-graph-ac/mis-graph-ac.module'
     MatTooltipModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
-    MisGraphACModule,
     MatSnackBarModule,
-    BackButtonDisableModule.forRoot({
-      preserveScrollPosition: true,
+    // BackButtonDisableModule.forRoot({
+    //   preserveScrollPosition: true,
   
-    })
+    // })
     
   ],
   providers: [

@@ -96,6 +96,17 @@
       ⬇️ Export To Excel
     </button>
   </div>
+
+  <div *ngIf="editrecord">
+    <button mat-raised-button 
+      matTooltip="Export policy data to Excel sheet" 
+      color="accent"
+      (click)="saveasexcel()" 
+      class="btn btn-success"
+      style="padding: 8px 20px; font-weight: 600;">
+      ⬇️ Export To Excels
+    </button>
+  </div>
 </div>
 
   <div class="container mt-5" *ngIf="showNew">
@@ -178,17 +189,17 @@
       </div>
 
       <!-- Minimum Cover Start Date -->
-      <div class="col-4 mt-2">
+      <!-- <div class="col-4 mt-2">
         <label for="minCoverStartDate" class="form-label">Minimum Cover Start Date</label>
         <mat-form-field appearance="fill">
-          <!-- <mat-label>Minimum Cover Start Date</mat-label> -->
+         
           <input matInput [matDatepicker]="minCoverStartDatePicker" id="minCoverStartDate"
             formControlName="minCoverStartDate" placeholder="Choose a date" />
           <mat-datepicker-toggle matSuffix [for]="minCoverStartDatePicker"></mat-datepicker-toggle>
           <mat-datepicker #minCoverStartDatePicker startView="multi-year"></mat-datepicker>
         </mat-form-field>
 
-      </div>
+      </div> -->
 
 
 
@@ -205,57 +216,57 @@
       </div>
 
       <!-- Backdating Interest -->
-      <div class="col-4 mt-2">
+      <!-- <div class="col-4 mt-2">
         <label for="backDatingInterest" class="form-label">Backdating Interest (%)</label>
         <input type="text" id="backDatingInterest" class="form-control" formControlName="backdatingInterest"
           step="0.01" />
-      </div>
+      </div> -->
 
       <!-- GST Rate for Backdated Interest -->
-      <div class="col-4 mt-2">
+      <!-- <div class="col-4 mt-2">
         <label for="gstBackdatedInterest" class="form-label">GST Rate - Backdated Interest (%)</label>
         <input type="text" id="gstBackdatedInterest" class="form-control" formControlName="gstRateBackdatedInterest"
           step="0.01" />
-      </div>
+      </div> -->
 
       <!-- GST Rate for Revival Interest -->
-      <div class="col-4 mt-2">
+      <!-- <div class="col-4 mt-2">
         <label for="gstRateRevivalInterest" class="form-label">GST Rate - Revival Interest (%)</label>
         <input type="text" id="gstRevivalInterest" class="form-control" formControlName="gstRateRevivalInterest"
           step="0.01" />
-      </div>
+      </div> -->
 
       <!-- Duplicate Policy Charge -->
-      <div class="col-4 mt-2">
+      <!-- <div class="col-4 mt-2">
         <label for="duplicatePolicyCharge" class="form-label">Duplicate Policy Charge</label>
         <input type="text" id="duplicatePolicyCharge" class="form-control" formControlName="duplicatePolicyCharge" />
-      </div>
+      </div> -->
 
-      <div class="col-4 mt-2">
+      <!-- <div class="col-4 mt-2">
         <label for="emr" class="form-label">EMR</label>
         <input type="text" id="emr" class="form-control" formControlName="emr" />
-      </div>
+      </div> -->
 
-      <div class="col-4 mt-2">
+      <!-- <div class="col-4 mt-2">
         <label for="nsap" class="form-label">NSAP</label>
         <input type="text" id="duplicatePolicyCharge" class="form-control" formControlName="nsap" />
-      </div>
+      </div> -->
 
 
 
 
 
-      <div class="col-4 mt-2">
+      <!-- <div class="col-4 mt-2">
         <label for="gaRateInforce" class="form-label">GA Rate - Inforce
         </label>
         <input type="text" id="gaRateInforce" class="form-control" formControlName="gaRateInforce" />
-      </div>
+      </div> -->
 
-      <div class="col-4 mt-2">
+      <!-- <div class="col-4 mt-2">
         <label for="gaRateLapse" class="form-label">GA Rate - Lapse
         </label>
         <input type="text" id="gaRateLapse" class="form-control" formControlName="gaRateLapse" />
-      </div>
+      </div> -->
 
       <!-- Admin Charges -->
       <div class="col-4 mt-2">
@@ -287,10 +298,10 @@
         <input type="text" id="maximumPremium" class="form-control" formControlName="maximumPremium" />
       </div>
 
-      <div class="col-4 mt-2">
+      <!-- <div class="col-4 mt-2">
         <label for="discontinuanceCharges" class="form-label">Discontinuance Charges</label>
         <input type="text" id="discontinuanceCharges" class="form-control" formControlName="discontinuanceCharges" />
-      </div>
+      </div> -->
 
       <div class="col-4 mt-2">
         <label for="fundSwitchesAllowed" class="form-label">Funds Switch Allowed</label>
@@ -310,10 +321,10 @@
       </div>
 
 
-      <div class="col-4 mt-2">
+      <!-- <div class="col-4 mt-2">
         <label for="staffDiscountApplicability" class="form-label">Staff Discount Appliciablity</label>
         <input type="text" class="form-control" formControlName="staffDiscountApplicability" />
-      </div>
+      </div> -->
 
 
       <div class="col-4 mt-2">
@@ -322,42 +333,42 @@
       </div>
 
 
-      <div class="col-4 mt-2">
+      <!-- <div class="col-4 mt-2">
         <label for="allocationCharges" class="form-label">Allocation Charges</label>
         <input type="text" class="form-control" formControlName="allocationCharges" />
-      </div>
+      </div> -->
 
-      <div class="col-4 mt-2">
+      <!-- <div class="col-4 mt-2">
         <label for="samf" class="form-label">SAMF</label>
         <input type="text" class="form-control" formControlName="samf" />
-      </div>
+      </div> -->
 
 
-      <div class="col-3 mt-2">
+      <!-- <div class="col-3 mt-2">
         <label for="gracePeriod" class="form-label">Grace Period </label>
         <input type="text" class="form-control" formControlName="gracePeriod" />
-      </div>
+      </div> -->
 
 
 
 
 
 
-      <div class="col-3 mt-2">
+      <div class="col-4 mt-2">
         <label for="revivalPeriod" class="form-label">Revival Period</label>
         <input type="text" class="form-control" formControlName="revivalPeriod" />
       </div>
 
 
-      <div class="col-3 mt-2">
+      <!-- <div class="col-3 mt-2">
         <label for="flcMortalityRate" class="form-label">FLC Mortality Rate</label>
         <input type="text" class="form-control" formControlName="flcMortalityRate" />
-      </div>
+      </div> -->
 
-      <div class="col-3 mt-2">
+      <!-- <div class="col-3 mt-2">
         <label for="stampDuty" class="form-label">Stamp Duty</label>
         <input type="text" class="form-control" formControlName="stampDuty" />
-      </div>
+      </div> -->
 
       <!-- Submit Button -->
       <!-- {{productPlanForm.valid}} -->

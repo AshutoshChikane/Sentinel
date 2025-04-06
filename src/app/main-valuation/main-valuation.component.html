@@ -626,6 +626,19 @@
                     </mat-menu> -->
                     <mat-menu #RIDER_INCONSISTENCY="matMenu">
                         <ng-template matMenuContent>
+
+                            <!-- added by prasad B -->
+
+                            <button mat-menu-item
+                            (click)="menuenter('RIDER_INCONSISTENCY','Rider_premium_summary', 9)"
+                            titel="Rider_premium_summary">Rider Premium Summary</button>
+
+                            <button mat-menu-item
+                            (click)="menuenter('RIDER_INCONSISTENCY','Rider_sum_assured_summary', 10)"
+                            titel="Rider_sum_assured_summary">Rider sum assured summary</button>
+
+
+
                             <button mat-menu-item
                                 (click)="menuenter('RIDER_INCONSISTENCY','Rider_SA_is_greater_then_Basic_SA', 1)"
                                 titel="Rider_SA_is_greater_then_Basic_SA">Rider SA is greater then Basic SA</button>

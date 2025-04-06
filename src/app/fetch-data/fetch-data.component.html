@@ -34,8 +34,8 @@
         </div>
     </div>
 
-    <div class="box-container" style="border: solid 1px #212529;width: 100%;">
-        <div style="display: flex; justify-content: center;">
+    <div  class="box-container" style="border: solid 1px #212529;width: 100%;">
+        <div *ngIf="!summarytable" style="display: flex; justify-content: center;">
             <div style="margin: 34px;font-weight: 500;">Enter date range :</div>
             <div style="margin: 10px;">
                 <mat-form-field appDateFormat>
@@ -57,6 +57,27 @@
                 <button mat-raised-button color="primary" (click)="submitDateRange()">
                     Process Input                                       
                 </button>
+            </div>
+        </div>
+
+
+        <div class="box-container" *ngIf="summarytable" style="border: solid 1px #212529;width: 100%;">
+            <div style="display: flex; justify-content: center;">
+                <!-- <div style="margin: 12px;font-weight: 500;">Enter date range :</div> -->
+                <div style="margin: 10px;">
+
+                    <mat-label><b>Current Month Table : &nbsp; </b></mat-label>
+                    <input type="text" [(ngModel)]="table1">
+                </div>
+                <div style="margin: 10px;">
+                    <mat-label><b>Last Month Table : &nbsp;</b></mat-label>
+                    <input type="text" [(ngModel)]="table2">
+                </div>
+                <div style="margin-top: 20px; margin-left: 20px;">
+                    <button mat-raised-button color="primary" (click)="submitTableDate()">
+                        Process Input
+                    </button>
+                </div>
             </div>
         </div>
         <div *ngIf="export" style="text-align: end;">
@@ -103,7 +124,7 @@
     </div>
 
     
-    <div *ngIf="displayMessage" style="padding: 30%; padding-top: 50px;padding-bottom: 0;position: absolute;">
+    <div *ngIf="displayMessage" style="padding: 30%; padding-top: 50px;padding-bottom: 0;position: absolute;z-index: 999999;">
         <div class="customAlert"
                 [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'"
                 style="
@@ -135,4 +156,41 @@
 <div class="my-overlay1" *ngIf="showOverlay" style="display: flex; flex-direction: column;">
     <i class="fa fa-spinner fa-spin" aria-hidden="true" style="color: white;"></i>
     <span style="color:white; font-size: 30px;">Please wait...</span>
+</div>
+
+<div *ngIf="showsumm" class="summtab">
+    <button mat-raised-button matTooltip="Export policy data to excel sheet" color="primary" (click)="exportsummaryAsXLSX()">
+        Export To Excel
+        </button>
+  
+      <div class="table-container mt-4" >
+        <table class="table table-bordered table-hover">
+          <thead class="thead-dark text-center">
+            <tr>
+                <th> Product Code</th>
+                <th>UIN</th>
+                <th>Policy No</th>
+                <th>CURRENT_MONTH_RIDER_TOTAL</th>
+                <th>LAST_MONTH_RIDER_TOTAL</th>
+                <th>DIFFERENCE</th>
+             
+             
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of summ">
+                <td>{{ data.PLAN_NAME }}</td>
+                <td>{{ data.UIN }}</td>
+                <td><b>{{ data.NO_OF_POLICY }}</b></td>
+                <td>{{ data.CURRENT_MONTH_RIDER_TOTAL }}</td>
+                
+                
+                <td>{{ data.LAST_MONTH_RIDER_TOTAL }}</td>
+                <td>{{ data.DIFFERENCE }}</td>
+            
+            </tr>
+          </tbody>
+        </table>
+      </div>  
 </div>

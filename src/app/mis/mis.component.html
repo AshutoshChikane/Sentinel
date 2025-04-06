@@ -8,11 +8,7 @@
         class="fa-solid fa-arrow-left"></i></button></div>
 
   <div class="container">
-
     <div class="row">
-      <!-- <div class="card5" *ngIf="dailyReportGraph" (click)="dailyReportGraphSwitch()">
-        <p>Ashutosh MIS</p>
-      </div> -->
       <div class="card1" *ngIf="DailyShow" (click)="mis_Daily()">
         <p>Daily</p>
       </div>
@@ -23,13 +19,13 @@
           <div class="card4" (click)="Extract('Dashboard')" style="margin-top: 100px;">Dashboard</div>
         </div>
       </div>
+
       <div class="card2 " *ngIf="WeeklyShow" (click)="mis_Weekly()">
         <p>Weekly</p>
       </div>
       <div class="card3" *ngIf="MonthlyShow" (click)="mis_Monthly()">
         <p> Monthly</p>
       </div>
-      
 
     </div>
 

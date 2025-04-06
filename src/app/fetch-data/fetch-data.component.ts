@@ -26,9 +26,14 @@ export class FetchDataComponent implements OnInit {
     this.actualModule = this.routerState['actualModule'];
     this.moduleId = this.routerState['moduleId'];
     this.subModuleId = this.routerState['subModuleId'];
+
+    if(this.subModuleId==9 ||this.subModuleId==10 ){
+      this.summarytable=true;
+ }
   }
 
   ngOnInit(): void {
+    this.fetchData();
   }
   today = new Date();
   // formatDate(new Date(), "dd/MM/yyyy", "en");
@@ -64,6 +69,24 @@ export class FetchDataComponent implements OnInit {
     }
   }
 
+
+  table1;
+  table2;
+  submitTableDate(){
+    if (!this.table1 || !this.table2) {
+      this.messagePopup = 'Please Enter Feilds';
+      this.openConfirmationBox = true;
+
+      return;
+    } else {
+      this.showOverlay = true;
+      this.fetchData2();
+    }
+  }
+  
+
+  
+
   showAlert(response) {
     this.openConfirmationBox = false;
     this.displayMessage = false;
@@ -80,8 +103,8 @@ export class FetchDataComponent implements OnInit {
   export: boolean = false;
   count;
   displayCount: boolean = false;
-
-
+  summarytable:boolean=false;
+ summ:any
 
   fetchData(){
     // this.moduleClicked = false;
@@ -96,6 +119,7 @@ export class FetchDataComponent implements OnInit {
     console.log('obj >>', obj);
     this.fetchDataService.fetchData(obj).subscribe(
       (response) =>{
+     
         this.messageType = 'Information Message :  ';
         this.message = 'response_code : ' + response.response_code;
         this.messageDetails = response.response_message;
@@ -138,6 +162,61 @@ export class FetchDataComponent implements OnInit {
 
   }
 
+  showsumm=false;
+  fetchData2(){
+    // this.moduleClicked = false;
+    let obj={
+      module_id: this.moduleId,
+      submodule_id: this.subModuleId,
+      current_month: this.table1,
+      Last_Month: this.table2,
+      requested_by: 'Admin',
+      request_action: 1      
+    }
+    console.log('obj >>', obj);
+    this.fetchDataService.fetchData(obj).subscribe(
+      (response) =>{
+        this.showsumm = true
+       this.summ=response.response_text
+        this.messageType = 'Information Message :  ';
+        this.message = 'response_code : ' + response.response_code;
+        this.messageDetails = response.response_message;
+        this.displayMessage = true;
+
+        var res = response;
+        console.log(res);
+        this.showOverlay = false;
+       
+        this.isError = false;
+        // if(res.response_text.length > 0){
+        //   this.responseData = res.response_text;
+        //   this.noData = false;
+        //   this.export = true;
+         
+        // }else{
+          
+        //   this.noData = true;
+        // }
+        // if(res.count) {
+        //   this.displayCount = true;
+        //   this.count = res.count[0];
+        // }
+        // else{
+        //   this.noData = true;
+        // }
+      },
+      (error) => {
+        this.showOverlay = false;
+        this.messageType = 'Error Message :  ';
+        this.message= 'Error occured while submitting policy :'
+        this.messageDetails = error.status + '  '+ error.statusText; 
+        this.isError = true;
+        this.displayMessage = true;
+
+      }
+    );
+
+  }
 
   showMessage() {
     this.displayMessage = false;
@@ -145,6 +224,12 @@ export class FetchDataComponent implements OnInit {
 
   exportAsXLSX() {
     this.es.exportAsExcelFile(this.responseData, 'DataQuality');
+    
+  }
+
+
+  exportsummaryAsXLSX(){
+    this.es.exportAsExcelFile(this.summ, 'DataQuality');
     
   }
 }

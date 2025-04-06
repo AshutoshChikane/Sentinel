@@ -60,3 +60,54 @@
         rgba(0, 0, 0, 0.17) 0px 12px 13px, 
         rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
+// .summtab{
+  
+// table {
+//   width: 100%;
+//   border-collapse: collapse;
+//   height:600px;
+//   overflow: scroll;
+// }
+
+// th, td {
+//   padding: 10px;
+//   text-align: left;
+// }
+
+// th {
+//   background-color: #6e7848;
+//   cursor: pointer;
+// }
+
+// }
+
+
+.summtab{
+  
+/* Table wrapper: Fixed height + Scroll */
+.table-container {
+  max-height: 600px; /* Adjust as needed */
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  position: relative;
+}
+
+/* Sticky header */
+.thead-dark th {
+  position: sticky;
+  top: 0;
+  background: #343a40 !important; /* Ensures background stays fixed */
+  color: white;
+  padding: 10px;
+  z-index: 100;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Prevent overlapping issues */
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+}
